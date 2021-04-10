@@ -36,5 +36,8 @@ public class MyConnection {
         return instance ;
     }
 
+    public Connection getConnection(){
+        return cnx;
+    }
 
 }

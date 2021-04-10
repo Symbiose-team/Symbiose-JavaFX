@@ -1,4 +1,4 @@
-package sample;
+package symbiose;
 
 public class Controller {
 }
