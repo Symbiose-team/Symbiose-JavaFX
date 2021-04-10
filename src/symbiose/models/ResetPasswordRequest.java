@@ -1,31 +1,74 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "reset_password_request")
 public class ResetPasswordRequest {
-    private int user_id;
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "selector")
     private String selector;
-    private String hashed_token;
 
-    public int getUser_id(){
-        return user_id;
+    @Column(name = "hashed_token")
+    private String hashedToken;
+
+    @Column(name = "requested_at")
+    private java.sql.Timestamp requestedAt;
+
+    @Column(name = "expires_at")
+    private java.sql.Timestamp expiresAt;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setUser_id(int user_id){
-        this.user_id=user_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getSelector(){
-        return selector;
+    public Integer getUserId() {
+        return this.userId;
     }
 
-    public void setSelector(String selector){
-        this.selector=selector;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getHashed_token(){
-        return hashed_token;
+    public String getSelector() {
+        return this.selector;
     }
 
-    public void setHashed_token(String hashed_token){
-        this.hashed_token=hashed_token;
+    public void setSelector(String selector) {
+        this.selector = selector;
+    }
+
+    public String getHashedToken() {
+        return this.hashedToken;
+    }
+
+    public void setHashedToken(String hashedToken) {
+        this.hashedToken = hashedToken;
+    }
+
+    public java.sql.Timestamp getRequestedAt() {
+        return this.requestedAt;
+    }
+
+    public void setRequestedAt(java.sql.Timestamp requestedAt) {
+        this.requestedAt = requestedAt;
+    }
+
+    public java.sql.Timestamp getExpiresAt() {
+        return this.expiresAt;
+    }
+
+    public void setExpiresAt(java.sql.Timestamp expiresAt) {
+        this.expiresAt = expiresAt;
     }
 }

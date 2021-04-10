@@ -1,40 +1,74 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "notification")
 public class Notification {
-    private int user_id;
-    private int game_id;
-    private int joined_by_id;
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "game_id")
+    private Integer gameId;
+
+    @Column(name = "joined_by_id")
+    private Integer joinedById;
+
+    @Column(name = "seen")
+    private Byte seen;
+
+    @Column(name = "discr")
     private String discr;
 
-    public int getUser_id(){
-        return user_id;
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setUser_id(int user_id){
-        this.user_id=user_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getGame_id(){
-        return game_id;
+    public Integer getUserId() {
+        return this.userId;
     }
 
-    public void setGame_id(int game_id){
-        this.game_id=game_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public int getJoined_by_id(){
-        return joined_by_id;
+    public Integer getGameId() {
+        return this.gameId;
     }
 
-    public void setJoined_by_id(int joined_by_id){
-        this.joined_by_id=joined_by_id;
+    public void setGameId(Integer gameId) {
+        this.gameId = gameId;
     }
 
-    public String getDiscr(){
-        return discr;
+    public Integer getJoinedById() {
+        return this.joinedById;
     }
 
-    public void setDiscr(String discr){
-        this.discr=discr;
+    public void setJoinedById(Integer joinedById) {
+        this.joinedById = joinedById;
+    }
+
+    public Byte getSeen() {
+        return this.seen;
+    }
+
+    public void setSeen(Byte seen) {
+        this.seen = seen;
+    }
+
+    public String getDiscr() {
+        return this.discr;
+    }
+
+    public void setDiscr(String discr) {
+        this.discr = discr;
     }
 }

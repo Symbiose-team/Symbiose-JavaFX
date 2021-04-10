@@ -1,40 +1,74 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "lobby")
 public class Lobby {
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "owner")
     private String owner;
-    private int nbplayers;
-    private int maxplayers;
 
-    public String getName(){
-        return name;
+    @Column(name = "nbplayers")
+    private Integer nbplayers;
+
+    @Column(name = "maxplayers")
+    private Integer maxplayers;
+
+    @Column(name = "status")
+    private Byte status;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setName(String name){
-        this.name=name;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getOwner(){
-        return owner;
+    public String getName() {
+        return this.name;
     }
 
-    public void setOwner(String owner){
-        this.owner=owner;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getNbplayers(){
-        return nbplayers;
+    public String getOwner() {
+        return this.owner;
     }
 
-    public void setNbplayers(int nbplayers){
-        this.nbplayers=nbplayers;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public int getMaxplayers(){
-        return maxplayers;
+    public Integer getNbplayers() {
+        return this.nbplayers;
     }
 
-    public void setMaxplayers(int maxplayers){
-        this.maxplayers=maxplayers;
+    public void setNbplayers(Integer nbplayers) {
+        this.nbplayers = nbplayers;
+    }
+
+    public Integer getMaxplayers() {
+        return this.maxplayers;
+    }
+
+    public void setMaxplayers(Integer maxplayers) {
+        this.maxplayers = maxplayers;
+    }
+
+    public Byte getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 }

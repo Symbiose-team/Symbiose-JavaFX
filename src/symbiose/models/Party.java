@@ -1,13 +1,30 @@
 package symbiose.models;
 
-public class Party {
-    private int maxnumber;
+import javax.persistence.*;
 
-    public int getMaxnumber(){
-        return maxnumber;
+@Entity
+@Table(name = "party")
+public class Party {
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "maxnumber")
+    private Integer maxnumber;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setMaxnumber(int maxnumber){
-        this.maxnumber=maxnumber;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getMaxnumber() {
+        return this.maxnumber;
+    }
+
+    public void setMaxnumber(Integer maxnumber) {
+        this.maxnumber = maxnumber;
     }
 }

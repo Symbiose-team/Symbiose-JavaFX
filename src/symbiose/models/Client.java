@@ -1,22 +1,41 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "client")
 public class Client {
-    private int party_id;
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "party_id")
+    private Integer partyId;
+
+    @Column(name = "username")
     private String username;
 
-    public int getParty_id(){
-        return party_id;
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setParty_id(int party_id){
-        this.party_id=party_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getUsername(){
-        return username;
+    public Integer getPartyId() {
+        return this.partyId;
     }
 
-    public void setUsername(String username){
-        this.username=username;
+    public void setPartyId(Integer partyId) {
+        this.partyId = partyId;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -1,22 +1,41 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "publication")
 public class Publication {
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "contenu")
     private String contenu;
-    private double vote;
 
-    public String getContenu(){
-        return contenu;
+    @Column(name = "vote")
+    private Double vote;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setContenu(String contenu){
-        this.contenu=contenu;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public double getVote(){
-        return vote;
+    public String getContenu() {
+        return this.contenu;
     }
 
-    public void setVote(double vote){
-        this.vote=vote;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
+    }
+
+    public Double getVote() {
+        return this.vote;
+    }
+
+    public void setVote(Double vote) {
+        this.vote = vote;
     }
 }
