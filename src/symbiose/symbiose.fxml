@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.Controller">
+         <children>
+            <TextField fx:id="tfName" layoutX="100.0" layoutY="107.0" />
+            <TextField fx:id="tfType" layoutX="100.0" layoutY="179.0" />
+            <Button layoutX="147.0" layoutY="317.0" mnemonicParsing="false" onAction="#AjouterEvent" text="Ajouter" />
+            <Label layoutX="159.0" layoutY="90.0" text="Name" />
+            <Label layoutX="162.0" layoutY="162.0" text="Type" />
+            <Button layoutX="495.0" layoutY="317.0" mnemonicParsing="false" onAction="#AfficherEvent" text="Afficher" />
+            <Label fx:id="LAffiche" layoutX="388.0" layoutY="109.0" prefHeight="165.0" prefWidth="272.0" />
+         </children>
+</AnchorPane>

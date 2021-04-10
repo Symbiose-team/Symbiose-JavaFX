@@ -1,24 +1,24 @@
-package symbiose.models;
+package models;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "role_user")
-public class RoleUser {
+@Table(name = "game_joines")
+public class GameJoines {
     @Id
-    @Column(name = "role_id")
-    private Integer roleId;
+    @Column(name = "game_id")
+    private Integer gameId;
 
     @Id
     @Column(name = "user_id")
     private Integer userId;
 
-    public Integer getRoleId() {
-        return this.roleId;
+    public Integer getGameId() {
+        return this.gameId;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setGameId(Integer gameId) {
+        this.gameId = gameId;
     }
 
     public Integer getUserId() {

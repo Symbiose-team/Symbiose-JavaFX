@@ -1,4 +1,4 @@
-package symbiose.models;
+package models;
 
 import javax.persistence.*;
 
