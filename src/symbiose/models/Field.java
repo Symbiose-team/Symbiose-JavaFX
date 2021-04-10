@@ -1,85 +1,129 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "field")
 public class Field {
-    private int serial_number;
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "serial_number")
+    private Integer serialNumber;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "space")
     private String space;
+
+    @Column(name = "provider")
     private String provider;
-    private double price;
-    private java.util.Date date_start;
-    private java.util.Date date_end;
-    private int booker_id;
 
-    public int getSerial_number(){
-        return serial_number;
+    @Column(name = "price")
+    private Double price;
+
+    @Column(name = "status")
+    private Byte status;
+
+    @Column(name = "date_start")
+    private java.sql.Date dateStart;
+
+    @Column(name = "date_end")
+    private java.sql.Date dateEnd;
+
+    @Column(name = "booker_id")
+    private Integer bookerId;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setSerial_number(int serial_number){
-        this.serial_number=serial_number;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getName(){
-        return name;
+    public Integer getSerialNumber() {
+        return this.serialNumber;
     }
 
-    public void setName(String name){
-        this.name=name;
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
     }
 
-    public String getAddress(){
-        return address;
+    public String getName() {
+        return this.name;
     }
 
-    public void setAddress(String address){
-        this.address=address;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSpace(){
-        return space;
+    public String getAddress() {
+        return this.address;
     }
 
-    public void setSpace(String space){
-        this.space=space;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getProvider(){
-        return provider;
+    public String getSpace() {
+        return this.space;
     }
 
-    public void setProvider(String provider){
-        this.provider=provider;
+    public void setSpace(String space) {
+        this.space = space;
     }
 
-    public double getPrice(){
-        return price;
+    public String getProvider() {
+        return this.provider;
     }
 
-    public void setPrice(double price){
-        this.price=price;
+    public void setProvider(String provider) {
+        this.provider = provider;
     }
 
-    public java.util.Date getDate_start(){
-        return date_start;
+    public Double getPrice() {
+        return this.price;
     }
 
-    public void setDate_start(java.util.Date date_start){
-        this.date_start=date_start;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public java.util.Date getDate_end(){
-        return date_end;
+    public Byte getStatus() {
+        return this.status;
     }
 
-    public void setDate_end(java.util.Date date_end){
-        this.date_end=date_end;
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
-    public int getBooker_id(){
-        return booker_id;
+    public java.sql.Date getDateStart() {
+        return this.dateStart;
     }
 
-    public void setBooker_id(int booker_id){
-        this.booker_id=booker_id;
+    public void setDateStart(java.sql.Date dateStart) {
+        this.dateStart = dateStart;
+    }
+
+    public java.sql.Date getDateEnd() {
+        return this.dateEnd;
+    }
+
+    public void setDateEnd(java.sql.Date dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+
+    public Integer getBookerId() {
+        return this.bookerId;
+    }
+
+    public void setBookerId(Integer bookerId) {
+        this.bookerId = bookerId;
     }
 }

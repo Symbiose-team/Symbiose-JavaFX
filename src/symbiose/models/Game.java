@@ -1,22 +1,52 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "game")
 public class Game {
-    private int user_id;
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "name")
     private String name;
 
-    public int getUser_id(){
-        return user_id;
+    @Column(name = "time")
+    private java.sql.Timestamp time;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setUser_id(int user_id){
-        this.user_id=user_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getName(){
-        return name;
+    public Integer getUserId() {
+        return this.userId;
     }
 
-    public void setName(String name){
-        this.name=name;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public java.sql.Timestamp getTime() {
+        return this.time;
+    }
+
+    public void setTime(java.sql.Timestamp time) {
+        this.time = time;
     }
 }

@@ -1,22 +1,41 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "availability")
 public class Availability {
-    private java.util.Date date_start;
-    private java.util.Date date_end;
+    @Id
+    @Column(name = "id")
+    private Integer id;
 
-    public java.util.Date getDate_start(){
-        return date_start;
+    @Column(name = "date_start")
+    private java.sql.Date dateStart;
+
+    @Column(name = "date_end")
+    private java.sql.Date dateEnd;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setDate_start(java.util.Date date_start){
-        this.date_start=date_start;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public java.util.Date getDate_end(){
-        return date_end;
+    public java.sql.Date getDateStart() {
+        return this.dateStart;
     }
 
-    public void setDate_end(java.util.Date date_end){
-        this.date_end=date_end;
+    public void setDateStart(java.sql.Date dateStart) {
+        this.dateStart = dateStart;
+    }
+
+    public java.sql.Date getDateEnd() {
+        return this.dateEnd;
+    }
+
+    public void setDateEnd(java.sql.Date dateEnd) {
+        this.dateEnd = dateEnd;
     }
 }

@@ -1,40 +1,74 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "commentaire")
 public class Commentaire {
-    private int user_id;
-    private int publication_id;
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "publication_id")
+    private Integer publicationId;
+
+    @Column(name = "contenu")
     private String contenu;
-    private int productcomment_id;
 
-    public int getUser_id(){
-        return user_id;
+    @Column(name = "date")
+    private java.sql.Timestamp date;
+
+    @Column(name = "productcomment_id")
+    private Integer productcommentId;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setUser_id(int user_id){
-        this.user_id=user_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getPublication_id(){
-        return publication_id;
+    public Integer getUserId() {
+        return this.userId;
     }
 
-    public void setPublication_id(int publication_id){
-        this.publication_id=publication_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getContenu(){
-        return contenu;
+    public Integer getPublicationId() {
+        return this.publicationId;
     }
 
-    public void setContenu(String contenu){
-        this.contenu=contenu;
+    public void setPublicationId(Integer publicationId) {
+        this.publicationId = publicationId;
     }
 
-    public int getProductcomment_id(){
-        return productcomment_id;
+    public String getContenu() {
+        return this.contenu;
     }
 
-    public void setProductcomment_id(int productcomment_id){
-        this.productcomment_id=productcomment_id;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
+    }
+
+    public java.sql.Timestamp getDate() {
+        return this.date;
+    }
+
+    public void setDate(java.sql.Timestamp date) {
+        this.date = date;
+    }
+
+    public Integer getProductcommentId() {
+        return this.productcommentId;
+    }
+
+    public void setProductcommentId(Integer productcommentId) {
+        this.productcommentId = productcommentId;
     }
 }

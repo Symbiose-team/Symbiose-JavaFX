@@ -1,49 +1,96 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "event")
 public class Event {
-    private int num_participants;
-    private int num_remaining;
-    private String image_name;
-    private int image_size;
-    private int supplier_id;
+    @Id
+    @Column(name = "id")
+    private Integer id;
 
-    public int getNum_participants(){
-        return num_participants;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "num_participants")
+    private Integer numParticipants;
+
+    @Column(name = "num_remaining")
+    private Integer numRemaining;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "date")
+    private java.sql.Timestamp date;
+
+    @Column(name = "state")
+    private Byte state;
+
+    @Column(name = "supplier_id")
+    private Integer supplierId;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setNum_participants(int num_participants){
-        this.num_participants=num_participants;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getNum_remaining(){
-        return num_remaining;
+    public String getName() {
+        return this.name;
     }
 
-    public void setNum_remaining(int num_remaining){
-        this.num_remaining=num_remaining;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getImage_name(){
-        return image_name;
+    public Integer getNumParticipants() {
+        return this.numParticipants;
     }
 
-    public void setImage_name(String image_name){
-        this.image_name=image_name;
+    public void setNumParticipants(Integer numParticipants) {
+        this.numParticipants = numParticipants;
     }
 
-    public int getImage_size(){
-        return image_size;
+    public Integer getNumRemaining() {
+        return this.numRemaining;
     }
 
-    public void setImage_size(int image_size){
-        this.image_size=image_size;
+    public void setNumRemaining(Integer numRemaining) {
+        this.numRemaining = numRemaining;
     }
 
-    public int getSupplier_id(){
-        return supplier_id;
+    public String getType() {
+        return this.type;
     }
 
-    public void setSupplier_id(int supplier_id){
-        this.supplier_id=supplier_id;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public java.sql.Timestamp getDate() {
+        return this.date;
+    }
+
+    public void setDate(java.sql.Timestamp date) {
+        this.date = date;
+    }
+
+    public Byte getState() {
+        return this.state;
+    }
+
+    public void setState(Byte state) {
+        this.state = state;
+    }
+
+    public Integer getSupplierId() {
+        return this.supplierId;
+    }
+
+    public void setSupplierId(Integer supplierId) {
+        this.supplierId = supplierId;
     }
 }

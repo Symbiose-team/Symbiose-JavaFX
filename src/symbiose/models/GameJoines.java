@@ -1,13 +1,31 @@
 package symbiose.models;
 
-public class GameJoines {
-    private int user_id;
+import javax.persistence.*;
 
-    public int getUser_id(){
-        return user_id;
+@Entity
+@Table(name = "game_joines")
+public class GameJoines {
+    @Id
+    @Column(name = "game_id")
+    private Integer gameId;
+
+    @Id
+    @Column(name = "user_id")
+    private Integer userId;
+
+    public Integer getGameId() {
+        return this.gameId;
     }
 
-    public void setUser_id(int user_id){
-        this.user_id=user_id;
+    public void setGameId(Integer gameId) {
+        this.gameId = gameId;
+    }
+
+    public Integer getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

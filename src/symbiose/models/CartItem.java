@@ -1,22 +1,41 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "cart_item")
 public class CartItem {
-    private int product_id;
-    private int quantity;
+    @Id
+    @Column(name = "id")
+    private Integer id;
 
-    public int getProduct_id(){
-        return product_id;
+    @Column(name = "product_id")
+    private Integer productId;
+
+    @Column(name = "quantity")
+    private Integer quantity;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setProduct_id(int product_id){
-        this.product_id=product_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getQuantity(){
-        return quantity;
+    public Integer getProductId() {
+        return this.productId;
     }
 
-    public void setQuantity(int quantity){
-        this.quantity=quantity;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public Integer getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }

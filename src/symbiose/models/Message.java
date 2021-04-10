@@ -1,31 +1,63 @@
 package symbiose.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "message")
 public class Message {
-    private int conversation_id;
-    private int user_id;
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "conversation_id")
+    private Integer conversationId;
+
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "contenu")
     private String contenu;
 
-    public int getConversation_id(){
-        return conversation_id;
+    @Column(name = "date")
+    private java.sql.Timestamp date;
+
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setConversation_id(int conversation_id){
-        this.conversation_id=conversation_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getUser_id(){
-        return user_id;
+    public Integer getConversationId() {
+        return this.conversationId;
     }
 
-    public void setUser_id(int user_id){
-        this.user_id=user_id;
+    public void setConversationId(Integer conversationId) {
+        this.conversationId = conversationId;
     }
 
-    public String getContenu(){
-        return contenu;
+    public Integer getUserId() {
+        return this.userId;
     }
 
-    public void setContenu(String contenu){
-        this.contenu=contenu;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getContenu() {
+        return this.contenu;
+    }
+
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
+    }
+
+    public java.sql.Timestamp getDate() {
+        return this.date;
+    }
+
+    public void setDate(java.sql.Timestamp date) {
+        this.date = date;
     }
 }
