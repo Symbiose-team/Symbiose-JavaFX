@@ -3,15 +3,42 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.Controller">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.Controller">
+   <children>
+      <VBox layoutX="27.0" layoutY="70.0" prefHeight="198.0" prefWidth="105.0" spacing="15.0">
          <children>
-            <TextField fx:id="tfName" layoutX="100.0" layoutY="107.0" />
-            <TextField fx:id="tfType" layoutX="100.0" layoutY="179.0" />
-            <Button layoutX="147.0" layoutY="317.0" mnemonicParsing="false" onAction="#AjouterEvent" text="Ajouter" />
-            <Label layoutX="159.0" layoutY="90.0" text="Name" />
-            <Label layoutX="162.0" layoutY="162.0" text="Type" />
-            <Button layoutX="495.0" layoutY="317.0" mnemonicParsing="false" onAction="#AfficherEvent" text="Afficher" />
-            <Label fx:id="LAffiche" layoutX="388.0" layoutY="109.0" prefHeight="165.0" prefWidth="272.0" />
+            <Label text="Name" />
+            <Label text="num-participants" />
+            <Label text="num-remaining" />
+            <Label text="Type" />
+            <Label text="Date" />
          </children>
+      </VBox>
+      <VBox layoutX="132.0" layoutY="70.0" prefHeight="204.0" prefWidth="105.0" spacing="7.0">
+         <children>
+            <TextField fx:id="tfName" />
+            <TextField fx:id="tfParticipants" />
+            <TextField fx:id="tfRemaining" />
+            <TextField fx:id="tfType" />
+            <DatePicker fx:id="Date" />
+         </children>
+      </VBox>
+      <TableView fx:id="tvEvents" layoutX="287.0" layoutY="70.0" prefHeight="361.0" prefWidth="382.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="colParticipants" prefWidth="75.0" text="Participants" />
+            <TableColumn fx:id="colRemaining" prefWidth="75.0" text="Remaining" />
+            <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="colDate" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="colState" prefWidth="75.0" text="State" />
+        </columns>
+      </TableView>
+      <HBox layoutX="32.0" layoutY="279.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#AjouterEvent" text="Insert" />
+            <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" />
+            <Button fx:id="btnDelete" mnemonicParsing="false" text="Delete" />
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>

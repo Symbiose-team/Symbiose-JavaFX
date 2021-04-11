@@ -7,25 +7,22 @@ import java.sql.SQLException;
 
 public class MyConnection {
 
-    public String url="jdbc:mysql://localhost:3306/Symbiose";
+    public String url="jdbc:mysql://localhost:3306/symbiose";
     public String login="root";
     public String pwd="";
+    static MyConnection instance=null;
     Connection cnx;
-    public static MyConnection instance;
 
     private MyConnection() {
         try {
             cnx = DriverManager.getConnection(url, login, pwd);
             System.out.println("Connexion établie!");
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("pas de connexion");
         }
 
     }
 
-    public Connection getCnx(){
-        return cnx;
-    }
     public static MyConnection getInstance(){
 
         if(instance== null){

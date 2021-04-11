@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "event")
@@ -29,6 +30,15 @@ public class Event {
 
     @Column(name = "supplier_id")
     private Integer supplierId;
+
+    public Event(String name, Integer numParticipants, Integer numRemaining, String type, Timestamp date, Byte state) {
+        this.name = name;
+        this.numParticipants = numParticipants;
+        this.numRemaining = numRemaining;
+        this.type = type;
+        this.date = date;
+        this.state = state;
+    }
 
     public Integer getId() {
         return this.id;

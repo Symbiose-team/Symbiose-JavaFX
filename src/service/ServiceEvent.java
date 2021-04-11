@@ -1,5 +1,7 @@
 package service;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import models.Event;
 import services.IServiceEvent;
 import utils.MyConnection;
@@ -36,23 +38,21 @@ public class ServiceEvent implements IServiceEvent {
     }
 
     @Override
-    public List<Event> AfficherEvent() throws SQLException {
+    public ObservableList<Event> AfficherEvent() throws SQLException {
+
+            ObservableList<Event> eventList= FXCollections.observableArrayList();
             Statement stm = cnx.createStatement();
 
-            String query="select * from 'event'";
+            String query="select * from event";
 
             ResultSet rst = stm.executeQuery(query);
 
-            List<Event>events = new ArrayList<>();
-
+            Event events;
             while (rst.next()){
-                Event E = new Event();
-                E.setId(rst.getInt("id"));
-                E.setName(rst.getString("nom"));
-                E.setType(rst.getString("type"));
-                events.add(E);
+                    events= new Event(rst.getString("name"),rst.getInt("num_participants"),
+                            rst.getInt("num_remaining"),rst.getString("type"),rst.getTimestamp("date"),rst.getByte("state"));
+                    eventList.add(events);
             }
-
-        return events;
+            return eventList;
     }
 }
