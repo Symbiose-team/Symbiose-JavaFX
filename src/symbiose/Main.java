@@ -12,10 +12,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../gui/EventsMain.fxml"));
         primaryStage.setTitle("Symbiose");
-        primaryStage.setScene(new Scene(root, 700, 500));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

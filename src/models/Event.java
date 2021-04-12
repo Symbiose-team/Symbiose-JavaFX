@@ -31,7 +31,8 @@ public class Event {
     @Column(name = "supplier_id")
     private Integer supplierId;
 
-    public Event(String name, Integer numParticipants, Integer numRemaining, String type, Timestamp date, Byte state) {
+    public Event(Integer id,String name, Integer numParticipants, Integer numRemaining, String type, Timestamp date, Byte state) {
+        this.id = id;
         this.name = name;
         this.numParticipants = numParticipants;
         this.numRemaining = numRemaining;

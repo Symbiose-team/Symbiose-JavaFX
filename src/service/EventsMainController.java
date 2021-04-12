@@ -12,25 +12,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import models.Event;
-import service.ServiceEvent;
 import utils.MyConnection;
 
-import java.awt.*;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.time.chrono.Chronology;
 import java.util.Date;
-import java.util.Observable;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class EventsMainController implements Initializable {
+
     public TextField tfName;
-    public Label LAffiche;
     public TextField tfParticipants;
     public TextField tfRemaining;
     public TextField tfType;
@@ -45,6 +40,8 @@ public class EventsMainController implements Initializable {
     public Button btnUpdate;
     public Button btnDelete;
     public TableColumn colState;
+    public TableColumn colID;
+    public TextField tfID;
     Connection cnx;
 
     @Override
@@ -57,11 +54,20 @@ public class EventsMainController implements Initializable {
     }
 
     public void AfficherEvent() throws SQLException {
-        ServiceEvent se = new ServiceEvent();
-        ObservableList<Event> list = se.AfficherEvent();
-        System.out.println(se);
-        System.out.println(list);
+        ObservableList<Event> eventList= FXCollections.observableArrayList();
+        cnx = MyConnection.getInstance().getConnection();
+        Statement st = cnx.createStatement();
+        String query="select * from event";
+        ResultSet rst = st.executeQuery(query);
+        Event events;
+        while (rst.next()){
+            events= new Event(rst.getInt("id"),rst.getString("name"),rst.getInt("num_participants"),
+                    rst.getInt("num_remaining"),rst.getString("type"),rst.getTimestamp("date"),rst.getByte("state"));
+            eventList.add(events);
+        }
+        System.out.println(eventList);
 
+        colID.setCellValueFactory(new PropertyValueFactory<Event, Integer>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
         colParticipants.setCellValueFactory(new PropertyValueFactory<Event, Integer>("numParticipants"));
         colRemaining.setCellValueFactory(new PropertyValueFactory<Event, Integer>("numRemaining"));
@@ -69,10 +75,9 @@ public class EventsMainController implements Initializable {
         colDate.setCellValueFactory(new PropertyValueFactory<Event, Date>("date"));
         colState.setCellValueFactory(new PropertyValueFactory<Event, Byte>("state"));
 
-        tvEvents.setItems(list);
+        tvEvents.setItems(eventList);
     }
 
-    @FXML
     public void AjouterEvent(ActionEvent actionEvent) throws SQLException {
         System.out.println(tfName.getText());
         System.out.println(tfParticipants.getText());
@@ -90,7 +95,7 @@ public class EventsMainController implements Initializable {
 
     public void UpdateEvent(ActionEvent actionEvent) throws SQLException {
         LocalDate date = Date.getValue();
-        String query="UPDATE event SET name = '"+tfName.getText()+"',num_participants = "+tfParticipants.getText()+",num_remaining = "+tfRemaining.getText()+", type = '"+tfType.getText()+"', date = '"+date+"' WHERE name = '"+tfName.getText()+"'";
+        String query="UPDATE event SET name = '"+tfName.getText()+"',num_participants = "+tfParticipants.getText()+",num_remaining = "+tfRemaining.getText()+", type = '"+tfType.getText()+"', date = '"+date+"' WHERE id = "+tfID.getText()+"";
         executeQuery(query);
         AfficherEvent();
     }
@@ -117,6 +122,7 @@ public class EventsMainController implements Initializable {
         System.out.println("name " + event.getName());
         System.out.println("num_participants " + event.getDate());
 
+        tfID.setText("" + event.getId());
         tfName.setText("" + event.getName());
         tfParticipants.setText("" + event.getNumParticipants());
         tfRemaining.setText("" + event.getNumRemaining());

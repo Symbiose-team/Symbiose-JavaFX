@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.EventsMainController">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.EventsMainController">
    <children>
-      <VBox layoutX="27.0" layoutY="70.0" prefHeight="198.0" prefWidth="105.0" spacing="15.0">
+      <VBox layoutX="27.0" layoutY="102.0" prefHeight="166.0" prefWidth="105.0" spacing="15.0">
          <children>
             <Label text="Name" />
             <Label text="num-participants" />
@@ -16,6 +23,7 @@
       </VBox>
       <VBox layoutX="132.0" layoutY="70.0" prefHeight="204.0" prefWidth="105.0" spacing="7.0">
          <children>
+            <TextField fx:id="tfID" editable="false" promptText="ID" />
             <TextField fx:id="tfName" />
             <TextField fx:id="tfParticipants" />
             <TextField fx:id="tfRemaining" />
@@ -23,17 +31,18 @@
             <DatePicker fx:id="Date" />
          </children>
       </VBox>
-      <TableView fx:id="tvEvents" layoutX="287.0" layoutY="70.0" onMouseClicked="#handleMouseAction" prefHeight="361.0" prefWidth="382.0">
+      <TableView fx:id="tvEvents" layoutX="287.0" layoutY="70.0" onMouseClicked="#handleMouseAction" prefHeight="361.0" prefWidth="581.0">
         <columns>
-          <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
-          <TableColumn fx:id="colParticipants" prefWidth="75.0" text="Participants" />
+            <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colParticipants" prefWidth="75.0" text="Participants" />
             <TableColumn fx:id="colRemaining" prefWidth="75.0" text="Remaining" />
             <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
             <TableColumn fx:id="colDate" prefWidth="75.0" text="Date" />
             <TableColumn fx:id="colState" prefWidth="75.0" text="State" />
         </columns>
       </TableView>
-      <HBox layoutX="32.0" layoutY="279.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <HBox layoutX="37.0" layoutY="286.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#AjouterEvent" text="Insert" />
             <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#UpdateEvent" text="Update" />

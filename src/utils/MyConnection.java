@@ -18,13 +18,11 @@ public class MyConnection {
             cnx = DriverManager.getConnection(url, login, pwd);
             System.out.println("Connexion établie!");
         } catch (SQLException ex) {
-            System.out.println("pas de connexion");
+            System.out.println("Pas de connexion");
         }
-
     }
 
     public static MyConnection getInstance(){
-
         if(instance== null){
             instance = new MyConnection();
         }
@@ -34,5 +32,4 @@ public class MyConnection {
     public Connection getConnection(){
         return cnx;
     }
-
 }
