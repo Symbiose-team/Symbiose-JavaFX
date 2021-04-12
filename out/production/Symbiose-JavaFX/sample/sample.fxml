@@ -1,8 +1,59 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="afficher" alignment="center" hgap="5.0" prefHeight="638.0" prefWidth="795.0" vgap="5.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints maxWidth="214.0" minWidth="214.0" prefWidth="214.0" />
+      <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="10">
+         <children>
+            <TextField fx:id="adr" layoutY="2.0" prefHeight="25.0" prefWidth="206.0" promptText="address" />
+            <TextField fx:id="spacee" layoutY="38.0" prefHeight="25.0" prefWidth="206.0" promptText="space" />
+            <TextField fx:id="providerr" layoutX="-1.0" layoutY="75.0" prefHeight="25.0" prefWidth="206.0" promptText="provider" />
+            <TextField fx:id="prss" layoutX="-1.0" layoutY="111.0" prefHeight="25.0" prefWidth="206.0" promptText="price" />
+            <DatePicker fx:id="startt" layoutY="143.0" prefHeight="25.0" prefWidth="206.0" promptText="Date_Debut" />
+            <DatePicker fx:id="endd" layoutY="174.0" prefHeight="25.0" prefWidth="206.0" promptText="Date_End" />
+         </children>
+      </AnchorPane>
+      <Button mnemonicParsing="false" onAction="#AjouterTerrain" text="ajouter" GridPane.columnIndex="5" GridPane.rowIndex="12" />
+      <TextField fx:id="serialnumber" promptText="serial_number" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+      <TextField fx:id="namee" promptText="name" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+      <Label fx:id="affichee" prefHeight="232.0" prefWidth="488.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+      <Button mnemonicParsing="false" onAction="#AfficherTerrain" text="affichier" GridPane.columnIndex="8" GridPane.rowIndex="12" />
+      <Label fx:id="label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+      <Button fx:id="supp" mnemonicParsing="false" onAction="#supprimer" text="supp" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+      <TextField fx:id="suprimer" prefHeight="0.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   </children>
 </GridPane>
