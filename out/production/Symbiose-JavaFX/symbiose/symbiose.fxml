@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.Controller">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.Controller">
    <children>
       <VBox layoutX="27.0" layoutY="70.0" prefHeight="198.0" prefWidth="105.0" spacing="15.0">
          <children>
@@ -23,7 +23,7 @@
             <DatePicker fx:id="Date" />
          </children>
       </VBox>
-      <TableView fx:id="tvEvents" layoutX="287.0" layoutY="70.0" prefHeight="361.0" prefWidth="382.0">
+      <TableView fx:id="tvEvents" layoutX="287.0" layoutY="70.0" onMouseClicked="#handleMouseAction" prefHeight="361.0" prefWidth="382.0">
         <columns>
           <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="colParticipants" prefWidth="75.0" text="Participants" />
@@ -36,8 +36,8 @@
       <HBox layoutX="32.0" layoutY="279.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#AjouterEvent" text="Insert" />
-            <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" />
-            <Button fx:id="btnDelete" mnemonicParsing="false" text="Delete" />
+            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#UpdateEvent" text="Update" />
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#DeleteEvent" text="Delete" />
          </children>
       </HBox>
    </children>

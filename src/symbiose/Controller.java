@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import models.Event;
 import service.ServiceEvent;
 import utils.MyConnection;
@@ -20,6 +21,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.chrono.Chronology;
 import java.util.Date;
 import java.util.Observable;
 import java.util.ResourceBundle;
@@ -80,11 +82,24 @@ public class Controller implements Initializable {
         LocalDate date = Date.getValue();
         System.out.println(date);
 
-        String query="INSERT INTO event(name,num_participants,num_remaining,type,date) VALUES ('"+tfName.getText()+"',"+tfParticipants.getText()+","+tfRemaining.getText()+",'"+tfType.getText()+"','"+date+"')";
+        String query="INSERT INTO event(name,num_participants,num_remaining,type,date) " +
+                "VALUES ('"+tfName.getText()+"',"+tfParticipants.getText()+","+tfRemaining.getText()+",'"+tfType.getText()+"','"+date+"')";
         executeQuery(query);
         AfficherEvent();
     }
 
+    public void UpdateEvent(ActionEvent actionEvent) throws SQLException {
+        LocalDate date = Date.getValue();
+        String query="UPDATE event SET name = '"+tfName.getText()+"',num_participants = "+tfParticipants.getText()+",num_remaining = "+tfRemaining.getText()+", type = '"+tfType.getText()+"', date = '"+date+"' WHERE name = '"+tfName.getText()+"'";
+        executeQuery(query);
+        AfficherEvent();
+    }
+
+    public void DeleteEvent(ActionEvent actionEvent) throws SQLException {
+        String query="DELETE FROM event WHERE name ='" +tfName.getText() + "'";
+        executeQuery(query);
+        AfficherEvent();
+    }
 
     private void executeQuery(String query) {
         cnx = MyConnection.getInstance().getConnection();
@@ -97,4 +112,13 @@ public class Controller implements Initializable {
         }
     }
 
+    public void handleMouseAction(MouseEvent mouseEvent) {
+        Event event = tvEvents.getSelectionModel().getSelectedItem();
+        System.out.println("name " + event.getName());
+        System.out.println("num_participants " + event.getDate());
+        tfName.setText("" + event.getName());
+        tfParticipants.setText("" + event.getNumParticipants());
+        tfRemaining.setText("" + event.getNumRemaining());
+        tfType.setText("" + event.getType());
+    }
 }
