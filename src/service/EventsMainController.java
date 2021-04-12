@@ -1,4 +1,4 @@
-package symbiose;
+package service;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Controller implements Initializable {
+public class EventsMainController implements Initializable {
     public TextField tfName;
     public Label LAffiche;
     public TextField tfParticipants;
@@ -116,6 +116,7 @@ public class Controller implements Initializable {
         Event event = tvEvents.getSelectionModel().getSelectedItem();
         System.out.println("name " + event.getName());
         System.out.println("num_participants " + event.getDate());
+
         tfName.setText("" + event.getName());
         tfParticipants.setText("" + event.getNumParticipants());
         tfRemaining.setText("" + event.getNumRemaining());
