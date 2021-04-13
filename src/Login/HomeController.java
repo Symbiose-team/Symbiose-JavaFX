@@ -1,30 +1,28 @@
 package Login;
 
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.util.Callback;
+import symbiose.models.User;
 import utils.ConnectionUtil;
 import javafx.scene.control.TableView;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-    @FXML
-    private TextField txtFirstname;
+   @FXML
+ private TextField txtFirstname;
     @FXML
     private TextField txtLastname;
     @FXML
@@ -50,7 +48,47 @@ public class HomeController implements Initializable {
     @FXML
     Label lblStatus;
     @FXML
-    TableView tblData;
+    TableView<User> tblData;
+    @FXML
+    private TableColumn<User, String> column_firstname;
+
+    @FXML
+    private TableColumn<User, String> column_lastname;
+
+    @FXML
+    private TableColumn<User, String> column_email;
+
+    @FXML
+    private TableColumn<User, String> column_genre;
+
+    @FXML
+    private TableColumn<User, String> column_role;
+
+    @FXML
+    private TableColumn<User, String> column_password;
+
+    @FXML
+    private TableColumn<User, Date> column_birthday;
+
+    @FXML
+    private TableColumn<User, String> column_adresse;
+
+    @FXML
+    private TableColumn<User, Integer> column_cin;
+
+    @FXML
+    private TableColumn<User, Integer> column_phone;
+
+    @FXML
+    private TableColumn<User, Integer> column_id;
+
+    @FXML
+    private Button btnUpdate;
+    @FXML
+    private Button btnDelete;
+
+    //private int ID;
+
 
     /**
      * Initializes the controller class.
@@ -65,15 +103,15 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO
+
         txtGender.getItems().addAll("Homme", "Femme");
         txtGender.getSelectionModel().select("Homme");
         txtRole.getItems().addAll("Client", "Fournisseur");
         txtRole.getSelectionModel().select("Fournisseur");
-        fetColumnList();
-        fetRowList();
-    }
+        showusers();
 
+    }
+    //button qui permet l'insertion (l'ajout) avec une contrainte === notblank par analogie a symf
     @FXML
     private void HandleEvents(MouseEvent event) {
         //check if not empty
@@ -84,7 +122,7 @@ public class HomeController implements Initializable {
             saveData();
         }
     }
-
+    //function qui efface les champs apres l'insertion
     private void clearFields() {
         txtFirstname.clear();
         txtLastname.clear();
@@ -96,7 +134,7 @@ public class HomeController implements Initializable {
         txtConfirmPassword.clear();
 
     }
-
+    //function qui fait l'ajout
     private String saveData() {
         try {
             String st = "INSERT INTO `user` (`first_name`, `last_name`, `email`, `hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `genre`) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -116,7 +154,7 @@ public class HomeController implements Initializable {
             lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("Ajouté avec succés");
 
-            fetRowList();
+            showusers();
             clearFields();
             return "Success";
 
@@ -128,64 +166,131 @@ public class HomeController implements Initializable {
         }
     }
 
-    private ObservableList<ObservableList> data;
-    String SQL ="SELECT first_name,last_name,cin,birthday,role,hash,genre,adresse,phone_number FROM `user`";
+    /**
+     *
+     * Type d'action , track fired buttons
+     */
+    @FXML
+    private void ActionHandleEvents(ActionEvent event) {
+        if (event.getSource() == btnUpdate) {
+            Update();
 
-    //only fetch columns
-    private void fetColumnList() {
-
-        try {
-            ResultSet rs = connection.createStatement().executeQuery(SQL);
-
-            //SQL FOR SELECTING ALL OF CUSTOMER
-            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
-                //We are using non property style for making dynamic table
-                final int j = i;
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1).toUpperCase());
-                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
-                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
-                        System.out.println(param.getValue().get(j).toString());
-                        System.out.println(new SimpleStringProperty(param.getValue().get(j).toString()));
-                        return new SimpleStringProperty(param.getValue().get(j).toString());
-                    }
-                });
-
-                tblData.getColumns().removeAll(col);
-                tblData.getColumns().addAll(col);
-
-                System.out.println("Column [" + i + "] ");
-
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error " + e.getMessage());
+        } else if (event.getSource() == btnDelete) {
+            System.out.println("supprimé!");
+            deleteuser();
 
         }
     }
 
-    //fetches rows and data from the list
-    private void fetRowList() {
-        data = FXCollections.observableArrayList();
-        ResultSet rs;
+
+//    private ObservableList<ObservableList> data;
+//    String SQL ="SELECT id,first_name,last_name,cin,birthday,role,hash,genre,adresse,phone_number FROM `user`";
+
+    //function qui fait la mise à jour
+    public void Update() {
         try {
-            rs = connection.createStatement().executeQuery(SQL);
+            User users = tblData.getSelectionModel().getSelectedItem();
+            int id = users.getId();
+            String query = "update user set first_name= '"+txtFirstname.getText()+"',last_name= '"+txtLastname.getText()+"',hash= '"+txtPassword.getText()+"',email= '"+txtEmail.getText()+"',role= '"+txtRole.getValue().toString()+"',genre='"+txtGender.getValue().toString()+"',birthday='"+txtDOB.getValue().toString()+"',cin='"+txtCin.getText()+"',phone_number='"+txtPhone.getText()+"',adresse='"+txtAdresse.getText()+"' WHERE id in ('"+id+"')";
 
-            while (rs.next()) {
-                //Iterate Row
-                ObservableList row = FXCollections.observableArrayList();
-                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    //Iterate Column
-                    row.add(rs.getString(i));
-                }
-                System.out.println("Row [1] added " + row);
-                data.add(row);
-            }
 
-            tblData.setItems(data);
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
+//            String query = "UPDATE user SET first_name = ('"+txtFirstname.getText()+"') WHERE id in ('"+id+"')";
+            preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            preparedStatement.executeUpdate(query);
+            showusers();
+            lblStatus.setTextFill(Color.GREEN);
+            lblStatus.setText("M.A.J avec succés");
+
+
+        } catch (Exception throwables) {
+            System.err.println(throwables.getMessage());
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText(throwables.getMessage());
+        }
+
+    }
+
+    /**
+     * Affichage des users
+     */
+        public void showusers() {
+            ObservableList<User> list = getUsersList();
+            column_id.setCellValueFactory(new PropertyValueFactory<User, Integer>("id"));
+            column_firstname.setCellValueFactory(new PropertyValueFactory<User, String>("first_name"));
+            column_lastname.setCellValueFactory(new PropertyValueFactory<User, String>("last_name"));
+            column_email.setCellValueFactory(new PropertyValueFactory<User, String>("last_name"));
+            column_cin.setCellValueFactory(new PropertyValueFactory<User, Integer>("cin"));
+            column_password.setCellValueFactory(new PropertyValueFactory<User, String>("hash"));
+            column_role.setCellValueFactory(new PropertyValueFactory<User, String>("role"));
+            column_genre.setCellValueFactory(new PropertyValueFactory<User, String>("genre"));
+            column_adresse.setCellValueFactory(new PropertyValueFactory<User, String>("adresse"));
+            column_phone.setCellValueFactory(new PropertyValueFactory<User, Integer>("phone_number"));
+            column_birthday.setCellValueFactory(new PropertyValueFactory<User, Date>("birthday"));
+
+            tblData.setItems(list);
 
         }
+
+    /**
+     *
+     * Récupération des users dans une liste qui autorise les listeners de suivre les changements
+     */
+    public ObservableList<User> getUsersList(){
+        ObservableList<User> userslist = FXCollections.observableArrayList();
+        String query = "SELECT first_name,last_name,email,genre,role,hash,birthday,adresse,cin,phone_number,id FROM `user`";
+
+        try {
+            ResultSet rs = connection.createStatement().executeQuery(query);
+            User users;
+            while (rs.next()){
+                users = new User(rs.getString("first_name"),rs.getString("last_name"),rs.getString("email"),rs.getString("hash"),rs.getInt("cin"),rs.getDate("birthday"),rs.getString("role"),rs.getString("adresse"),rs.getInt("phone_number"),rs.getString("genre"),rs.getInt("id"));
+                userslist.add(users);
+            }
+
+        }catch (Exception exception){
+            System.out.println(exception.getMessage());
+        }
+        return userslist;
+    }
+
+    /**
+     * Suppression des users
+     */
+    public void deleteuser(){
+        User users = tblData.getSelectionModel().getSelectedItem();
+        int id = users.getId();
+        String query="DELETE FROM user WHERE id in ('"+id+"')";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.executeUpdate(query);
+            showusers();
+            lblStatus.setTextFill(Color.GREEN);
+            lblStatus.setText("supprimé avec succés");
+        } catch (Exception throwables) {
+            System.err.println(throwables.getMessage());
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Erreur!");
+        }
+
+    }
+
+    /**
+     *
+     * Permet d'afficher les champs lors de la selection
+     */
+    public void handleMouseAction(javafx.scene.input.MouseEvent mouseEvent) {
+        User users = tblData.getSelectionModel().getSelectedItem();
+        txtFirstname.setText(""+users.getFirst_name());
+        txtLastname.setText(""+users.getLast_name());
+        txtRole.setValue(""+users.getRole().toString());
+        txtGender.setValue(""+users.getGenre().toString());
+        txtPassword.setText(""+users.getHash());
+        txtConfirmPassword.setText(""+users.getHash());
+        txtEmail.setText(""+users.getEmail());
+        txtAdresse.setText(""+users.getAdresse());
+        txtCin.setText(""+users.getCin());
+        txtPhone.setText(""+users.getPhone_number());
+        txtDOB.setValue(LocalDate.parse(""+users.getBirthday().toString()));
 
     }
 

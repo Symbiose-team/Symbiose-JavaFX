@@ -69,10 +69,10 @@ public class LoginController implements Initializable {
         // TODO
         if (con == null) {
             lblErrors.setTextFill(Color.TOMATO);
-            lblErrors.setText("Server Error : Check");
+            lblErrors.setText("Serveur en arrêt : Vérifiez la connexion!");
         } else {
             lblErrors.setTextFill(Color.GREEN);
-            lblErrors.setText("Server is up : Good to go");
+            lblErrors.setText("Serveur en marche : Allons-y !");
         }
     }
 
@@ -86,7 +86,7 @@ public class LoginController implements Initializable {
         String email = txtUsername.getText();
         String hash = txtPassword.getText();
         if(email.isEmpty() || hash.isEmpty()) {
-            setLblError(Color.TOMATO, "Empty credentials");
+            setLblError(Color.TOMATO, "Identifiants vides");
             status = "Error";
         } else {
             //query
@@ -97,10 +97,10 @@ public class LoginController implements Initializable {
                 preparedStatement.setString(2, hash);
                 resultSet = preparedStatement.executeQuery();
                 if (!resultSet.next()) {
-                    setLblError(Color.TOMATO, "Enter Correct Email/Password");
+                    setLblError(Color.TOMATO, "Entrez le bon e-mail / mot de passe");
                     status = "Error";
                 } else {
-                    setLblError(Color.GREEN, "Login Successful..Redirecting..");
+                    setLblError(Color.GREEN, "Connexion réussie..Redirection ..");
                 }
             } catch (SQLException ex) {
                 System.err.println(ex.getMessage());

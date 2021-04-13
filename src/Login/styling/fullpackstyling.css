@@ -7,28 +7,29 @@
 .button:hover
 {
     -fx-background-color : #355ECE ;
-    -fx-text-fill:  #FFF;
+    -fx-text-fill: #131316;
 }
 .button:pressed
 {
     -fx-background-color : #0C39FF ;
-    -fx-text-fill: #FFF;
+    -fx-text-fill: rgba(0, 0, 0, 0);
 }
 
 .button2
 {
+    -fx-opacity: 0.9;
     -fx-background-color : transparent;
     -fx-border-color: #FFF;
     -fx-text-fill:  #FFF;
 }
 .button2:hover
 {
-    -fx-background-color : #0C3988 ;
+    -fx-opacity: 1;
     -fx-text-fill:   #FFF;
 }
 .button2:pressed
 {
-    -fx-background-color : #0C3400 ;
+    -fx-opacity: 1;
     -fx-text-fill: #FFF;
 }
 
@@ -99,4 +100,14 @@
 .chart-pie {
     -fx-border-color: derive(-fx-pie-color, 1%);
     -fx-border-width: 0px;
+}
+#btnSave{
+    -fx-background-color: #6f0598;
+}
+
+#btnUpdate{
+    -fx-background-color: orange;
+}
+#btnDelete{
+    -fx-background-color: red;
 }

@@ -1,5 +1,7 @@
 package symbiose.models;
 
+import java.util.Date;
+
 public class User {
     private String first_name;
     private String last_name;
@@ -14,6 +16,38 @@ public class User {
     private int phone_number;
     private String registration_token;
     private String forgot_password_token;
+    private String genre;
+    private int id;
+
+    public User(String first_name, String last_name, String email, String hash, int cin, Date birthday, String role, String adresse, int phone_number, String genre,int id) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.hash = hash;
+        this.cin = cin;
+        this.birthday = birthday;
+        this.role = role;
+        this.adresse = adresse;
+        this.phone_number = phone_number;
+        this.genre=genre;
+        this.id = id;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFirst_name(){
         return first_name;

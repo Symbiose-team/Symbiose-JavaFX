@@ -67,8 +67,8 @@
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
-            <Icons525View fill="#0c39ff" glyphName="SIGN_IN" layoutX="165.0" layoutY="150.0" size="16" text="" wrappingWidth="17.300000190734863" />
-            <Icons525View fill="#0c39ff" glyphName="USER_PLUS" layoutX="97.0" layoutY="320.0" size="16" />
+            <Icons525View id="signin" fx:id="signin" fill="#0c39ff" glyphName="SIGN_IN" layoutX="165.0" layoutY="150.0" size="16" text="" wrappingWidth="17.300000190734863" />
+            <Icons525View fx:id="userplus" fill="#0c39ff" glyphName="USER_PLUS" layoutX="97.0" layoutY="320.0" size="16" />
             </children>
         </Pane>
     </children>
