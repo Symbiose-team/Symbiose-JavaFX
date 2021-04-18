@@ -27,12 +27,6 @@ public class SpecialEvent {
     @Column(name = "state")
     private Byte state;
 
-    @Column(name = "participants_id")
-    private Integer participantsId;
-
-    @Column(name = "supplier_id")
-    private Integer supplierId;
-
     public Integer getId() {
         return this.id;
     }
@@ -87,21 +81,5 @@ public class SpecialEvent {
 
     public void setState(Byte state) {
         this.state = state;
-    }
-
-    public Integer getParticipantsId() {
-        return this.participantsId;
-    }
-
-    public void setParticipantsId(Integer participantsId) {
-        this.participantsId = participantsId;
-    }
-
-    public Integer getSupplierId() {
-        return this.supplierId;
-    }
-
-    public void setSupplierId(Integer supplierId) {
-        this.supplierId = supplierId;
     }
 }

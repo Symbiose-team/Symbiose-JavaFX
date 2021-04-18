@@ -59,11 +59,6 @@ public class EventsMain implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             showEvent();
-
-            validationSupport.registerValidator(tfName, Validator.createEmptyValidator("text is required"));
-            validationSupport.registerValidator(tfType, Validator.createEmptyValidator("Type is required"));
-            validationSupport.registerValidator(Date, Validator.createEmptyValidator("Date is required"));
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -125,6 +120,8 @@ public class EventsMain implements Initializable {
 
     public void AddEvent() throws SQLException {
 
+        //Validators();
+
         Integer numParticipants = 100;
         Integer numRemaining = 100;
         LocalDate date = Date.getValue();
@@ -146,17 +143,28 @@ public class EventsMain implements Initializable {
         showEvent();
     }
 
-    public void UpdateEvent(ActionEvent actionEvent) throws SQLException {
-        LocalDate date = Date.getValue();
-        String query="UPDATE event SET name = '"+tfName.getText()+"'," +
-                "num_participants = "+tfParticipants.getText()+"," +
-                "num_remaining = "+tfRemaining.getText()+", " +
-                "type = '"+tfType.getText()+"', " +
-                "date = '"+date+"' " +
-                "WHERE name = '"+tfName.getText()+"'";
+    public void Validators(){
+        validationSupport.registerValidator(tfName, Validator.createEmptyValidator("text is required"));
+        validationSupport.registerValidator(tfType, Validator.createEmptyValidator("Type is required"));
+        validationSupport.registerValidator(Date, Validator.createEmptyValidator("Date is required"));
+    }
 
-        executeQuery(query);
-        System.out.println("Event Updated");
+    public void UpdateEvent(ActionEvent actionEvent) throws SQLException {
+
+        LocalDate date = Date.getValue();
+
+        if (tfName.getText() == "" || tfType.getText() == "" || Date.getValue() == null){
+            System.out.println("no");
+        }else{
+            String query="UPDATE event SET name = '"+tfName.getText()+"'," +
+                    "type = '"+tfType.getText()+"', " +
+                    "date = '"+date+"' " +
+                    "WHERE id = '"+tfID.getText()+"'";
+
+            executeQuery(query);
+            System.out.println("Event Updated");
+        }
+
         showEvent();
     }
 
@@ -179,25 +187,56 @@ public class EventsMain implements Initializable {
         }
     }
 
-    public void joinEvent(ActionEvent actionEvent) {
+    public void joinEvent(ActionEvent actionEvent) throws SQLException {
         System.out.println("joined" + tfID.getText());
-        //get event by id query
-        //event.getID -= 1;
-        //persist ?
+        LocalDate date = Date.getValue();
+
+        cnx = MyConnection.getInstance().getConnection();
+        Statement st = cnx.createStatement();
+        String query="SELECT * FROM event WHERE id = " +tfID.getText() +"";
+        ResultSet rst = st.executeQuery(query);
+
+        Event events = null;
+
+        while (rst.next()){
+            events= new Event(rst.getInt("id"),rst.getString("name"),rst.getInt("num_participants"),
+                    rst.getInt("num_remaining"),rst.getString("type"),rst.getTimestamp("date"),rst.getByte("state"));
+        }
+
+        System.out.println(events.getName());
+
+        if (events.getNumRemaining() <= 0){
+            btnJoin.setDisable(true);
+            System.out.println("you cant join this event");
+        }else{
+            Integer x = events.getNumRemaining();
+            x -= 1;
+            System.out.println("there are now :" + x);
+
+            String updateQuery ="UPDATE event SET num_remaining = '"+x+"'" +
+                    "WHERE id = '"+tfID.getText()+"'";
+
+            executeQuery(updateQuery);
+            showEvent();
+
+        }
     }
 
     public void handleMouseAction(MouseEvent mouseEvent) {
+        //Validators();
         Event event = tvEvents.getSelectionModel().getSelectedItem();
 
         System.out.println(event.getDate());
         tfName.setText("" + event.getName());
-        tfType.setText("" + event.getType());
         tfID.setText("" + event.getId());
+        tfType.setText("" + event.getType());
 
         if (tfID.getText().isEmpty() ){
             btnJoin.setDisable(true);
+            btnParticipants.setDisable(true);
         }else
             btnJoin.setDisable(false);
+            btnParticipants.setDisable(false);
     }
 
     // alert methods to show different kinds of alerts
@@ -216,7 +255,6 @@ public class EventsMain implements Initializable {
         return result.orElse(null);
     }
 
-    // opens show flight gui
     @FXML
     private void openUsers() {
         SceneSelector.switchScreen("participantsMain");
