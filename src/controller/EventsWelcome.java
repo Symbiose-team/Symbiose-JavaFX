@@ -1,6 +1,5 @@
-package service;
+package controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import utils.SceneSelector;
 

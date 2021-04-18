@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "user")
@@ -71,6 +72,15 @@ public class User {
 
     @Column(name = "is_enabled")
     private Byte isEnabled;
+
+    public User(Integer id, String firstName, String lastName, String email, Integer cin, Date birthday) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.cin = cin;
+        this.birthday = birthday;
+    }
 
     public Integer getId() {
         return this.id;

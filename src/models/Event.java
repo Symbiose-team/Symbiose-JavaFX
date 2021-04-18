@@ -31,7 +31,10 @@ public class Event {
     @Column(name = "supplier_id")
     private Integer supplierId;
 
-    public Event(Integer id,String name, Integer numParticipants, Integer numRemaining, String type, Timestamp date, Byte state) {
+    @Column(name = "participants_id")
+    private Integer participantsId;
+
+    public Event(Integer id, String name, Integer numParticipants, Integer numRemaining, String type, Timestamp date, Byte state) {
         this.id = id;
         this.name = name;
         this.numParticipants = numParticipants;
@@ -103,5 +106,13 @@ public class Event {
 
     public void setSupplierId(Integer supplierId) {
         this.supplierId = supplierId;
+    }
+
+    public Integer getParticipantsId() {
+        return this.participantsId;
+    }
+
+    public void setParticipantsId(Integer participantsId) {
+        this.participantsId = participantsId;
     }
 }

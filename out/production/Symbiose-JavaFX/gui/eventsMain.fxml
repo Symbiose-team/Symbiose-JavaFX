@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.EventsMainController">
+<AnchorPane maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EventsMain">
    <children>
       <ImageView fitHeight="500.0" fitWidth="900.0" opacity="0.41" pickOnBounds="true">
          <image>
-            <Image url="@../resources/icons/foot.jpg" />
+            <Image url="@../resources/images/foot.jpg" />
          </image>
       </ImageView>
       <VBox layoutX="27.0" layoutY="102.0" prefHeight="166.0" prefWidth="105.0" spacing="15.0">
          <children>
-            <Label text="Name" />
-            <Label text="num-participants" />
-            <Label text="num-remaining" />
-            <Label text="Type" />
-            <Label text="Date" />
+            <Label text="Name of the event" />
+            <Label text="Type of the event" />
+            <Label text="Date of the event" />
          </children>
       </VBox>
-      <VBox layoutX="132.0" layoutY="70.0" prefHeight="204.0" prefWidth="105.0" spacing="7.0">
+      <VBox layoutX="132.0" layoutY="100.0" prefHeight="174.0" prefWidth="105.0" spacing="7.0">
          <children>
-            <TextField fx:id="tfID" editable="false" promptText="ID" />
             <TextField fx:id="tfName" />
-            <TextField fx:id="tfParticipants" />
-            <TextField fx:id="tfRemaining" />
             <TextField fx:id="tfType" />
             <DatePicker fx:id="Date" />
          </children>
       </VBox>
-      <TableView fx:id="tvEvents" layoutX="287.0" layoutY="70.0" onMouseClicked="#handleMouseAction" prefHeight="361.0" prefWidth="581.0">
+      <TableView fx:id="tvEvents" layoutX="287.0" layoutY="94.0" onMouseClicked="#handleMouseAction" prefHeight="361.0" prefWidth="581.0">
         <columns>
-            <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
             <TableColumn fx:id="colParticipants" prefWidth="75.0" text="Participants" />
             <TableColumn fx:id="colRemaining" prefWidth="75.0" text="Remaining" />
@@ -42,9 +45,15 @@
             <TableColumn fx:id="colState" prefWidth="75.0" text="State" />
         </columns>
       </TableView>
-      <VBox alignment="TOP_CENTER" layoutX="55.0" layoutY="287.0" prefHeight="75.0" prefWidth="154.0" spacing="10.0">
+      <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="287.0" prefHeight="148.0" prefWidth="213.0" spacing="10.0">
          <children>
-            <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#AjouterEvent" prefHeight="25.0" prefWidth="100.0" text="Insert">
+            <HBox alignment="TOP_CENTER" prefHeight="25.0" prefWidth="178.0" spacing="10.0">
+               <children>
+                  <Button fx:id="btnParticipants" disable="true" mnemonicParsing="false" onAction="#openUsers" prefWidth="100.0" text="Participants" />
+                  <Button fx:id="btnJoin" disable="true" mnemonicParsing="false" onAction="#joinEvent" prefWidth="100.0" text="Join" />
+               </children>
+            </HBox>
+            <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#AddEvent" prefHeight="25.0" prefWidth="100.0" text="Insert">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -83,5 +92,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <TextField fx:id="tfSearch" layoutX="508.0" layoutY="58.0" promptText="Search" />
+      <TextField fx:id="tfID" editable="false" layoutX="110.0" layoutY="58.0" prefHeight="25.0" prefWidth="44.0" promptText="ID" />
    </children>
 </AnchorPane>
