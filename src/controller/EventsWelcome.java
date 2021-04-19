@@ -8,7 +8,5 @@ public class EventsWelcome {
     @FXML
     private void openEvents() {
         SceneSelector.switchScreen("eventsMain");
-        SceneSelector.setWidth(900);
-        SceneSelector.setHight(500);
     }
 }

@@ -5,19 +5,26 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 import models.Event;
+import org.controlsfx.control.Notifications;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
+import utils.MailAPI;
 import utils.MyConnection;
+import utils.NotificationAPI;
 import utils.SceneSelector;
 
+import javax.mail.MessagingException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -50,6 +57,11 @@ public class EventsMain implements Initializable {
     public Button btnParticipants;
     public Button btnJoin;
     public TextField tfID;
+
+    public ChoiceBox<String> cbType;
+    private final String[] typeItems = {"Tennis", "Football", "Paintball", "Socks", "Crampons"};
+    private final ObservableList<String> typeList = FXCollections.observableArrayList(typeItems);
+
 
     Connection cnx;
 
@@ -128,6 +140,8 @@ public class EventsMain implements Initializable {
 
         if (tfName.getText() == "" || tfType.getText() == "" || Date.getValue() == null){
             System.out.println("no");
+            NotificationAPI.ErrorNotification("Cant add event","");
+            
         }else{
             String query="INSERT INTO event(name,num_participants,num_remaining,type,date) " +
                     "VALUES ('"+tfName.getText()+"'," +
@@ -138,6 +152,7 @@ public class EventsMain implements Initializable {
 
             executeQuery(query);
             System.out.println("Event Added");
+            NotificationAPI.SuccessNotification("Event Added","");
         }
 
         showEvent();
@@ -155,6 +170,7 @@ public class EventsMain implements Initializable {
 
         if (tfName.getText() == "" || tfType.getText() == "" || Date.getValue() == null){
             System.out.println("no");
+            NotificationAPI.ErrorNotification("Cant update event","");
         }else{
             String query="UPDATE event SET name = '"+tfName.getText()+"'," +
                     "type = '"+tfType.getText()+"', " +
@@ -163,6 +179,7 @@ public class EventsMain implements Initializable {
 
             executeQuery(query);
             System.out.println("Event Updated");
+            NotificationAPI.SuccessNotification("Successfully updated event","");
         }
 
         showEvent();
@@ -187,7 +204,7 @@ public class EventsMain implements Initializable {
         }
     }
 
-    public void joinEvent(ActionEvent actionEvent) throws SQLException {
+    public void joinEvent(ActionEvent actionEvent) throws SQLException, MessagingException {
         System.out.println("joined" + tfID.getText());
         LocalDate date = Date.getValue();
 
@@ -208,10 +225,17 @@ public class EventsMain implements Initializable {
         if (events.getNumRemaining() <= 0){
             btnJoin.setDisable(true);
             System.out.println("you cant join this event");
+
+            NotificationAPI.ErrorNotification("Cant join event","");
+
         }else{
             Integer x = events.getNumRemaining();
             x -= 1;
             System.out.println("there are now :" + x);
+
+            NotificationAPI.SuccessNotification("Event join successfull","Thank you for joining :)");
+
+            //MailAPI.sendMail("norgoddev@gmail.com");
 
             String updateQuery ="UPDATE event SET num_remaining = '"+x+"'" +
                     "WHERE id = '"+tfID.getText()+"'";
@@ -239,27 +263,12 @@ public class EventsMain implements Initializable {
             btnParticipants.setDisable(false);
     }
 
-    // alert methods to show different kinds of alerts
-    private ButtonType showAlert(String content, String header, Alert.AlertType alertType) {
-
-        Alert alert = new Alert(alertType);
-        // make current stage owner
-        alert.initOwner(tvEvents.getScene().getWindow());
-        alert.setHeaderText(header);
-        alert.setContentText(content);
-
-        // show and wait for further instructions
-        Optional<ButtonType> result = alert.showAndWait();
-
-        // return if null
-        return result.orElse(null);
-    }
-
     @FXML
     private void openUsers() {
         SceneSelector.switchScreen("participantsMain");
-        SceneSelector.setWidth(900);
-        SceneSelector.setHight(500);
     }
 
+    public void openInvalidEvents(ActionEvent actionEvent) {
+        SceneSelector.switchScreen("invalidEvents");
+    }
 }

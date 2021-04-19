@@ -83,7 +83,5 @@ public class ParticipantsMain implements Initializable {
 
     public void backToEvents() {
         SceneSelector.switchScreen("eventsMain");
-        SceneSelector.setWidth(900);
-        SceneSelector.setHight(500);
     }
 }

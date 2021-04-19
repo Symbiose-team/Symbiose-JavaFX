@@ -17,10 +17,8 @@ public class Main extends Application {
         Pane homePage = FXMLLoader.load(getClass().getResource("../gui/EventsWelcome.fxml"));
 
         // setting the main stage
-        primaryStage.setScene(new Scene(homePage, 900, 500));
+        primaryStage.setScene(new Scene(homePage));
         primaryStage.setTitle("Event Management System");
-        primaryStage.setWidth(900);
-        primaryStage.setHeight(500);
         primaryStage.show();
 
         // the class to change scenes intuitively
@@ -29,11 +27,13 @@ public class Main extends Application {
         // making objs of all views
         Pane eventsMain = FXMLLoader.load(getClass().getResource("../gui/EventsMain.fxml"));
         Pane participantsMain = FXMLLoader.load(getClass().getResource("../gui/ParticipantsMain.fxml"));
+        Pane invalidEvents = FXMLLoader.load(getClass().getResource("../gui/InvalidEvents.fxml"));
 
         // adding all views objs to scene selector collection
         sceneSelector.addScreen("homePage",homePage);
         sceneSelector.addScreen("eventsMain",eventsMain);
         sceneSelector.addScreen("participantsMain", participantsMain);
+        sceneSelector.addScreen("invalidEvents",invalidEvents);
     }
 
     public static void main(String[] args) {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InvalidEvents">
+    <children>
+        <ImageView fitHeight="500.0" fitWidth="900.0" opacity="0.41" pickOnBounds="true">
+            <image>
+                <Image url="@../resources/images/foot.jpg" />
+            </image>
+        </ImageView>
+        <TableView fx:id="tvEvents" layoutX="160.0" layoutY="87.0" onMouseClicked="#handleMouseAction" prefHeight="361.0" prefWidth="581.0">
+            <columns>
+                <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="colParticipants" prefWidth="75.0" text="Participants" />
+                <TableColumn fx:id="colRemaining" prefWidth="75.0" text="Remaining" />
+                <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
+                <TableColumn fx:id="colDate" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="colState" prefWidth="75.0" text="State" />
+            </columns>
+        </TableView>
+        <TextField fx:id="tfSearch" layoutX="376.0" layoutY="46.0" promptText="Search" />
+            <Button fx:id="btnValid" disable="false" layoutX="400.0" layoutY="448.0" mnemonicParsing="false" onAction="#validateEvent" prefWidth="100.0" text="Validate" />
+        <TextField fx:id="tfID" editable="false" layoutX="697.0" layoutY="58.0" prefHeight="25.0" prefWidth="44.0" promptText="ID" />
+      <Text layoutX="615.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event selected" />
+      <Text layoutX="364.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Validate events">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Button layoutX="693.0" layoutY="448.0" mnemonicParsing="false" onAction="#back" text="Back" />
+    </children>
+</AnchorPane>
