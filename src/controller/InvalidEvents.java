@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class InvalidEvents implements Initializable {
-    public TableView<Event> tvEvents;
+    public TableView<Event> tvInvalidEvents;
     public TableColumn<Event, String> colName;
     public TableColumn<Event, Integer> colParticipants;
     public TableColumn<Event, Integer> colRemaining;
@@ -34,8 +34,8 @@ public class InvalidEvents implements Initializable {
     public TableColumn<Event, Date> colDate;
     public Button btnValid;
     public TableColumn colState;
-    public TextField tfSearch;
-    public TextField tfID;
+    public TextField tfinvalidSearch;
+    public TextField tfinvalidID;
 
     Connection cnx;
 
@@ -43,14 +43,14 @@ public class InvalidEvents implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            showEvent();
+            showInvalidEvent();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    private void showEvent() throws SQLException {
-        ObservableList<Event> eventList= FXCollections.observableArrayList();
+    private void showInvalidEvent() throws SQLException {
+        ObservableList<Event> invalidEventList= FXCollections.observableArrayList();
 
         cnx = MyConnection.getInstance().getConnection();
         Statement st = cnx.createStatement();
@@ -61,7 +61,7 @@ public class InvalidEvents implements Initializable {
         while (rst.next()){
             events= new Event(rst.getInt("id"),rst.getString("name"),rst.getInt("num_participants"),
                     rst.getInt("num_remaining"),rst.getString("type"),rst.getTimestamp("date"),rst.getByte("state"));
-            eventList.add(events);
+            invalidEventList.add(events);
         }
 
         colName.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
@@ -71,12 +71,14 @@ public class InvalidEvents implements Initializable {
         colDate.setCellValueFactory(new PropertyValueFactory<Event, Date>("date"));
         colState.setCellValueFactory(new PropertyValueFactory<Event, Byte>("state"));
 
-        tvEvents.setItems(eventList);
+        tvInvalidEvents.setItems(invalidEventList);
+
+        System.out.println(tvInvalidEvents);
 
         //Filtered list
-        FilteredList<Event> filteredData = new FilteredList<>(eventList, b -> true);
+        FilteredList<Event> filteredData = new FilteredList<>(invalidEventList, b -> true);
 
-        tfSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+        tfinvalidSearch.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(event -> {
 
                 if (newValue == null || newValue.isEmpty()){
@@ -98,21 +100,9 @@ public class InvalidEvents implements Initializable {
 
         SortedList<Event> sortedData = new SortedList<>(filteredData);
 
-        sortedData.comparatorProperty().bind(tvEvents.comparatorProperty());
+        sortedData.comparatorProperty().bind(tvInvalidEvents.comparatorProperty());
 
-        tvEvents.setItems(sortedData);
-    }
-
-    public void handleMouseAction(MouseEvent mouseEvent){
-        Event event = tvEvents.getSelectionModel().getSelectedItem();
-        tfID.setText("" + event.getId());
-
-        if (tfID.getText().isEmpty() ){
-            btnValid.setDisable(true);
-        }else
-            btnValid.setDisable(false);
-
-
+        tvInvalidEvents.setItems(sortedData);
     }
 
     private void executeQuery(String query) {
@@ -127,14 +117,22 @@ public class InvalidEvents implements Initializable {
     }
 
     public void validateEvent(ActionEvent actionEvent) throws SQLException {
+        System.out.println(tfinvalidID.getText());
         String updateQuery ="UPDATE event SET state = '"+1+"'" +
-                "WHERE id = '"+tfID.getText()+"'";
+                "WHERE id = '"+tfinvalidID.getText()+"'";
         executeQuery(updateQuery);
         NotificationAPI.SuccessNotification("Event validated","");
-        showEvent();
+        showInvalidEvent();
     }
 
-    public void back(ActionEvent actionEvent) {
-        SceneSelector.switchScreen("eventsMain");
+    public void selectEvent() {
+        Event event = tvInvalidEvents.getSelectionModel().getSelectedItem();
+        tfinvalidID.setText("" + event.getId());
+
+        if (tfinvalidID.getText().isEmpty() ){
+            btnValid.setDisable(true);
+        }else
+            btnValid.setDisable(false);
+
     }
 }

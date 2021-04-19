@@ -5,24 +5,18 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Duration;
+import javafx.scene.layout.AnchorPane;
 import models.Event;
-import org.controlsfx.control.Notifications;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
-import utils.MailAPI;
-import utils.MyConnection;
-import utils.NotificationAPI;
-import utils.SceneSelector;
+import utils.*;
 
 import javax.mail.MessagingException;
 import java.net.URL;
@@ -32,7 +26,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EventsMain implements Initializable {
@@ -61,6 +54,7 @@ public class EventsMain implements Initializable {
     public ChoiceBox<String> cbType;
     private final String[] typeItems = {"Tennis", "Football", "Paintball", "Socks", "Crampons"};
     private final ObservableList<String> typeList = FXCollections.observableArrayList(typeItems);
+    public AnchorPane anchorPane;
 
 
     Connection cnx;
@@ -71,6 +65,7 @@ public class EventsMain implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             showEvent();
+            //Validators();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -246,7 +241,7 @@ public class EventsMain implements Initializable {
         }
     }
 
-    public void handleMouseAction(MouseEvent mouseEvent) {
+    public void handleMouseAction() {
         //Validators();
         Event event = tvEvents.getSelectionModel().getSelectedItem();
 
@@ -265,10 +260,12 @@ public class EventsMain implements Initializable {
 
     @FXML
     private void openUsers() {
-        SceneSelector.switchScreen("participantsMain");
+        SceneDialog.openDialog("../gui/ParticipantsMain.fxml", anchorPane);
     }
 
-    public void openInvalidEvents(ActionEvent actionEvent) {
-        SceneSelector.switchScreen("invalidEvents");
+    @FXML
+    public void openInvalidEvents() {
+        SceneDialog.openDialog("../gui/InvalidEvents.fxml", anchorPane);
     }
+
 }
