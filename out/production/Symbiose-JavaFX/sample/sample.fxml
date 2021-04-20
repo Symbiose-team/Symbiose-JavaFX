@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="afficher" alignment="center" hgap="5.0" prefHeight="638.0" prefWidth="795.0" vgap="5.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane fx:id="afficher" alignment="center" hgap="5.0" prefHeight="638.0" prefWidth="795.0" vgap="5.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sample">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -47,7 +47,7 @@
             <DatePicker fx:id="endd" layoutY="174.0" prefHeight="25.0" prefWidth="206.0" promptText="Date_End" />
          </children>
       </AnchorPane>
-      <Button mnemonicParsing="false" onAction="#AjouterTerrain" text="ajouter" GridPane.columnIndex="5" GridPane.rowIndex="12" />
+      <Button mnemonicParsing="false" onAction="#handleButtonAction" text="ajouter" GridPane.columnIndex="5" GridPane.rowIndex="12" />
       <TextField fx:id="serialnumber" promptText="serial_number" GridPane.columnIndex="5" GridPane.rowIndex="5" />
       <TextField fx:id="namee" promptText="name" GridPane.columnIndex="5" GridPane.rowIndex="7" />
       <Label fx:id="affichee" prefHeight="232.0" prefWidth="488.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />

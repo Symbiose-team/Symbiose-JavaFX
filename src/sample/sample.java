@@ -1,21 +1,25 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import symbiose.models.Field;
 import symbiose.servise.ServiceField;
 
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-
-import java.net.URL;
 import java.util.ResourceBundle;
 
-import static java.lang.Integer.*;
-
-public class Controller implements Initializable {
+public class sample implements Initializable {
 
     @FXML
     public Button ajouter;
@@ -44,8 +48,14 @@ public class Controller implements Initializable {
 
     @FXML
     private void handleButtonAction(ActionEvent event ) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        Notifications notifications= Notifications.create().title("sucee").text("mkfdsfs").graphic(null).hideAfter(Duration.seconds(5)).position(Pos.BASELINE_LEFT).onAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("cheima cheima");
+            }
+        });
+        notifications.showConfirm();
+
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

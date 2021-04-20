@@ -10,7 +10,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("new.fxml"));
+      /*  Parent root = FXMLLoader.load(getClass().getResource("client/menuAdmin.fxml"));*/
+       /*Parent root = FXMLLoader.load(getClass().getResource("fournisseur/home.fxml"));*/
+       Parent root = FXMLLoader.load(getClass().getResource("admin/Scene1.fxml"));
+
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
@@ -20,4 +23,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-}
+    }
+

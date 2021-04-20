@@ -1,23 +1,34 @@
 package symbiose.models;
 
 
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.sql.Date;
+import java.util.Collection;
+import java.util.List;
 
 public class Field {
     public Field() {
     }
 
-    private int serial_number;
 
+    private int serial_number;
     private String name;
     private String address;
-
     private String space;
     private String provider;
     private String price;
     private Date date_start;
     private Date date_end;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "fielde")
+    private List<Calendar> calendars;
     private int booker_id;
+
+    public Collection<Calendar> getCalendars() {
+        return calendars;
+    }
+
+
     public Field(int serial_number, String name) {
         this.serial_number = serial_number;
         this.name = name;
@@ -120,7 +131,7 @@ public class Field {
         this.price = price;
     }
 
-    public Date getDate_start() {
+    public java.util.Date getDate_start() {
         return date_start;
     }
 

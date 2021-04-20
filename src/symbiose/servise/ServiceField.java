@@ -5,14 +5,13 @@ import javafx.collections.ObservableList;
 import symbiose.Iservice.IService;
 import symbiose.models.Field;
 import symbiose.utils.MyConnection;
+
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import static java.sql.Date.valueOf;
 
 public class ServiceField implements IService<Field> {
     private Connection con;
@@ -25,7 +24,7 @@ public class ServiceField implements IService<Field> {
     @Override
     public void add(Field field) throws SQLException {
         ste =con.createStatement();
-        String requeteInsert = "INSERT INTO `symbiose`.`field`(`serial_number`, `name`, `address`, `space`, `provider`, `price`,`date_start`,`date_end`,`booker_id`) VALUES ('" + field.getSerial_number() + "','" + field.getName() + "','" + field.getAddress() + "','" + field.getSpace() +"','" + field.getProvider() +"','" + field.getPrice() +"',Null,Null,Null);";
+        String requeteInsert = "INSERT INTO `symbiose`.`field`(`serial_number`, `name`, `address`, `space`, `provider`, `price`,`date_start`,`date_end`,`booker_id`) VALUES ('" + field.getSerial_number() + "','" + field.getName() + "','" + field.getName() + "','" + field.getAddress() + "','" + field.getSpace() +"','" + field.getProvider() +"','" + field.getPrice() +"',Null,Null,Null);";
         ste.executeUpdate(requeteInsert);
     }
 
@@ -65,9 +64,12 @@ public class ServiceField implements IService<Field> {
             String provider=rs.getString("provider");
             String price=rs.getString("price");
             String space=rs.getString("space");
-           Date stat=rs.getDate("date_start");
-           Date end=rs.getDate("date_end");
-            Field p=new Field(serial_number,name,address,space,provider,price/*,stat,end*/);
+
+            Date stat = valueOf(String.valueOf(rs.getString( "date_start")));
+           Date end=valueOf(String.valueOf(rs.getString("date_end")));
+
+
+            Field p=new Field(serial_number,name,address,space,provider,price/*stat,end*/);
             listTerrain.add(p);
         }
         return listTerrain;}

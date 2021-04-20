@@ -8,12 +8,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #b2ebf2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.New">
+<AnchorPane prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #b2ebf2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.admin.Scene1">
    <children>
       <VBox layoutX="11.0" layoutY="33.0" prefHeight="287.0" prefWidth="126.0" spacing="15.0" AnchorPane.topAnchor="60.0">
          <children>
@@ -57,10 +59,24 @@
             <Blend />
          </effect>
       </TableView>
-      <Button fx:id="addt" layoutX="28.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Ajouter" />
-      <Button fx:id="modif" layoutX="107.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Modifier" />
-      <Button fx:id="delete" layoutX="192.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="78.0" text="Supprimer" />
-      <BorderPane layoutX="1.0" layoutY="-3.0" prefHeight="35.0" prefWidth="857.0" style="-fx-background-color: #00bcd4;" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Button fx:id="addt" layoutX="73.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="63.0" />
+      <Button fx:id="modif" layoutX="147.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="57.0">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/shift_24px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="delete" layoutX="217.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="57.0">
+         <graphic>
+            <ImageView fitHeight="72.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/close_window_48px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <BorderPane layoutX="1.0" layoutY="-3.0" prefHeight="35.0" prefWidth="857.0" style="-fx-background-color: #002f6c;" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <Label alignment="CENTER" text="Terrain" textAlignment="CENTER" textFill="#0f8c96" BorderPane.alignment="CENTER">
                <font>
@@ -68,5 +84,18 @@
                </font>
             </Label>
          </center></BorderPane>
+      <Button layoutX="18.0" layoutY="373.0" mnemonicParsing="false" onAction="#SwitshToScene2" prefHeight="35.0" prefWidth="45.0">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/back_64px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="30.0" fitWidth="43.0" layoutX="90.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/add_24px.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

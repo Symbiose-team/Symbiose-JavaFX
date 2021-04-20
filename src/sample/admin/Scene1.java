@@ -1,29 +1,34 @@
-package sample;
+package sample.admin;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import symbiose.models.Field;
 import symbiose.servise.ServiceField;
 import symbiose.utils.MyConnection;
 
-import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
-
-import java.net.URL;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+public class Scene1 implements Initializable {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
-import static java.lang.Integer.*;
-
-public class New implements Initializable {
 
     @FXML
     private TextField sid;
@@ -85,6 +90,7 @@ Connection con;
     @FXML
     private Button delete;
      ServiceField sv =new ServiceField();
+
     @FXML
     private  void handleMousseAction(ActionEvent eventt) {
         Field field;
@@ -93,6 +99,22 @@ Connection con;
         sname.setText("" + field.getName());
         saddress.setText("" + field.getAddress());
         sprovider.setText("" + field.getProvider());
+
+    }
+    @FXML
+    public void SwitshToScene2(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("menuAdmin.fxml"));
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void ajouter(Field field){
+        LocalDate date = start.getValue();
+        LocalDate datee = end.getValue();
+        System.out.println(date);
+        String requeteInsert = "INSERT INTO `symbiose`.`field`(`serial_number`, `name`, `address`, `space`, `provider`, `price`,`date_start`,`date_end`,`booker_id`) VALUES ('" + field.getSerial_number() + "','" + field.getName() + "','" + field.getAddress() + "','" + field.getSpace() +"','" + field.getProvider() +"','" + field.getPrice() +"','" +date+ "','" +datee+ "',Null);";
+        executeQuery(requeteInsert);
 
     }
 
@@ -105,9 +127,10 @@ Connection con;
             String space=sspace.getText();
             String provider=sprovider.getText();
             String address=saddress.getText();
-
-            Field field=new Field(serial,name,address,price,provider,price);
-            sv.add(field);
+            Field field =new Field(serial,name,address,space,provider,price);
+             ajouter(field);
+           // Field field=new Field(serial,name,address,price,provider,price);
+            //sv.add(field);
 
         }else
             if (event.getSource()==modif){
@@ -148,6 +171,7 @@ Connection con;
         showStart.setCellValueFactory(new  PropertyValueFactory<Field, Date>("date_start"));
         showEnd.setCellValueFactory(new  PropertyValueFactory<Field, Date>("date_end"));
         tab.setItems(list);
+
     }
     private void executeQuery(String query) {
         con = MyConnection.getInstance().getCnx();
