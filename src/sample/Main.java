@@ -17,7 +17,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../Login/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../PI/login.fxml"));
 //we gonna remove the borderless thingie.
         stage.initStyle(StageStyle.DECORATED);
         stage.setMaximized(false);

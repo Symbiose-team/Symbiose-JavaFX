@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="contentPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PI.GestionUsers.controllers.UsersAdminController">
+   <children>
+      <AnchorPane prefHeight="522.0" prefWidth="1000.0">
+         <children>
+            <TableView fx:id="ProjectTable" layoutX="14.0" layoutY="52.0" prefHeight="362.0" prefWidth="906.0" stylesheets="/PI/GestionUsers/util/fullpackstyling.css">
+              <columns>
+                <TableColumn fx:id="clm_name" prefWidth="82.33334350585938" text="NAME" />
+                  <TableColumn fx:id="clm_lastname" prefWidth="103.00003051757812" text="LASTNAME" />
+                  <TableColumn fx:id="clm_username" prefWidth="95.66668701171875" text="USERNAME" />
+                  <TableColumn fx:id="clm_email" prefWidth="159.0" text="EMAIL" />
+                  <TableColumn fx:id="clm_avatar" prefWidth="83.0" text="AVATAR" />
+                  <TableColumn fx:id="clm_lastlogin" prefWidth="199.0" text="LAST_LOGIN" />
+                  <TableColumn fx:id="clm_action" prefWidth="180.0" text="STATUS + ACTION" />
+              </columns>
+            </TableView>
+            <Text fill="#16cabd" layoutX="491.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Users">
+               <font>
+                  <Font name="Calibri Light" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

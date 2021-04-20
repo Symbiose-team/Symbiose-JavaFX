@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane styleClass="scroll-bar" stylesheets="@../../util/fullpackstyling.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scrumifyd.GestionProjets.controllers.ProjectsAdminController">
+   <content>
+      <StackPane fx:id="contentPane">
+         <children>
+            <AnchorPane prefHeight="522.0" prefWidth="1001.0">
+               <children>
+                  <TableView fx:id="ProjectTable" layoutX="42.0" layoutY="73.0" prefHeight="304.0" prefWidth="879.0" stylesheets="@../../util/fullpackstyling.css">
+                    <columns>
+                      <TableColumn fx:id="clm_name" prefWidth="82.33334350585938" text="NAME" />
+                        <TableColumn fx:id="clm_description" prefWidth="103.00003051757812" text="DESCRIPTION" />
+                        <TableColumn fx:id="clm_created" prefWidth="95.66668701171875" text="CREATED" />
+                        <TableColumn fx:id="clm_deadline" prefWidth="94.33331298828125" text="DEADLINE" />
+                        <TableColumn fx:id="clm_status" prefWidth="69.66668701171875" text="STATUS" />
+                        <TableColumn fx:id="clm_status1" prefWidth="116.33331298828125" text="SCRUM MASTER" />
+                        <TableColumn fx:id="clm_status11" prefWidth="115.0" text="PROJECT OWNER" />
+                        <TableColumn fx:id="clm_status12" prefWidth="71.0" text="TEAM" />
+                        <TableColumn fx:id="clm_action" prefWidth="86.66668701171875" text="ACTION" />
+                    </columns>
+                  </TableView>
+                  <Text fill="#16cabd" layoutX="436.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Projects List">
+                     <font>
+                        <Font name="Calibri Light" size="24.0" />
+                     </font>
+                  </Text>
+                  <JFXButton fx:id="pdfExport" layoutX="799.0" layoutY="18.0" onMouseClicked="#pdfExport" styleClass="button2" stylesheets="@../../util/fullpackstyling.css" text="Export as pdf" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </content>
+</ScrollPane>

@@ -7,6 +7,7 @@ public class User {
     private String last_name;
     private String email;
     private String picture;
+    private String image;
     private String hash;
     private int cin;
     private java.util.Date birthday;
@@ -18,12 +19,16 @@ public class User {
     private String forgot_password_token;
     private String genre;
     private int id;
+    private boolean is_enabled;
 
-    public User(String first_name, String last_name, String email, String hash, int cin, Date birthday, String role, String adresse, int phone_number, String genre,int id) {
+
+
+    public User(String first_name, String last_name, String email, String image,String hash, int cin, Date birthday, String role, String adresse, int phone_number, String genre, int id,boolean is_enabled,String registration_token) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.hash = hash;
+        this.image=image;
         this.cin = cin;
         this.birthday = birthday;
         this.role = role;
@@ -31,6 +36,27 @@ public class User {
         this.phone_number = phone_number;
         this.genre=genre;
         this.id = id;
+        this.is_enabled=is_enabled;
+        this.registration_token=registration_token;
+    }
+    public User(){
+
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public boolean getIs_enabled() {
+        return is_enabled;
+    }
+
+    public void setIs_enabled(boolean is_enabled) {
+        this.is_enabled = is_enabled;
     }
 
     public String getGenre() {
@@ -97,7 +123,7 @@ public class User {
         this.cin=cin;
     }
 
-    public java.util.Date getBirthday(){
+    public Date getBirthday(){
         return birthday;
     }
 
