@@ -127,7 +127,7 @@ public class EventsMain implements Initializable {
 
     public void AddEvent() throws SQLException {
 
-        //Validators();
+        Validators();
 
         Integer numParticipants = 100;
         Integer numRemaining = 100;
@@ -184,6 +184,7 @@ public class EventsMain implements Initializable {
         System.out.println(tfID.getText());
         String query="DELETE FROM event WHERE id ='" +tfID.getText() + "'";
         executeQuery(query);
+        NotificationAPI.SuccessNotification("Event deleted","");
         System.out.println("Event Deleted");
         showEvent();
     }
@@ -230,7 +231,7 @@ public class EventsMain implements Initializable {
 
             NotificationAPI.SuccessNotification("Event join successfull","Thank you for joining :)");
 
-            //MailAPI.sendMail("norgoddev@gmail.com");
+            MailAPI.sendMail("norgoddev@gmail.com");
 
             String updateQuery ="UPDATE event SET num_remaining = '"+x+"'" +
                     "WHERE id = '"+tfID.getText()+"'";
