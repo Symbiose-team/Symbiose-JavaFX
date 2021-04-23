@@ -32,7 +32,17 @@
             <Glow />
          </effect>
       </Text>
-      <Button layoutX="354.0" layoutY="285.0" mnemonicParsing="false" onAction="#openEvents" text="Book your events">
+      <Button layoutX="400.0" layoutY="288.0" mnemonicParsing="false" onAction="#openEvents" prefHeight="30.0" prefWidth="100.0" text="Admin">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="529.0" layoutY="288.0" mnemonicParsing="false" onAction="#openFournisseurEvents" prefHeight="30.0" prefWidth="100.0" text="Fournisseur">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="271.0" layoutY="288.0" mnemonicParsing="false" onAction="#openClientEvents" prefHeight="30.0" prefWidth="100.0" text="Client">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

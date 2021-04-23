@@ -28,12 +28,17 @@ public class Main extends Application {
         Pane eventsMain = FXMLLoader.load(getClass().getResource("../gui/EventsMain.fxml"));
         Pane participantsMain = FXMLLoader.load(getClass().getResource("../gui/ParticipantsMain.fxml"));
         Pane invalidEvents = FXMLLoader.load(getClass().getResource("../gui/InvalidEvents.fxml"));
+        Pane clientEvents = FXMLLoader.load(getClass().getResource("../gui/ClientEvents.fxml"));
+        Pane fournisseurEvents = FXMLLoader.load(getClass().getResource("../gui/FournisseurEvents.fxml"));
 
         // adding all views objs to scene selector collection
         sceneSelector.addScreen("homePage",homePage);
         sceneSelector.addScreen("eventsMain",eventsMain);
         sceneSelector.addScreen("participantsMain", participantsMain);
         sceneSelector.addScreen("invalidEvents",invalidEvents);
+        sceneSelector.addScreen("clientEvents",clientEvents);
+        sceneSelector.addScreen("fournisseurEvents",fournisseurEvents);
+
     }
 
     public static void main(String[] args) {
