@@ -221,7 +221,7 @@ public class EventsMain implements Initializable {
 
         System.out.println(events.getName());
 
-        if (events.getNumRemaining() <= 0){
+        if (events.getNumRemaining() == 0){
             btnJoin.setDisable(true);
             System.out.println("you cant join this event");
 

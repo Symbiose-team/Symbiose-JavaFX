@@ -227,6 +227,13 @@ public class DashboardController implements Initializable {
         contentPane.getChildren().add(root);
     }
     @FXML
+    private void eventsConfirm(MouseEvent event) throws IOException {
+        contentPane.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/InvalidEvents.fxml"));
+        Parent root = (Parent) loader.load();
+        contentPane.getChildren().add(root);
+    }
+    @FXML
     private void chat(MouseEvent event) throws IOException {
         contentPane.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionCommunication/FXML/firstdashboard.fxml"));
