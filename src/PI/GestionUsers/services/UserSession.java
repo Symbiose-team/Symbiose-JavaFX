@@ -20,6 +20,12 @@ package PI.GestionUsers.services;
      private int userId;
      private String username;
      private String avatar;
+     private String role;
+     private String adresse;
+     private String cin;
+     private String genre;
+     private String birthday;
+     private String phone;
 
 
      private UserSession(int userId) {
@@ -37,15 +43,16 @@ package PI.GestionUsers.services;
          return userId;
      }
 
+
      public String getUsername(int userId) {
          try {
 
-             String req = "SELECT * FROM USER WHERE ID=" + userId + " ";
+             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
              while (result.next()) {
-                 String username = result.getString("name");
+                 String username = result.getString("first_name");
                   return username;
 
              }
@@ -54,10 +61,113 @@ package PI.GestionUsers.services;
          }
          return username;
      }
+     public String getRole(int userId) {
+         try {
+
+             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             Statement stm = connexion.createStatement();
+             ResultSet result = stm.executeQuery(req);
+
+             while (result.next()) {
+                 String role = result.getString("role");
+                 return role;
+
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Usercrud.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return role;
+     }
+     public String getAdresse(int userId) {
+         try {
+
+             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             Statement stm = connexion.createStatement();
+             ResultSet result = stm.executeQuery(req);
+
+             while (result.next()) {
+                 String adresse = result.getString("adresse");
+                 return adresse;
+
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Usercrud.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return adresse;
+     }
+     public String getCin(int userId) {
+         try {
+
+             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             Statement stm = connexion.createStatement();
+             ResultSet result = stm.executeQuery(req);
+
+             while (result.next()) {
+                 String cin = result.getString("cin");
+                 return cin;
+
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Usercrud.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return cin;
+     }
+     public String getGenre(int userId) {
+         try {
+
+             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             Statement stm = connexion.createStatement();
+             ResultSet result = stm.executeQuery(req);
+
+             while (result.next()) {
+                 String genre = result.getString("genre");
+                 return genre;
+
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Usercrud.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return genre;
+     }
+     public String getBirthday(int userId) {
+         try {
+
+             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             Statement stm = connexion.createStatement();
+             ResultSet result = stm.executeQuery(req);
+
+             while (result.next()) {
+                 String birthday = result.getString("birthday");
+                 return birthday;
+
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Usercrud.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return birthday;
+     }
+     public String getPhone(int userId) {
+         try {
+
+             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             Statement stm = connexion.createStatement();
+             ResultSet result = stm.executeQuery(req);
+
+             while (result.next()) {
+                 String phone = result.getString("phone_number");
+                 return phone;
+
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Usercrud.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return phone;
+     }
+
       public String getAvatar(int userId) {
          try {
 
-             String req = "SELECT * FROM USER WHERE ID=" + userId + " ";
+             String req = "SELECT image FROM USER WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 

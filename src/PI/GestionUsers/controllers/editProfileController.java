@@ -37,6 +37,7 @@ import PI.utils.BCrypt;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -84,13 +85,13 @@ public class editProfileController implements Initializable {
     protected JFXDatePicker birthday;
 
     @FXML
-    protected JFXTextField cin;
+    public JFXTextField cin;
 
     @FXML
-    protected JFXTextField phone;
+    public JFXTextField phone;
 
     @FXML
-    protected JFXComboBox<String> genre;
+    public JFXComboBox<String> genre;
     
     Usercrud uu = new Usercrud();
     @FXML
@@ -130,6 +131,7 @@ public class editProfileController implements Initializable {
     @FXML
     private Pane a1;
     String c;
+    public static UserSession user;
 
     /**
      * Initializes the controller class.
@@ -137,7 +139,7 @@ public class editProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         genre.getItems().addAll("Homme", "Femme");
-        genre.getSelectionModel().select("Homme");
+        genre.getSelectionModel().select(uu.getUser(user_id).getGenre());
         // TODO
         ch.setVisible(false);
         current.setVisible(false);
@@ -278,16 +280,17 @@ public class editProfileController implements Initializable {
             User u = new User();
             Usercrud U = new Usercrud();
             u = U.getUser(user_id);
+            user = UserSession.getInstace(user_id);
             sp.name.setText(u.getFirst_name());
             sp.lastname.setText(u.getLast_name());
             sp.email.setText(u.getEmail());
-            sp.birthday.setValue(LocalDate.parse(u.getBirthday().toString()));
-            sp.adresse.setText(u.getAdresse());
-            sp.genre.setValue(u.getRole());
-            sp.phone.setText(String.valueOf(u.getPhone_number()));
-            sp.cin.setText(String.valueOf(u.getCin()));
+            sp.birthday.setValue(LocalDate.parse(user.getBirthday(user_id).toString()));
+            sp.adresse.setText(user.getAdresse(user_id));
+            sp.genre.setValue(user.getGenre(user_id));
+            sp.phone.setText(String.valueOf(user.getPhone(user_id)));
+            sp.cin.setText((user.getCin(user_id)));
             String ava = u.getImage();
-            sp.avatar.setImage(new Image("/PI/GestionUsers/uploads/" + ava));
+            //sp.avatar.setImage(new Image("/PI/GestionUsers/uploads/images/" + ava));
             
             contentPane.getChildren().add(root);
         } catch (IOException ex) {
@@ -321,7 +324,9 @@ public class editProfileController implements Initializable {
             u.setGenre(genre.getValue().toString());
             u.setAdresse(adresse.getText());
             u.setPhone_number(Integer.parseInt(phone.getText().toString()));
-            u.setCin(Integer.parseInt(cin.getText().toString()));
+            u.setCin((cin.getText().toString()));
+            u.setBirthday(Date.valueOf(birthday.getValue().toString()));
+
             if (uu.updateProfile(u)) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Update profile", ButtonType.OK);
                 alert.setTitle("Update profile");
@@ -331,15 +336,15 @@ public class editProfileController implements Initializable {
                     try {
                         alert.hide();
                         contentPane.getChildren().clear();
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/scrumifyd/GestionProjets/views/Projects.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml"));
                         Parent root = (Parent) loader.load();
                         PI.GestionUsers.controllers.SigninController s = new PI.GestionUsers.controllers.SigninController();
                         user_id = s.user.getUserId();
                         String ava = s.user.getAvatar(user_id);
                         this.email.setText("" + s.user.getUsername(user_id));
-                        this.avatar.setImage(new Image("/PI/GestionUsers/uploads/" + ava));
+                        this.avatar.setImage(new Image("/PI/GestionUsers/uploads/images/" + ava));
 
-                        
+
                         contentPane.getChildren().add(root);
                     } catch (IOException ex) {
                         Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
@@ -416,7 +421,7 @@ public class editProfileController implements Initializable {
         System.out.println(img);
 
         
-        File file = new File("C:\\Users\\msdal\\Desktop\\Avatars\\src\\images" + img + ".png");
+        File file = new File("C:\\Users\\msdal\\Desktop\\Avatars\\src\\images\\" + img + ".png");
         int N=0;
         Random random = new Random();
         int io= random.nextInt(2367+N);

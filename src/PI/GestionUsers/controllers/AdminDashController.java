@@ -1,5 +1,6 @@
 package PI.GestionUsers.controllers;
 
+import PI.GestionUsers.services.UserSession;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,11 +11,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -32,12 +35,16 @@ public class AdminDashController implements Initializable {
 
     @FXML
     private Circle ExitButton;
+
     @FXML
     private Circle MinimizeButton;
+
     @FXML
     private Circle resizeButton;
+
     @FXML
     private PieChart charts;
+
     @FXML
     private PieChart charts1;
 
@@ -45,40 +52,64 @@ public class AdminDashController implements Initializable {
     private Pane contentPane;
 
     @FXML
-    private JFXButton Projects;
-    @FXML
-    private JFXButton settings;
-    @FXML
-    private AnchorPane Dashboard;
+    private JFXButton Products;
+
     @FXML
     private JFXButton teams;
+
+    @FXML
+    private JFXButton reservations;
+
+    @FXML
+    private JFXButton communications;
+
+    @FXML
+    private JFXButton events;
+
+    @FXML
+    private JFXButton statistics;
+
+    @FXML
+    private AnchorPane Dashboard;
 
     @FXML
     Label user_id;
 
     int user_idd;
+
     @FXML
     private JFXButton Users;
+
     @FXML
     private JFXButton deconnexion;
-    @FXML
-    private JFXButton statistics;
+
     @FXML
     private StackPane contentPane1;
 
+    public static UserSession user;
+
+    @FXML
+    private Label log_user;
+
+    @FXML
+    private Text user_name;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        SigninController s = new SigninController();
+        user_idd = s.user.getUserId();
+        this.user_name.setText("Hello ," + s.user.getUsername(user_idd));
+        this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
         // TODO     
-        contentPane.getChildren().clear();
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml"));
-
-        } catch (IOException ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        contentPane.getChildren().add(root);
+//        contentPane.getChildren().clear();
+//        Parent root = null;
+//        try {
+//            root = FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml"));
+//
+//        } catch (IOException ex) {
+//            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        contentPane.getChildren().add(root);
 
     }
 
@@ -135,42 +166,30 @@ public class AdminDashController implements Initializable {
         }
     }
 
-    public void loadUI(String module, String ui) {
-        contentPane1.getChildren().clear();
 
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/PI/" + module + "/views/" + ui + ".fxml"));
-
-        } catch (IOException ex) {
-            Logger.getLogger(AdminDashController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        contentPane1.getChildren().add(root);
-    }
-
-    @FXML
-    private void Projects(MouseEvent event) {
-
-    }
-
-    private void settings(MouseEvent event) {
-        loadUI("PI", "/GestionUsers/views/settings.fxml");
-    }
-
-    private void settings(ActionEvent event) {
-        loadUI("PI", "/GestionUsers/views/settings.fxml");
-
-    }
-
-    @FXML
-    private void openTeams(MouseEvent event) {
-
-    }
 
     @FXML
     private void Users(MouseEvent event) {
+        if (event.getSource() == Users) {
+//
+            try {
+//                Node node = (Node) event.getSource();
+//                Stage stage = (Stage) node.getScene().getWindow();
+//                stage.close();
+//                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml")));
+//                stage.setScene(scene);
+//                stage.show();
+                contentPane.getChildren().clear();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml"));
+                Parent root = (Parent) loader.load();
+                PI.GestionUsers.controllers.SigninController s = new PI.GestionUsers.controllers.SigninController();
+                contentPane.getChildren().add(root);
+            } catch (IOException ex) {
+                Logger.getLogger(SigninController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+        }
 
-    }
 
     @FXML
     private void deconnexion(MouseEvent event) {
@@ -189,28 +208,42 @@ public class AdminDashController implements Initializable {
             }
         }
     }
-
+    /**
+     *
+     * Pour l'integration !!!!!!!!!
+     * NB ! : dans FXML il faut ajouter onMouseClicked=#nom de la fonction de chaque module !!
+     */
     @FXML
-    private void OpenStatistics(MouseEvent event) {
-//        contentPane1.getChildren().clear();
+    private void statistics(MouseEvent event) {
 //
-//        contentPane.getChildren().clear();
-      
-//        InterfaceProjet pr = new ProjectService();
-//
-//        charts = new PieChart(pr.getProjectGraphStatisticsB());
-//        charts.setLayoutX(500);
-//
-//        charts1 = new PieChart(pr.getProjectTimeGraphStatisticsB());
-//
-//        contentPane.getChildren().addAll(charts, charts1);
-//        contentPane1.getChildren().addAll(contentPane);
+
+    }
+    @FXML
+    private void Products(MouseEvent event) {
+
+    }
+    @FXML
+    private void settings(MouseEvent event) {
 
     }
 
+    private void settings(ActionEvent event) {
+
+
+    }
 
     @FXML
-    private void teams(ActionEvent event) {
+    private void teams(MouseEvent event) {
+
+    }
+    @FXML
+    private void events(ActionEvent event) {
+    }
+    @FXML
+    private void communications(ActionEvent event) {
+    }
+    @FXML
+    private void reservations(ActionEvent event) {
     }
 
 

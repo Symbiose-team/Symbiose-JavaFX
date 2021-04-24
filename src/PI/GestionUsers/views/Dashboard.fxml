@@ -49,7 +49,7 @@
             </JFXButton>
          </children>
       </Pane>
-      <VBox layoutX="-1.0" layoutY="145.0" prefHeight="438.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="146.0">
+      <VBox layoutX="-1.0" layoutY="145.0" prefHeight="488.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="33.0" AnchorPane.topAnchor="146.0">
          <children>
             <Label prefHeight="30.0" prefWidth="252.0" text="Home" textFill="#171717">
                <font>
@@ -62,7 +62,7 @@
                   <Insets top="60.0" />
                </VBox.margin>
             </Label>
-            <JFXButton fx:id="Projects" alignment="BASELINE_LEFT" graphicTextGap="10.0" onMouseClicked="#Projects" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Product" textFill="#5b5858">
+            <JFXButton fx:id="Product" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Product" textFill="#5b5858">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -80,7 +80,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="activities" alignment="BASELINE_LEFT" graphicTextGap="10.0" onMouseClicked="#activities" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Event &amp; Activities" textFill="#5b5858">
+            <JFXButton fx:id="events" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Event &amp; Activities" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
@@ -95,7 +95,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="CalendarButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" onMouseClicked="#CalendarButton" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Book your match" textFill="#5b5858">
+            <JFXButton fx:id="reservation" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Book your match" textFill="#5b5858">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -113,7 +113,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="teams" alignment="BASELINE_LEFT" graphicTextGap="10.0" onMouseClicked="#openTeams" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Teams" textFill="#5b5858">
+            <JFXButton fx:id="teams" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Teams" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
@@ -128,7 +128,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="tasksOpen" alignment="BASELINE_LEFT" graphicTextGap="10.0" onMouseClicked="#tasksOpen" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Leaderboard" textFill="#5b5858">
+            <JFXButton fx:id="leaderboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Leaderboard" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
@@ -154,7 +154,7 @@
                   <Insets left="40.0" />
                </padding>
             </Label>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Tchat" textFill="#5b5858">
+            <JFXButton fx:id="chat" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Tchat" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
@@ -220,5 +220,10 @@
          </effect>
       </Pane>
       <StackPane fx:id="contentPane" layoutX="217.0" layoutY="172.0" prefHeight="518.0" prefWidth="959.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="217.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="172.0" />
+      <Label fx:id="log_user" layoutX="10.0" layoutY="635.0" text="Logged in as " textFill="#e44e08">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

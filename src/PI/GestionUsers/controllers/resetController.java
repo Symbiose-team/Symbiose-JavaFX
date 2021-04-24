@@ -241,7 +241,7 @@ public class resetController implements Initializable {
                 InternetHeaders headers = new InternetHeaders();
                 headers.addHeader("Content-type", "text/html; charset=UTF-8");
 
-                String html = "Symbiose\n" + "Reset Password" + "\n<a href='http://localhost/scrumify/web/app_dev.php/resetting/check-email?email="+crud.findByEmail(email)+"'>Reset now</a>";
+                String html = "Symbiose\n" + "Reset Password" + "\n<a href='#"+crud.findByEmail(email)+"'>Reset now</a>";
                 MimeBodyPart body = new MimeBodyPart(headers, html.getBytes("UTF-8"));
                 //messageBodyPart1.setHeader("Scrmify ", "Activate account !");
                 // messageBodyPart1.setText("Activate now");
@@ -290,7 +290,7 @@ if(!Email.getText().isEmpty()){
 
         webView2.setPrefSize(400, 500);
         webEngine.setUserAgent("use required / intended UA string");
-        webEngine.load("http://localhost/scrumify/web/app_dev.php/captcha");
+        webEngine.load("#");
 
         Button closeButton = new Button("Fermer");
         closeButton.setOnAction(e -> window.close());

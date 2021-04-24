@@ -24,7 +24,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -37,7 +36,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.commons.io.FileUtils;
-import PI.Main;
 import PI.utils.BCrypt;
 import PI.utils.MyDbConnection;
 import symbiose.models.User;
@@ -54,6 +52,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -255,12 +254,12 @@ public class HomeController implements Initializable {
         String role = Role.getValue().toString();
         String genre = Genre.getValue().toString();
         String Cin= cin.getText();
-        String Birthday = birthday.getValue().toString();
+        LocalDate Birthday = birthday.getValue();
         String Phone = phone.getText();
         String Adresse = adresse.getText();
         if (email.isEmpty() || password.isEmpty() || name.isEmpty() || lastname.isEmpty() || role.isEmpty() ||  Avatar.getText().isEmpty() || genre.isEmpty() || Birthday.equals(null) || Phone.isEmpty() || Cin.isEmpty() || Adresse.isEmpty()) {
             setLblError(Color.TOMATO, "Empty credentials");
-
+            result = 0;
         } else if (!password.equals(password1)) {
             setLblError(Color.TOMATO, "Passwords not identical");
             result = 0;

@@ -37,7 +37,7 @@ public class Usercrud {
             ste.setString(3, U.getEmail());
             ste.setString(4, U.getImage());
             ste.setString(5, BCrypt.hashpw(U.getHash(), BCrypt.gensalt(12)));
-            ste.setInt(6, U.getCin());
+            ste.setString(6, U.getCin());
             ste.setString(7, U.getBirthday().toString());
             ste.setString(8, U.getRole());
             ste.setString(9, U.getAdresse());
@@ -83,13 +83,13 @@ public class Usercrud {
         try {
             Statement st = Cn.createStatement();
 
-            String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `genre` ,`is_enabled`,`registration_token` FROM `user`";
+            String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `genre` ,`id` , `is_enabled`,`registration_token` FROM `user`";
 
 
             ResultSet rs = st.executeQuery(req); //retourne un résulat
 
             while (rs.next()) {
-                User U = new User(rs.getString("first_name"),rs.getString("last_name"),rs.getString("email"),rs.getString("image"),rs.getString("hash"),rs.getInt("cin"),rs.getDate("birthday"),rs.getString("role"),rs.getString("adresse"),rs.getInt("phone_number"),rs.getString("genre"),rs.getInt("id"),rs.getBoolean("is_enabled"),rs.getString("registration_token"));
+                User U = new User(rs.getString("first_name"),rs.getString("last_name"),rs.getString("email"),rs.getString("image"),rs.getString("hash"),rs.getString("cin"),rs.getDate("birthday"),rs.getString("role"),rs.getString("adresse"),rs.getInt("phone_number"),rs.getString("genre"),rs.getInt("id"),rs.getBoolean("is_enabled"),rs.getString("registration_token"));
                 l.add(U);
             }
 
@@ -109,7 +109,7 @@ public class Usercrud {
             ps.setString(5, BCrypt.hashpw(u.getHash(), BCrypt.gensalt(12)));
             ps.setString(6, u.getBirthday().toString());
             ps.setString(7, u.getAdresse());
-            ps.setInt(8, u.getCin());
+            ps.setString(8, u.getCin());
             ps.setInt(9,u.getPhone_number());
             ps.setBoolean(10,u.getIs_enabled());
             ps.setInt(11, u.getId());
@@ -297,11 +297,18 @@ public class Usercrud {
     }
     public Boolean updateProfile(User u) {
         try {
-            String update = "UPDATE user set first_name=? , last_name=? , email=? WHERE ID=" + u.getId() + "";
+            String update = "UPDATE user set first_name=?, last_name=?, email=?, birthday=?, cin=? , adresse=?, phone_number=?, genre=? WHERE ID=" + u.getId() + "";
             PreparedStatement stm = Cn.prepareStatement(update);
             stm.setString(1, u.getFirst_name());
             stm.setString(2, u.getLast_name());
             stm.setString(3, u.getEmail());
+            stm.setString(4, u.getBirthday().toString());
+            stm.setString(5,u.getCin());
+            stm.setString(6,u.getAdresse());
+            stm.setInt(7,u.getPhone_number());
+            stm.setString(8,u.getGenre().toString());
+
+
 
 
             int res = stm.executeUpdate();

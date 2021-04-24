@@ -49,8 +49,6 @@ public class DashboardController implements Initializable {
     private StackPane contentPane;
 
     @FXML
-    private JFXButton Projects;
-    @FXML
     private JFXButton settings;
     @FXML
     private AnchorPane Dashboard;
@@ -64,36 +62,50 @@ public class DashboardController implements Initializable {
     @FXML
     private JFXButton deconnexion;
     @FXML
-    private JFXButton CalendarButton;
-    @FXML
     private Label username;
     @FXML
-    private JFXButton tasksOpen;
+    private JFXButton Product;
+
     @FXML
-    private JFXButton activities;
+    private JFXButton events;
+
+    @FXML
+    private JFXButton reservation;
+
+    @FXML
+    private JFXButton leaderboard;
+
+    @FXML
+    private JFXButton chat;
+
     @FXML
     private JFXButton editprofile;
     @FXML
     private JFXDatePicker birthday;
-
+    @FXML
+    private Label log_user;
+    public static UserSession user;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        try {
-            // TODO
-            contentPane.getChildren().clear();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/PI/GestionUsers/views/Projects.fxml"));
-            Parent root = (Parent) loader.load();
-            SigninController s = new SigninController();
-            user_idd = s.user.getUserId();
-            ava = s.user.getAvatar(user_idd);
-            this.username.setText("Hello ," + s.user.getUsername(user_idd));
-            this.avatar.setImage(new Image("/PI/uploads/images/" + ava));
-            contentPane.getChildren().add(root);
-        } catch (IOException ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        SigninController s = new SigninController();
+        user_idd = s.user.getUserId();
+        this.username.setText("Hello ," + s.user.getUsername(user_idd));
+        this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
+//        try {
+//            // TODO
+//            contentPane.getChildren().clear();
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/PI/GestionUsers/views/Projects.fxml"));
+//            Parent root = (Parent) loader.load();
+//            SigninController s = new SigninController();
+//            user_idd = s.user.getUserId();
+//            ava = s.user.getAvatar(user_idd);
+//            this.username.setText("Hello ," + s.user.getUsername(user_idd));
+//            this.avatar.setImage(new Image("/PI/uploads/images/" + ava));
+//            contentPane.getChildren().add(root);
+//        } catch (IOException ex) {
+//            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
     }
 
@@ -164,18 +176,6 @@ public class DashboardController implements Initializable {
         contentPane.getChildren().add(root);
     }
 
-
-
-    @FXML
-    private void Projects(MouseEvent event) {
-
-    }
-
-    @FXML
-    private void openTeams(MouseEvent event) {
-
-    }
-
     @FXML
     private void deconnexion(MouseEvent event) {
         if (event.getSource() == deconnexion) {
@@ -189,9 +189,9 @@ public class DashboardController implements Initializable {
                 tray.setRectangleFill(Color.valueOf("#16cabd"));
                 tray.setTitle("Symniose App");
                 tray.setMessage("Logged out  !");
-//                Image img = new Image(Main.class.getResourceAsStream("/scrumifyd/images/scrumify.png"));
+//                Image img = new Image(Main.class.getResourceAsStream("/PI/Images/symbiose-logo.png"));
 //                tray.setImage(img);
-                //tray.setNotificationType(NotificationType.SUCCESS);
+//                tray.setNotificationType(NotificationType.SUCCESS);
                 tray.showAndDismiss(Duration.millis(3000));
                 Node node = (Node) event.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
@@ -205,18 +205,35 @@ public class DashboardController implements Initializable {
         }
     }
 
+    /**
+     *
+     * Pour l'integration !!!!!!!!!
+     * NB ! : dans FXML il faut ajouter onMouseClicked=#nom de la fonction de chaque module !!
+     */
     @FXML
-    private void CalendarButton(MouseEvent event) {
+    private void reservation(MouseEvent event) {
 
     }
 
     @FXML
-    private void tasksOpen(MouseEvent event) {
+    private void teams(MouseEvent event) {
 
     }
 
     @FXML
-    private void activities(MouseEvent event) {
+    private void events(MouseEvent event) {
+
+    }
+    @FXML
+    private void chat(MouseEvent event) {
+
+        }
+    @FXML
+    private void leaderboard(MouseEvent event) {
+
+        }
+    @FXML
+    private void Product(MouseEvent event) {
 
     }
 
@@ -233,14 +250,21 @@ public class DashboardController implements Initializable {
             //User u = new User();
             Usercrud U = new Usercrud();
             User u = U.getUser(user_idd);
+            user = UserSession.getInstace(user_idd);
+            sp.adresse.setText(user.getAdresse(user_idd)); //fix with session !
             sp.name.setText(u.getFirst_name());
             sp.lastname.setText(u.getLast_name());
             sp.email.setText(u.getEmail());
+            sp.genre.setValue(u.getGenre());
+            //sp.adresse.setText(u.getAdresse());
+            sp.phone.setText(user.getPhone(user_idd));
+            sp.birthday.setValue(LocalDate.parse(user.getBirthday(user_idd)));
+            sp.cin.setText(user.getCin(user_idd));
+
             String ava = u.getImage();
-            //sp.avatar.setImage(new Image("/PI/GestionUsers/uploads/" + ava));
+            //sp.avatar.setImage(new Image("/PI/GestionUsers/uploads/images/" + ava));
 
             contentPane.getChildren().add(root);
-            //loadUI("GestionProjets","Projects");
         } catch (IOException ex) {
             Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }

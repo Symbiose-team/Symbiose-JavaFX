@@ -1,5 +1,6 @@
 package symbiose.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class User {
@@ -9,8 +10,8 @@ public class User {
     private String picture;
     private String image;
     private String hash;
-    private int cin;
-    private java.util.Date birthday;
+    private String cin;
+    private Date birthday;
     private String slug;
     private String role;
     private String adresse;
@@ -23,7 +24,7 @@ public class User {
 
 
 
-    public User(String first_name, String last_name, String email, String image,String hash, int cin, Date birthday, String role, String adresse, int phone_number, String genre, int id,boolean is_enabled,String registration_token) {
+    public User(String first_name, String last_name, String email, String image,String hash, String cin, Date birthday, String role, String adresse, int phone_number, String genre, int id,boolean is_enabled,String registration_token) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -115,11 +116,11 @@ public class User {
         this.hash=hash;
     }
 
-    public int getCin(){
+    public String getCin(){
         return cin;
     }
 
-    public void setCin(int cin){
+    public void setCin(String cin){
         this.cin=cin;
     }
 
@@ -127,7 +128,7 @@ public class User {
         return birthday;
     }
 
-    public void setBirthday(java.util.Date birthday){
+    public void setBirthday(Date birthday){
         this.birthday=birthday;
     }
 
@@ -178,4 +179,6 @@ public class User {
     public void setForgot_password_token(String forgot_password_token){
         this.forgot_password_token=forgot_password_token;
     }
+
+
 }

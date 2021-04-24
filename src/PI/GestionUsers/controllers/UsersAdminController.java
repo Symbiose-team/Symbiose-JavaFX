@@ -28,10 +28,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collection;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -45,25 +43,29 @@ public class UsersAdminController implements Initializable {
     @FXML
     private StackPane contentPane;
     @FXML
-    private TableView<User> ProjectTable;
+    private TableView<User> UserTable;
     @FXML
-    private TableColumn<User, ?> clm_id;
+    private TableColumn<User, String> column_firstname;
     @FXML
-    private TableColumn<User, ?> clm_name;
+    private TableColumn<User, String> column_lastname;
     @FXML
-    private TableColumn<User, ?> clm_lastname;
+    private TableColumn<User, String> column_email;
     @FXML
-    private TableColumn<User, ?> clm_username;
+    private TableColumn<User, String> column_genre;
     @FXML
-    private TableColumn<User, ?> clm_email;
+    private TableColumn<User, String> column_role;
     @FXML
-    private TableColumn<User, Image> clm_avatar;
+    private TableColumn<User, Date> column_birthday;
     @FXML
-    private TableColumn<User, ?> clm_status;
+    private TableColumn<User, String> column_adresse;
     @FXML
-    private TableColumn<User, ?> clm_lastlogin;
+    private TableColumn<User, Integer> column_cin;
     @FXML
-    private TableColumn<User, JFXButton> clm_action;
+    private TableColumn<User, Integer> column_phone;
+    @FXML
+    private TableColumn<User, Integer> column_id;
+    @FXML
+    private TableColumn<User, JFXButton> column_action;
 
     private ObservableList<User> usersList;
 
@@ -84,15 +86,19 @@ public class UsersAdminController implements Initializable {
         //uList = new ArrayList<>();
         uList = ur.getAllUser();
         usersList = FXCollections.observableArrayList(uList);
-        clm_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        clm_lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
-        clm_username.setCellValueFactory(new PropertyValueFactory<>("username"));
-        clm_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        clm_avatar.setCellValueFactory(new PropertyValueFactory<>("image"));
-        clm_lastlogin.setCellValueFactory(new PropertyValueFactory<>("lastLogin"));
+        column_id.setCellValueFactory(new PropertyValueFactory<User, Integer>("id"));
+        column_firstname.setCellValueFactory(new PropertyValueFactory<User, String>("first_name"));
+        column_lastname.setCellValueFactory(new PropertyValueFactory<User, String>("last_name"));
+        column_email.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
+        column_cin.setCellValueFactory(new PropertyValueFactory<User, Integer>("cin"));
+        column_role.setCellValueFactory(new PropertyValueFactory<User, String>("role"));
+        column_genre.setCellValueFactory(new PropertyValueFactory<User, String>("genre"));
+        column_adresse.setCellValueFactory(new PropertyValueFactory<User, String>("adresse"));
+        column_phone.setCellValueFactory(new PropertyValueFactory<User, Integer>("phone_number"));
+        column_birthday.setCellValueFactory(new PropertyValueFactory<User, Date>("birthday"));
         Callback<TableColumn<User, JFXButton>, TableCell<User, JFXButton>> cellFactory;
 
-        clm_action.setCellFactory((param) -> {
+        column_action.setCellFactory((param) -> {
 
             final TableCell<User, JFXButton> cell = new TableCell<User, JFXButton>() {
                 final JFXButton btn1 = new JFXButton("Disable");
@@ -174,49 +180,24 @@ public class UsersAdminController implements Initializable {
 
         });
 
-        ProjectTable.getItems().setAll((Collection<? extends User>) (Collection<?>) usersList);
+        UserTable.getItems().setAll((Collection<? extends User>) (Collection<?>) usersList);
 
     }
 
-    public void loadUI(String ui) {
-        contentPane.getChildren().clear();
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/" + ui + ".fxml"));
-
-        } catch (IOException ex) {
-            Logger.getLogger(DashboardController.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        }
-        contentPane.getChildren().add(root);
-    }
-
-    @FXML
-    private void pdfExport(MouseEvent event) throws AWTException, MalformedURLException {
-//        List<List> printData = new ArrayList<>();
-//        String[] headers = {"ID", "   Name    ", "Description", "Etat", "    Created   ", "     Due date   "};
-//        printData.add(Arrays.asList(headers));
-//        for (Project pr : projectsList) {
-//            List<String> row = new ArrayList<>();
-//            String etat = ("" + pr.getEtat()).replaceAll("\t", " ");
-//            String id = ("" + pr.getId()).replaceAll("\t", " ");
-//            String created = ("" + pr.getCreated()).replaceAll("\t", " ");
-//            String duedate = ("" + pr.getDuedate()).replaceAll("\t", " ");
+//    public void loadUI(String ui) {
+//        contentPane.getChildren().clear();
+//        Parent root = null;
+//        try {
+//            root = FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/" + ui + ".fxml"));
 //
-//            row.add(id);
-//            row.add(pr.getName().replaceAll("\t", " "));
-//            row.add(pr.getDescription().replaceAll("\t", " "));
-//            row.add(etat);
-//
-//            row.add(created);
-//            row.add(duedate);
-//
-//            printData.add(row);
+//        } catch (IOException ex) {
+//            Logger.getLogger(DashboardController.class
+//                    .getName()).log(Level.SEVERE, null, ex);
 //        }
-//        ScrumifyUtil.initPDFExprot(contentPane, contentPane, getStage(), printData);
-    }
+//        contentPane.getChildren().add(root);
+//    }
 
     private Stage getStage() {
-        return (Stage) ProjectTable.getScene().getWindow();
+        return (Stage) UserTable.getScene().getWindow();
     }
 }

@@ -32,22 +32,22 @@
             </Label>
             <ImageView fitHeight="82.0" fitWidth="78.0" layoutX="641.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="/PI/GestionUsers/Images/Image1.png" />
+                  <Image url="@../Images/symbiose-logo.png" />
                </image>
             </ImageView>
             <Circle fx:id="ExitButton" fill="#ff391f" layoutX="1112.0" layoutY="29.0" onMouseClicked="#ExitButton" opacity="0.6" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Circle fx:id="resizeButton" fill="#71d02e" layoutX="1088.0" layoutY="29.0" onMouseClicked="#resizeButton" opacity="0.6" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Circle fx:id="MinimizeButton" fill="#d7ff1f" layoutX="1062.0" layoutY="29.0" onMouseClicked="#MinimizeButton" opacity="0.6" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Label fx:id="user_id" layoutX="1113.0" layoutY="119.0" text="Id" textFill="#625454" />
-            <Text fill="#918d8d" layoutX="990.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello," />
-            <Label layoutX="1034.0" layoutY="119.0" text="Amira" textFill="#918d8d" />
+            <Text fx:id="user_name" fill="#918d8d" layoutX="990.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello," />
+            <Label layoutX="1034.0" layoutY="119.0" textFill="#918d8d" />
             <Text fill="#625454" layoutX="1075.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/ Id :" />
             <JFXButton fx:id="deconnexion" layoutX="1011.0" layoutY="73.0" onMouseClicked="#deconnexion" styleClass="button2" stylesheets="/PI/GestionUsers/util/fullpackstyling.css" text="Déconnexion" textFill="WHITE" />
          </children>
       </Pane>
-      <VBox layoutX="-1.0" layoutY="145.0" prefHeight="438.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="146.0">
+      <VBox layoutX="-1.0" layoutY="145.0" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="38.0" AnchorPane.topAnchor="146.0">
          <children>
-            <Label prefHeight="30.0" prefWidth="252.0" text="PROJECTS" textFill="#171717">
+            <Label prefHeight="30.0" prefWidth="252.0" text="Dashboard" textFill="#171717">
                <font>
                   <Font size="13.0" />
                </font>
@@ -76,7 +76,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="Projects" alignment="BASELINE_LEFT" graphicTextGap="10.0" onMouseClicked="#Projects" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Projects List" textFill="#5b5858">
+            <JFXButton fx:id="Products" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Product List" textFill="#5b5858">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -94,7 +94,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="teams" alignment="BASELINE_LEFT" graphicTextGap="10.0" onAction="#teams" onMouseClicked="#openTeams" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Teams List" textFill="#5b5858">
+            <JFXButton fx:id="teams" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Teams List" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
@@ -109,14 +109,14 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="statistics" alignment="BASELINE_LEFT" graphicTextGap="10.0" onMouseClicked="#OpenStatistics" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Statistics" textFill="#5b5858">
+            <JFXButton fx:id="reservations" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Booking list" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="/PI/GestionUsers/Images/icons8_US_Dollar_64px.png" />
+                        <Image url="/PI/GestionUsers/Images/icons8_Share_64px.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -127,15 +127,25 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <Label prefHeight="30.0" prefWidth="252.0" text="ENTERPRISE" textFill="#171717">
+            <JFXButton fx:id="communications" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="345.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Communication list" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/PI/GestionUsers/Images/icons8_Share_64px.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
                <padding>
-                  <Insets left="40.0" />
+                  <Insets left="50.0" />
                </padding>
-            </Label>
-            <JFXButton fx:id="settings" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Settings" textFill="#5b5858">
+            </JFXButton>
+            <JFXButton fx:id="events" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Event list" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
@@ -150,14 +160,14 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="About" textFill="#5b5858">
+            <JFXButton fx:id="statistics" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Statistics" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="/PI/GestionUsers/Images/icons8_Share_64px.png" />
+                        <Image url="/PI/GestionUsers/Images/icons8_US_Dollar_64px.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -191,5 +201,6 @@
                </children>
             </Pane>
          </children></StackPane>
+      <Label fx:id="log_user" layoutX="15.0" layoutY="552.0" text="Logged in as " textFill="#0921d7" />
    </children>
 </AnchorPane>
