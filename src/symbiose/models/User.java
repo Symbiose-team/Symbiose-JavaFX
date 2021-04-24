@@ -43,6 +43,10 @@ public class User {
 
     }
 
+    public User(int id, String first_name, String last_name, String email, int cin, java.sql.Date birthday) {
+
+    }
+
     public String getImage() {
         return image;
     }

@@ -11,9 +11,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import symbiose.GestionEvents.models.Event;
-import symbiose.GestionEvents.utils.MyConnection;
-import symbiose.GestionEvents.utils.NotificationAPI;
+import symbiose.models.Event;
+import symbiose.utils.MyConnection;
+import symbiose.utils.NotificationAPI;
 
 import java.net.URL;
 import java.sql.Connection;

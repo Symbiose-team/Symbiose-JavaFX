@@ -6,8 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import symbiose.utils.SceneSelector;
 
 public class Main extends Application {
 
@@ -18,19 +20,20 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        /*
         // making pane obj
-        Pane homePage = FXMLLoader.load(getClass().getResource("GestionEvents/gui/EventsWelcome.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GestionUsers/views/Home.fxml"));
 
         // setting the main stage
-        primaryStage.setScene(new Scene(homePage));
-        primaryStage.setTitle("Event Management System");
-        primaryStage.show();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(root));
+        stage.setTitle("Event Management System");
+        stage.show();
 
         // the class to change scenes intuitively
-        SceneSelector sceneSelector = new SceneSelector(primaryStage.getScene());
+        SceneSelector sceneSelector = new SceneSelector(stage.getScene());
 
         // making objs of all views
+        Pane eventsWelcome = FXMLLoader.load(getClass().getResource("GestionEvents/gui/EventsWelcome.fxml"));
         Pane eventsMain = FXMLLoader.load(getClass().getResource("GestionEvents/gui/EventsMain.fxml"));
         Pane participantsMain = FXMLLoader.load(getClass().getResource("GestionEvents/gui/ParticipantsMain.fxml"));
         Pane invalidEvents = FXMLLoader.load(getClass().getResource("GestionEvents/gui/InvalidEvents.fxml"));
@@ -38,18 +41,18 @@ public class Main extends Application {
         Pane fournisseurEvents = FXMLLoader.load(getClass().getResource("GestionEvents/gui/FournisseurEvents.fxml"));
 
         // adding all views objs to scene selector collection
-        sceneSelector.addScreen("homePage",homePage);
+        sceneSelector.addScreen("eventsWelcome",eventsWelcome);
         sceneSelector.addScreen("eventsMain",eventsMain);
         sceneSelector.addScreen("participantsMain", participantsMain);
         sceneSelector.addScreen("invalidEvents",invalidEvents);
         sceneSelector.addScreen("clientEvents",clientEvents);
         sceneSelector.addScreen("fournisseurEvents",fournisseurEvents);
-        */
         
-        Parent root = FXMLLoader.load(getClass().getResource("GestionUsers/views/Home.fxml"));
 
         //borderless .
+        /*
         stage.initStyle(StageStyle.UNDECORATED);
+         */
 
 
         //stage.setMaximized(false);
@@ -64,9 +67,11 @@ public class Main extends Application {
             stage.setY(event.getScreenY() - yOffset);
         });
 
+        /*
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        */
 
     }
 
@@ -76,12 +81,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
-    }
-
-    // the last method that called
-    @Override
-    public void stop() {
-        Platform.exit();
     }
 
 }

@@ -1,10 +1,11 @@
-package symbiose.GestionEvents.models;
+package symbiose.models;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
-@Table(name = "special_event")
-public class SpecialEvent {
+@Table(name = "event")
+public class Event {
     @Id
     @Column(name = "id")
     private Integer id;
@@ -26,6 +27,19 @@ public class SpecialEvent {
 
     @Column(name = "state")
     private Byte state;
+
+    @Column(name = "supplier_id")
+    private Integer supplierId;
+
+    public Event(Integer id, String name, Integer numParticipants, Integer numRemaining, String type, Timestamp date, Byte state) {
+        this.id = id;
+        this.name = name;
+        this.numParticipants = numParticipants;
+        this.numRemaining = numRemaining;
+        this.type = type;
+        this.date = date;
+        this.state = state;
+    }
 
     public Integer getId() {
         return this.id;
@@ -81,5 +95,13 @@ public class SpecialEvent {
 
     public void setState(Byte state) {
         this.state = state;
+    }
+
+    public Integer getSupplierId() {
+        return this.supplierId;
+    }
+
+    public void setSupplierId(Integer supplierId) {
+        this.supplierId = supplierId;
     }
 }

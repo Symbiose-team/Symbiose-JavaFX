@@ -10,12 +10,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import symbiose.GestionEvents.models.Event;
+import symbiose.models.Event;
 import org.controlsfx.validation.ValidationSupport;
-import symbiose.GestionEvents.utils.MailAPI;
-import symbiose.GestionEvents.utils.MyConnection;
-import symbiose.GestionEvents.utils.NotificationAPI;
-import symbiose.GestionEvents.utils.SceneDialog;
+import symbiose.utils.MailAPI;
+import symbiose.utils.MyConnection;
+import symbiose.utils.NotificationAPI;
+import symbiose.utils.SceneDialog;
 
 import javax.mail.MessagingException;
 import java.net.URL;
@@ -126,7 +126,7 @@ public class ClientEvents implements Initializable {
     }
 
     public void openUsers(ActionEvent actionEvent) {
-        SceneDialog.openDialog("../symbiose.GestionEvents.gui/ParticipantsMain.fxml", anchorPane);
+        SceneDialog.openDialog("/symbiose/GestionEvents/gui/ParticipantsMain.fxml", anchorPane);
     }
 
     public void joinEvent(ActionEvent actionEvent) throws SQLException, MessagingException {

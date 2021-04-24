@@ -12,10 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import symbiose.GestionEvents.models.Event;
+import symbiose.models.Event;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
-import symbiose.GestionEvents.utils.*;
+import symbiose.utils.MailAPI;
+import symbiose.utils.MyConnection;
+import symbiose.utils.NotificationAPI;
+import symbiose.utils.SceneDialog;
 
 import javax.mail.MessagingException;
 import java.net.URL;
@@ -263,12 +266,12 @@ public class EventsMain implements Initializable {
 
     @FXML
     private void openUsers() {
-        SceneDialog.openDialog("../gui/ParticipantsMain.fxml", anchorPane);
+        SceneDialog.openDialog("/symbiose/GestionEvents/gui/ParticipantsMain.fxml", anchorPane);
     }
 
     @FXML
     public void openInvalidEvents() {
-        SceneDialog.openDialog("../gui/InvalidEvents.fxml", anchorPane);
+        SceneDialog.openDialog("/symbiose/GestionEvents/gui/InvalidEvents.fxml", anchorPane);
     }
 
     public void cancelEvent(ActionEvent actionEvent) throws SQLException {

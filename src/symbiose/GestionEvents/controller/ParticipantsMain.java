@@ -8,9 +8,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import symbiose.GestionEvents.models.User;
-import symbiose.GestionEvents.utils.MyConnection;
-import symbiose.GestionEvents.utils.SceneSelector;
+import symbiose.models.User;
+import symbiose.utils.MyConnection;
+import symbiose.utils.SceneSelector;
 
 import java.net.URL;
 import java.sql.Connection;

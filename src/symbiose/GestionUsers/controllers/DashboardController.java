@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -21,6 +22,8 @@ import javafx.util.Duration;
 import symbiose.GestionUsers.services.UserSession;
 import symbiose.models.User;
 import symbiose.GestionUsers.services.Usercrud;
+import symbiose.utils.SceneDialog;
+import symbiose.utils.SceneSelector;
 import tray.animations.AnimationType;
 import tray.notification.TrayNotification;
 
@@ -217,8 +220,11 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void events(MouseEvent event) {
-
+    private void events(MouseEvent event) throws IOException {
+        contentPane.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/EventsMain.fxml"));
+        Parent root = (Parent) loader.load();
+        contentPane.getChildren().add(root);
     }
     @FXML
     private void chat(MouseEvent event) {

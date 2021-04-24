@@ -1,4 +1,4 @@
-package symbiose.GestionEvents.utils;
+package symbiose.utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;

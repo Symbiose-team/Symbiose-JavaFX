@@ -1,4 +1,4 @@
-package symbiose.GestionEvents.utils;
+package symbiose.utils;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

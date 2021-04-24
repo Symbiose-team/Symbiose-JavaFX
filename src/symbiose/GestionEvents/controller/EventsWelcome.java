@@ -2,7 +2,7 @@ package symbiose.GestionEvents.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import symbiose.GestionEvents.utils.SceneSelector;
+import symbiose.utils.SceneSelector;
 
 public class EventsWelcome {
     // opens show flight symbiose.GestionEvents.gui

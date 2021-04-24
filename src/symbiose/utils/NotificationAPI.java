@@ -1,4 +1,4 @@
-package symbiose.GestionEvents.utils;
+package symbiose.utils;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

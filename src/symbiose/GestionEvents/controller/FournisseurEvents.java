@@ -11,12 +11,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import symbiose.GestionEvents.models.Event;
+import symbiose.models.Event;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
-import symbiose.GestionEvents.utils.MyConnection;
-import symbiose.GestionEvents.utils.NotificationAPI;
-import symbiose.GestionEvents.utils.SceneDialog;
+import symbiose.utils.MyConnection;
+import symbiose.utils.NotificationAPI;
+import symbiose.utils.SceneDialog;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -204,7 +204,7 @@ public class FournisseurEvents implements Initializable {
 
     @FXML
     private void openUsers() {
-        SceneDialog.openDialog("../symbiose.GestionEvents.gui/ParticipantsMain.fxml", anchorPane);
+        SceneDialog.openDialog("/symbiose/GestionEvents/gui/ParticipantsMain.fxml", anchorPane);
     }
 
 }

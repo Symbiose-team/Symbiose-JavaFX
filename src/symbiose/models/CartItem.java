@@ -1,4 +1,4 @@
-package symbiose.GestionEvents.models;
+package symbiose.models;
 
 import javax.persistence.*;
 
