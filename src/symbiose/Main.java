@@ -17,6 +17,35 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        /*
+        // making pane obj
+        Pane homePage = FXMLLoader.load(getClass().getResource("GestionEvents/gui/EventsWelcome.fxml"));
+
+        // setting the main stage
+        primaryStage.setScene(new Scene(homePage));
+        primaryStage.setTitle("Event Management System");
+        primaryStage.show();
+
+        // the class to change scenes intuitively
+        SceneSelector sceneSelector = new SceneSelector(primaryStage.getScene());
+
+        // making objs of all views
+        Pane eventsMain = FXMLLoader.load(getClass().getResource("GestionEvents/gui/EventsMain.fxml"));
+        Pane participantsMain = FXMLLoader.load(getClass().getResource("GestionEvents/gui/ParticipantsMain.fxml"));
+        Pane invalidEvents = FXMLLoader.load(getClass().getResource("GestionEvents/gui/InvalidEvents.fxml"));
+        Pane clientEvents = FXMLLoader.load(getClass().getResource("GestionEvents/gui/ClientEvents.fxml"));
+        Pane fournisseurEvents = FXMLLoader.load(getClass().getResource("GestionEvents/gui/FournisseurEvents.fxml"));
+
+        // adding all views objs to scene selector collection
+        sceneSelector.addScreen("homePage",homePage);
+        sceneSelector.addScreen("eventsMain",eventsMain);
+        sceneSelector.addScreen("participantsMain", participantsMain);
+        sceneSelector.addScreen("invalidEvents",invalidEvents);
+        sceneSelector.addScreen("clientEvents",clientEvents);
+        sceneSelector.addScreen("fournisseurEvents",fournisseurEvents);
+        */
+        
         Parent root = FXMLLoader.load(getClass().getResource("GestionUsers/views/Home.fxml"));
 
         //borderless .
@@ -47,6 +76,12 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
+    }
+
+    // the last method that called
+    @Override
+    public void stop() {
+        Platform.exit();
     }
 
 }

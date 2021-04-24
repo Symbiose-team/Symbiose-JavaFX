@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>26e9868f-0408-4e4e-923d-b740c0395b70.SCHEMA:symbiose</OriginalElement>
+  <nodes>
+    <node x="0.0" y="942.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.calendar</node>
+    <node x="1392.5" y="705.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.publication</node>
+    <node x="337.50000000000006" y="639.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.event</node>
+    <node x="1302.0" y="964.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.commentaire</node>
+    <node x="9.0" y="1196.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.party</node>
+    <node x="672.0" y="1196.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.availability</node>
+    <node x="201.0" y="1196.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.lobby</node>
+    <node x="1579.25" y="220.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.role</node>
+    <node x="211.25" y="975.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.message</node>
+    <node x="659.75" y="1008.5">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.game_joines</node>
+    <node x="379.0" y="1196.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.doctrine_migration_versions</node>
+    <node x="980.5" y="628.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.product</node>
+    <node x="717.9232954545455" y="694.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.game</node>
+    <node x="514.2830135440181" y="-34.178329571106076">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user</node>
+    <node x="19.5" y="617.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.field</node>
+    <node x="799.75" y="964.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.notification</node>
+    <node x="956.75" y="997.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.cart_item</node>
+    <node x="0.0" y="1323.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.client</node>
+    <node x="522.5" y="639.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.special_event</node>
+    <node x="188.5" y="705.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.conversation</node>
+    <node x="1163.5" y="672.0">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.reset_password_request</node>
+    <node x="1559.5" y="716.5">26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.role_user</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.calendar" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.field">
+      <point x="0.0" y="-104.5" />
+      <point x="0.0" y="137.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.cart_item" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.product">
+      <point x="0.0" y="-49.5" />
+      <point x="-40.75" y="126.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.commentaire" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="0.0" y="-82.5" />
+      <point x="1393.5" y="917.0" />
+      <point x="1382.0" y="917.0" />
+      <point x="1382.0" y="547.0" />
+      <point x="817.5625" y="547.0" />
+      <point x="145.4375" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.commentaire" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.publication">
+      <point x="61.0" y="-82.5" />
+      <point x="1454.5" y="917.0" />
+      <point x="1466.0" y="917.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.event" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="41.25" y="-115.5" />
+      <point x="461.25000000000006" y="587.0" />
+      <point x="616.1875" y="587.0" />
+      <point x="-55.9375" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.game_joines" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.game">
+      <point x="30.0" y="-38.0" />
+      <point x="749.75" y="917.0" />
+      <point x="750.9232954545455" y="917.0" />
+      <point x="-33.0" y="60.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.role_user" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="-27.25" y="-38.0" />
+      <point x="1586.75" y="537.0" />
+      <point x="839.9375" y="537.0" />
+      <point x="167.8125" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.conversation" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="32.0" y="-49.5" />
+      <point x="284.5" y="557.0" />
+      <point x="549.0625" y="557.0" />
+      <point x="-123.0625" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.field" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="0.0" y="-137.5" />
+      <point x="94.0" y="537.0" />
+      <point x="504.31250000000006" y="537.0" />
+      <point x="-167.8125" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.game_joines" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="-30.0" y="-38.0" />
+      <point x="689.75" y="917.0" />
+      <point x="698.0" y="917.0" />
+      <point x="698.0" y="597.0" />
+      <point x="683.3125" y="597.0" />
+      <point x="11.1875" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.special_event" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="41.25" y="-115.5" />
+      <point x="646.25" y="597.0" />
+      <point x="660.9375" y="597.0" />
+      <point x="-11.1875" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.notification" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.game">
+      <point x="-45.66666666666663" y="-82.5" />
+      <point x="822.5833333333335" y="917.0" />
+      <point x="816.9232954545455" y="917.0" />
+      <point x="33.0" y="60.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.reset_password_request" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="0.0" y="-82.5" />
+      <point x="1267.5" y="557.0" />
+      <point x="795.1875" y="557.0" />
+      <point x="123.0625" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.client" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.party">
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.game" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="0.0" y="-60.5" />
+      <point x="783.9232954545455" y="597.0" />
+      <point x="705.6875" y="597.0" />
+      <point x="33.5625" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.product" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="0.0" y="-126.5" />
+      <point x="1062.0" y="567.0" />
+      <point x="772.8125" y="567.0" />
+      <point x="100.6875" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.message" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="39.25" y="-71.5" />
+      <point x="329.0" y="917.0" />
+      <point x="327.0" y="917.0" />
+      <point x="327.0" y="567.0" />
+      <point x="571.4375" y="567.0" />
+      <point x="-100.6875" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.commentaire" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.product">
+      <point x="-61.0" y="-82.5" />
+      <point x="1332.5" y="917.0" />
+      <point x="1102.75" y="917.0" />
+      <point x="40.75" y="126.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.notification" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user">
+      <point x="45.666666666666686" y="-82.5" />
+      <point x="913.9166666666667" y="917.0" />
+      <point x="906.0066287878789" y="917.0" />
+      <point x="906.0066287878789" y="577.0" />
+      <point x="750.4375" y="577.0" />
+      <point x="78.3125" y="258.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.message" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.conversation">
+      <point x="-39.25" y="-71.5" />
+      <point x="250.5" y="917.0" />
+      <point x="252.5" y="917.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.role_user" target="26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.role">
+      <point x="27.25" y="-38.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5998645903859174" x="852.0" y="693.5" />
+  <SelectedNodes>
+    <node>26e9868f-0408-4e4e-923d-b740c0395b70.TABLE:symbiose.user</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
