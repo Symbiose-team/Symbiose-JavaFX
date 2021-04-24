@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class paiement {
-    /* public static void main() throws StripeException {
+   /* public static void main() throws StripeException {
           Stripe.apiKey="sk_test_51ITS8FLNTPBfKfeUzGNbDz0DPDyrmYXvB5JI2fXilniC1RpcdW8pM2ggmukff3MpFTIMtMJIpCilRwdZsbO9tP4X00si2vPzsH";
           Map<String,Object> cusomerParameter= new HashMap<String, Object>() ;
                cusomerParameter.put("email","cheima08sassi@gmail.tn");
@@ -23,7 +23,7 @@ public class paiement {
 
         Map<String, Object> customerMap = new HashMap<String, Object>();
         customerMap.put("description", "Example description");
-        customerMap.put("email", "test@example.com");
+        customerMap.put("email", "esprit@gmail.com");
         customerMap.put("payment_method", "pm_card_visa"); // obtained via Stripe.js
 
         try {
@@ -34,6 +34,18 @@ public class paiement {
            Customer a =Customer.retrieve("cus_JJnoy0NQe2v2i3");
             Gson gson=new GsonBuilder().setPrettyPrinting().create();
             System.out.println(gson.toJson(a));
+         /*   Map<String, Object> Card = new HashMap<String, Object>();
+             Card.put("number","424242424242");
+            Card.put("exp_month","8");
+            Card.put("exp_year","2022");
+            Card.put("cvv","524");
+            Map<String, Object> tokenParam = new HashMap<String, Object>();
+            tokenParam.put("card",Card);
+            Token token=new Token.create(tokenParam);
+            Map<String, Object> source = new HashMap<String, Object>();
+            Card.put("source",token.getId());
+            a.getSources().create(source);*/
+
         } catch (StripeException e) {
             e.printStackTrace();
         }

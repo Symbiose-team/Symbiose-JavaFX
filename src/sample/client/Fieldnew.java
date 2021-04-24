@@ -1,4 +1,4 @@
-package sample.fournisseur;
+package sample.client;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

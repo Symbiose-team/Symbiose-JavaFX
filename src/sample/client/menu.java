@@ -18,10 +18,11 @@ public class menu {
 
 
     }
+
     public void SwitshToScene6(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
-        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene=new Scene(root);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
@@ -30,21 +31,23 @@ public class menu {
 
     public void SwitshToScene5(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("field.fxml"));
-        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene=new Scene(root);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     public void SwitshToScene7(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../admin/Scene1.fxml"));
-        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene=new Scene(root);
+        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
     }
 
+
+}
 /* @FXML
     private AnchorPane panne1,panne2;
     @Override
@@ -59,4 +62,3 @@ public class menu {
     translateTransition.setByX(-600);
     translateTransition.play();
 */
-}

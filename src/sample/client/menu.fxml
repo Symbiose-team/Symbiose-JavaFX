@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.client.menu">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.client.menu">
    <children>
+      <ImageView fitHeight="476.0" fitWidth="695.0" layoutX="-25.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/terrain-arene-football-fond-stade-football-projecteurs-lumineux_212889-4388.jpg" />
+         </image>
+      </ImageView>
       <AnchorPane layoutY="-2.0" prefHeight="39.0" prefWidth="600.0" style="-fx-background-color: #002640;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="exite" fitHeight="17.0" fitWidth="35.0" layoutX="558.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0">
+            <ImageView fitHeight="17.0" fitWidth="35.0" layoutX="558.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0">
                <image>
                   <Image url="@../image/close_window_48px.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menu" fitHeight="24.0" fitWidth="35.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/menu_50px.png" />
                </image>
@@ -55,7 +63,7 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox layoutX="64.0" layoutY="4.0" prefHeight="363.0" prefWidth="143.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="4.0">
+            <VBox layoutX="79.0" layoutY="4.0" prefHeight="363.0" prefWidth="143.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="4.0">
                <children>
                   <Button fx:id="all" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#SwitshToScene7" prefHeight="37.0" prefWidth="143.0" text="Dashbord" textFill="#160d75" />
                   <Label prefHeight="13.0" prefWidth="35.0" />
@@ -72,6 +80,6 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="panne2" layoutX="248.0" layoutY="39.0" prefHeight="392.0" prefWidth="81.0" />
+      <AnchorPane layoutX="248.0" layoutY="39.0" prefHeight="392.0" prefWidth="81.0" />
    </children>
 </AnchorPane>

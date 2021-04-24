@@ -103,7 +103,14 @@ Connection con;
     }
     @FXML
     public void SwitshToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("menuAdmin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Scene3.fxml"));
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void SwitshToScene87(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Homee.fxml"));
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
         stage.setScene(scene);

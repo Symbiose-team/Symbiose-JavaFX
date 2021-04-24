@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class menu {
+public class Scene3 {
     private Stage stage;
     private Scene scene;
     private Parent root;

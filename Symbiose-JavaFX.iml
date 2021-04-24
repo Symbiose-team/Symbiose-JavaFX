@@ -13,5 +13,6 @@
     <orderEntry type="library" name="com.calendarfx:view:11.8.3" level="application" />
     <orderEntry type="library" name="org" level="application" />
     <orderEntry type="library" name="javax.persistence:javax.persistence-api:2.2" level="application" />
+    <orderEntry type="library" name="Memo_Calendar_1.0_eng" level="application" />
   </component>
 </module>
