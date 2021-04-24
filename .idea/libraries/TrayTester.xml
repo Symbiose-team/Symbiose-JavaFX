@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="TrayTester">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Test/ScrumifyDesktop-master/lib/TrayTester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/TrayTester.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

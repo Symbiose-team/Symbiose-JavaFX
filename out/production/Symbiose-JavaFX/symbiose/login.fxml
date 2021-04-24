@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="auth" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.LoginController">
+    <children>
+        <AnchorPane fx:id="bg_symbiose" prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #480c4c;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+<!--            <ImageView fitHeight="503.0" fitWidth="383.0" layoutX="-1.0" pickOnBounds="true">-->
+<!--               <image>-->
+<!--                  <Image url="@Images/93837-%5BConverted%5D.jpg" />-->
+<!--               </image>-->
+<!--            </ImageView>-->
+                <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="166.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@/symbiose/Imagesse/Images/Image1.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="105.0" layoutY="262.0" prefHeight="23.0" prefWidth="173.0" text="Symbiose" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="18.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="89.0" layoutY="295.0" prefHeight="23.0" prefWidth="205.0" text="Se divertir autrement !" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Pane fx:id="login_auth" layoutX="488.0" layoutY="100.0" AnchorPane.bottomAnchor="73.0" AnchorPane.topAnchor="100.0">
+            <children>
+                <TextField fx:id="txtUsername" layoutX="7.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" />
+                <PasswordField fx:id="txtPassword" layoutX="7.0" layoutY="61.0" prefHeight="34.0" prefWidth="275.0" promptText="password" stylesheets="@/symbiose/stylinge/styling/fullpackstyling.css" />
+                <Button fx:id="btnSignin" layoutX="145.0" layoutY="125.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="34.0" prefWidth="137.0" stylesheets="@/symbiose/stylinge/styling/fullpackstyling.css" text="Sign in" />
+                <Label fx:id="btnForgot" alignment="CENTER" layoutX="8.0" layoutY="131.0" prefHeight="23.0" prefWidth="93.0" text="Forgot Password" textFill="#5383ff">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnFB" layoutX="4.0" layoutY="215.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="275.0" style="-fx-background-color: #0C39FF;" text="Sign in with Facebook" textFill="WHITE" />
+                <Button fx:id="btnSignup" layoutX="4.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleButtonActionOnSignup" prefHeight="34.0" prefWidth="275.0" stylesheets="@/symbiose/stylinge/styling/fullpackstyling.css" text="Sign up" />
+                <Separator layoutX="8.0" layoutY="190.0" prefHeight="7.0" prefWidth="275.0" />
+                <Label alignment="CENTER" layoutX="126.0" layoutY="179.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Or" textFill="#5b5a5a">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+                <Separator layoutY="270.0" prefHeight="7.0" prefWidth="275.0" />
+                <Label alignment="CENTER" layoutX="122.0" layoutY="262.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Or" textFill="#5b5a5a">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblErrors" alignment="CENTER" layoutX="8.0" layoutY="95.0" prefHeight="23.0" prefWidth="275.0" textFill="#ff6354">
+                    <font>
+                        <Font name="Segoe UI" size="10.0" />
+                    </font>
+                </Label>
+            <Icons525View id="signin" fx:id="signin" fill="#0c39ff" glyphName="SIGN_IN" layoutX="165.0" layoutY="150.0" size="16" text="" wrappingWidth="17.300000190734863" />
+            <Icons525View fx:id="userplus" fill="#0c39ff" glyphName="USER_PLUS" layoutX="97.0" layoutY="320.0" size="16" />
+            </children>
+        </Pane>
+      <AnchorPane fx:id="signup1" layoutX="-1.0" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #480c4c;" visible="false">
+         <children>
+            <JFXTextField fx:id="nom" focusColor="#f2650d" layoutX="264.0" layoutY="110.0" prefHeight="30.0" prefWidth="154.0" promptText="Nom" style="-fx-text-fill: #fff;" unFocusColor="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="Email" focusColor="#f2650d" layoutX="264.0" layoutY="155.0" prefHeight="30.0" prefWidth="325.0" promptText="Email Address" style="-fx-text-fill: #fff;" unFocusColor="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="password" focusColor="#f2650d" layoutX="264.0" layoutY="197.0" prefHeight="30.0" prefWidth="154.0" promptText="Password" style="-fx-text-fill: #fff;" unFocusColor="#ffffffde">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXButton fx:id="signup_ins" layoutX="329.0" layoutY="455.0" onMouseClicked="#handleSignup" prefHeight="34.0" prefWidth="189.0" ripplerFill="#e03939de" style="-fx-background-color: #f45c48;" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="388.0" layoutY="61.0" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="prenom" focusColor="#f2650d" layoutX="433.0" layoutY="110.0" prefHeight="30.0" prefWidth="154.0" promptText="Prénom" style="-fx-text-fill: #fff;" unFocusColor="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="confirmpassword" focusColor="#f2650d" layoutX="433.0" layoutY="197.0" prefHeight="30.0" prefWidth="154.0" promptText="Confirm Password" style="-fx-text-fill: #fff;" unFocusColor="#ffffffde">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXDatePicker fx:id="birthday" defaultColor="WHITE" layoutX="264.0" layoutY="246.0" prefHeight="25.0" prefWidth="154.0" promptText="Date de naissance" />
+            <JFXComboBox fx:id="role" focusColor="#f2650d" layoutX="433.0" layoutY="246.0" prefHeight="25.0" prefWidth="154.0" promptText="Role" unFocusColor="WHITE" />
+            <JFXTextField fx:id="cin" focusColor="#f2650d" layoutX="427.0" layoutY="299.0" prefHeight="25.0" prefWidth="163.0" promptText="CIN" unFocusColor="WHITE" />
+            <JFXTextField fx:id="adresse" focusColor="#f2650d" layoutX="264.0" layoutY="349.0" prefHeight="25.0" prefWidth="154.0" promptText="Adresse" unFocusColor="WHITE" />
+            <JFXTextField fx:id="phone" focusColor="#f2650d" layoutX="427.0" layoutY="349.0" prefHeight="25.0" prefWidth="163.0" promptText="Numéro Tel" unFocusColor="WHITE" />
+            <Label fx:id="lblErrors" alignment="CENTER" layoutX="286.0" layoutY="425.0" prefHeight="23.0" prefWidth="275.0" textFill="#ff6354">
+               <font>
+                  <Font name="Segoe UI" size="10.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="back_to_auth" layoutX="747.0" layoutY="30.0" prefHeight="31.0" prefWidth="93.0" ripplerFill="#341d86de" style="-fx-background-color: #f45c48;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXComboBox fx:id="Genre" focusColor="#f2650d" layoutX="264.0" layoutY="299.0" prefHeight="25.0" prefWidth="154.0" promptText="Genre" unFocusColor="WHITE" />
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="fontawesomefx-commons-8.15">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-commons-8.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-octicons-4.3.0-5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-emojione-2.2.7-2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-controls-8.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-materialicons-2.2.0-5 (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-fontawesome-4.7.0-5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-glyphsbrowser-1.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-materialdesignfont-1.7.22-4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-materialicons-2.2.0-5.jar!/" />
+      <root url="file://$PROJECT_DIR$/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
+  </library>
+</component>

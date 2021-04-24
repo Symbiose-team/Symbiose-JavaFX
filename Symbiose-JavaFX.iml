@@ -8,16 +8,15 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="library" name="jfoenix-8.0.10" level="project" />
-    <orderEntry type="library" name="fontawesomefx" level="project" />
     <orderEntry type="library" name="controlsfx-8.40.11" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:8.0.23" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6 (2)" level="project" />
     <orderEntry type="library" name="commons-io-2" level="project" />
     <orderEntry type="library" name="AnimateFX-1.2.0" level="project" />
-    <orderEntry type="library" name="javax.mail" level="project" />
     <orderEntry type="library" name="TrayNotification" level="project" />
     <orderEntry type="library" name="TrayTester" level="project" />
-    <orderEntry type="library" name="javax.mail1" level="project" />
+    <orderEntry type="library" name="jfoenix-8.0.101" level="project" />
+    <orderEntry type="library" name="javax.mail" level="project" />
+    <orderEntry type="library" name="fontawesomefx-commons-8.15" level="project" />
   </component>
 </module>

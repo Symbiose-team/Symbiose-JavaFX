@@ -1,15 +1,9 @@
 <component name="libraryTable">
   <library name="commons-io-2">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../Test/ScrumifyDesktop-master/lib/commons-io-2.6" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io-2.6.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="file://$PROJECT_DIR$/../Test/ScrumifyDesktop-master/lib/commons-io-2.6/docs" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/../Test/ScrumifyDesktop-master/lib/commons-io-2.6" />
-    </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/../Test/ScrumifyDesktop-master/lib/commons-io-2.6" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/../Test/ScrumifyDesktop-master/lib/commons-io-2.6" recursive="false" type="SOURCES" />
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>
