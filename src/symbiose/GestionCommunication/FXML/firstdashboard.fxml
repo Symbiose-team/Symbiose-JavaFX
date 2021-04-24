@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="content" prefHeight="537.0" prefWidth="1010.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.GestionCommunication.Controller.firstdashboard">
+   <children>
+      <Button fx:id="btn_mes_achat1" layoutX="235.0" layoutY="123.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="70.0" prefWidth="538.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Reclamations" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_mes_achat11" layoutX="235.0" layoutY="233.0" mnemonicParsing="false" onAction="#product" prefHeight="70.0" prefWidth="538.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Products" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_mes_achat12" layoutX="235.0" layoutY="334.0" mnemonicParsing="false" onAction="#chat" prefHeight="70.0" prefWidth="538.0" style="-fx-background-color: #ffffff; -fx-border-color: #5297ec; -fx-border-width: 1.5px;" text="Chat" textFill="#5297ec">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

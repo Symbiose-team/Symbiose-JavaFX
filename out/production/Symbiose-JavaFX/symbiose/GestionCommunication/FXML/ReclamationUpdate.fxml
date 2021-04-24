@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="container" prefHeight="606.0" prefWidth="945.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.GestionCommunication.Controller.ReclamationUpdateController">
+   <children>
+      <VBox layoutX="178.0" layoutY="47.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="18.0" prefWidth="957.0" text="Nouvelle reclamation" textFill="#5297ec">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label text="Sujet">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="16.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txt_sujet" prefHeight="32.0" prefWidth="859.0">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Type de reclamation">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="16.0" />
+               </VBox.margin>
+            </Label>
+            <ComboBox fx:id="cbb_type" prefHeight="32.0" prefWidth="930.0" promptText="Choisissez un type" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin>
+            </ComboBox>
+            <Label text="Contenu">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="16.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="TOP_CENTER" prefWidth="914.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextArea fx:id="txt_contenu" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </VBox.margin>
+                        </TextArea>
+                        <Label fx:id="lb_error" alignment="CENTER" prefHeight="48.0" prefWidth="882.0" textFill="#d94141">
+                           <VBox.margin>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btn_ok" mnemonicParsing="false" onAction="#modifier" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: #5297ec;" text="modifier" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="btn_back" mnemonicParsing="false" onAction="#retour" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: #5297ec;" text="Retour" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

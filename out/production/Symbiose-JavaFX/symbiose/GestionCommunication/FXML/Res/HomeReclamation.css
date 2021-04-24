@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 22, 2020, 1:41:27 PM
+    Author     : KattaX
+*/
+
+/* Style buttons */
+.forgetBtn{
+    -fx-text-fill:#a3a3a3;
+}
+
+.forgetBtn:hover{
+    -fx-text-fill:#6747CD;
+}
+
+.loginBtn{
+    -fx-background-color : #6747CD;
+    -fx-background-radius : 10px;
+    -fx-text-fill:#FFF;
+
+}
+
+.loginBtn:hover{
+    -fx-background-color : transparent;
+    -fx-background-radius : 10px;
+    -fx-text-fill:#6747CD;
+    -fx-border-color:#6747CD;
+    -fx-border-width:1px;
+    -fx-border-style:solid;
+    -fx-border-radius : 10px;
+
+}
+
+.closeBtn{
+    -fx-fill : #545454;
+}
+
+.closeBtn:hover{
+    -fx-fill : #ff6666;
+}
+
+.backBtn{
+    -fx-fill : #545454;
+}
+
+.backBtn:hover{
+    -fx-fill : #6747CD;
+}
+.btns1{
+    -fx-background-color: transparent;
+}
+.btns1:hover{
+    -fx-background-color: #202332;
+}

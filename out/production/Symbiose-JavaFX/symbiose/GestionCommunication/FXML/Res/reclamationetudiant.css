@@ -1,0 +1,24 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.check-box .box {
+
+-fx-background-color:white;
+-fx-border-color:red;
+-fx-border-radius:6px; 
+
+}
+
+.check-box:selected .mark {
+
+-fx-background-color: white;
+
+}
+
+.check-box:selected .box {
+
+-fx-background-color: #28a3f4;
+}
+

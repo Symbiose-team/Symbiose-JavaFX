@@ -227,8 +227,11 @@ public class DashboardController implements Initializable {
         contentPane.getChildren().add(root);
     }
     @FXML
-    private void chat(MouseEvent event) {
-
+    private void chat(MouseEvent event) throws IOException {
+        contentPane.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionCommunication/FXML/firstdashboard.fxml"));
+        Parent root = (Parent) loader.load();
+        contentPane.getChildren().add(root);
         }
     @FXML
     private void leaderboard(MouseEvent event) {

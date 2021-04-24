@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="143.0" prefWidth="963.0" AnchorPane.bottomAnchor="148.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="img" fitHeight="182.0" fitWidth="196.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox prefHeight="109.0" prefWidth="502.0">
+               <children>
+                  <Label fx:id="lb_titre" prefHeight="34.0" prefWidth="402.0" text="produit X" textFill="#5297ec">
+                     <padding>
+                        <Insets left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lb_formateur" prefHeight="18.0" prefWidth="402.0" text="Jhon Wick" textFill="#676767">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lb_description" prefHeight="18.0" prefWidth="431.0" text="formation description ...............">
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_RIGHT" prefHeight="154.0" prefWidth="265.0">
+               <children>
+                  <Label fx:id="lb_prix" prefHeight="18.0" prefWidth="164.0" text="150.999 TND">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btn_comm" mnemonicParsing="false" prefHeight="42.0" prefWidth="257.0" style="-fx-background-color: #5297ec; -fx-border-radius: 30;" text="Ajouter un commentaire" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <ListView fx:id="listview" layoutX="102.0" layoutY="142.0" prefHeight="165.0" prefWidth="608.0" />
+      <TextField fx:id="inputcom" layoutX="121.0" layoutY="307.0" prefHeight="26.0" prefWidth="464.0" />
+      <Button fx:id="addb" layoutX="585.0" layoutY="304.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #5297ec; -fx-border-radius: 30;" text="Add" />
+      <Button fx:id="del1" layoutX="639.0" layoutY="304.0" mnemonicParsing="false" onAction="#del" prefHeight="26.0" prefWidth="38.0" style="-fx-background-color: Tomato; -fx-border-radius: 30;" text="del" />
+   </children>
+</AnchorPane>
