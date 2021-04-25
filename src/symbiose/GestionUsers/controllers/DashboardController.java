@@ -92,6 +92,14 @@ public class DashboardController implements Initializable {
         user_idd = s.user.getUserId();
         this.username.setText("Hello ," + s.user.getUsername(user_idd));
         this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
+        String role = s.user.getRole(user_idd);
+        if (role.equals("Fournisseur")){
+            invalidevents.isDisabled();
+        }else if(role.equals("Client")){
+            invalidevents.isDisabled();
+        }else{
+            invalidevents.isDisabled();
+        }
 //        try {
 //            // TODO
 //            contentPane.getChildren().clear();
@@ -223,19 +231,28 @@ public class DashboardController implements Initializable {
         this.username.setText("Hello ," + s.user.getUsername(user_idd));
         this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
         System.out.println(s.user.getRole(user_idd));
+        String role = s.user.getRole(user_idd);
+
 
         contentPane.getChildren().clear();
 
-        if (s.user.getRole(user_idd) == "Fournisseur"){
+        if (role.equals("Fournisseur")){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/fournisseur/home.fxml"));
             Parent root = (Parent) loader.load();
             contentPane.getChildren().add(root);
-        }else{
+
+        }else if (role.equals("Admin")){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/admin/Homee.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+
+        }
+        else{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/client/menu.fxml"));
             Parent root = (Parent) loader.load();
             contentPane.getChildren().add(root);
-        }
 
+        }
 
     }
     @FXML
@@ -260,12 +277,12 @@ public class DashboardController implements Initializable {
 
         contentPane.getChildren().clear();
 
-        if (role == "Fournisseur"){
+        if (role.equals("Fournisseur")){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/FournisseurEvents.fxml"));
             Parent root = (Parent) loader.load();
             contentPane.getChildren().add(root);
 
-        }else if (role == "Admin"){
+        }else if (role.equals("Admin")){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/EventsMain.fxml"));
             Parent root = (Parent) loader.load();
             contentPane.getChildren().add(root);
