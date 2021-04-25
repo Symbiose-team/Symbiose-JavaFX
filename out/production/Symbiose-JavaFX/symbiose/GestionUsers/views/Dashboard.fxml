@@ -131,7 +131,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="teams" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Teams" textFill="#5b5858">
+            <JFXButton fx:id="teams"  onMouseClicked="#terrains" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Terrains" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>

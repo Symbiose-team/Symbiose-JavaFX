@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.GestionTerrains.client.field">
+   <children>
+      <TableView fx:id="tabb" layoutX="43.0" layoutY="40.0" onSort="#showFieldd" prefHeight="200.0" prefWidth="452.0" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="40.0">
+        <columns>
+          <TableColumn fx:id="showserialNumber" onEditStart="#showFieldd" prefWidth="75.0" text="SerialNumber" />
+          <TableColumn fx:id="showName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="showAddress" prefWidth="75.0" text="Provider" />
+            <TableColumn fx:id="showSpace" prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="showProvider" prefWidth="75.0" text="Space" />
+            <TableColumn fx:id="showPrice" prefWidth="75.0" text="Address" />
+        </columns>
+      </TableView>
+      <ButtonBar layoutX="14.0" layoutY="351.0" prefHeight="27.0" prefWidth="113.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="14.0">
+        <buttons>
+            <Label minWidth="46.0" prefHeight="22.0" />
+        </buttons>
+      </ButtonBar>
+    <Button layoutX="63.0" layoutY="315.0" minWidth="43.0" mnemonicParsing="false" onAction="#SwitshToScene9" prefHeight="32.0" prefWidth="63.0">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/back_64px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

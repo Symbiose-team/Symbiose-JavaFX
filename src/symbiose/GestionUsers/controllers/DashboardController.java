@@ -215,7 +215,14 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    private void teams(MouseEvent event) {
+    private void terrains(MouseEvent event) throws IOException {
+
+        contentPane.getChildren().clear();
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/admin/Homee.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/fournisseur/home.fxml"));
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/client/menu.fxml"));
+        Parent root = (Parent) loader.load();
+        contentPane.getChildren().add(root);
 
     }
 
