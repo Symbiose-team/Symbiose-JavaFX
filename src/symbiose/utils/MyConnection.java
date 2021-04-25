@@ -1,8 +1,16 @@
+<<<<<<< HEAD:src/symbiose/utils/MyConnection.java
 package symbiose.utils;
+=======
+package symbiose.GestionTerrains.utils;
+>>>>>>> terrains_integration:src/symbiose/GestionTerrains/utils/MyConnection.java
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+<<<<<<< HEAD:src/symbiose/utils/MyConnection.java
+=======
+
+>>>>>>> terrains_integration:src/symbiose/GestionTerrains/utils/MyConnection.java
 
 
 public class MyConnection {

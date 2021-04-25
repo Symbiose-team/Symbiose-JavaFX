@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="stripe-java-20.47.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/stripe-java-20.47.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

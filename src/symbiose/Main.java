@@ -23,6 +23,10 @@ public class Main extends Application {
         // making pane obj
         Parent root = FXMLLoader.load(getClass().getResource("GestionUsers/views/Home.fxml"));
 
+        //Parent root = FXMLLoader.load(getClass().getResource("GestionTerrains/admin/Homee.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("GestionTerrains/fournisseur/home.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("GestionTerrains/client/menu.fxml"));
+
         // setting the main stage
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(new Scene(root));
