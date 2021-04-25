@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import symbiose.GestionTerrains.models.Field;
+import symbiose.GestionTerrains.entities.Field;
 import symbiose.GestionTerrains.servise.ServiceField;
 import symbiose.GestionTerrains.utils.MyConnection;
 

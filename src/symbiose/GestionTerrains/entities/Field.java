@@ -1,4 +1,4 @@
-package symbiose.GestionTerrains.models;
+package symbiose.GestionTerrains.entities;
 
 
 import javax.persistence.FetchType;

@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-import symbiose.GestionTerrains.models.Field;
+import symbiose.GestionTerrains.entities.Field;
 import symbiose.GestionTerrains.servise.ServiceField;
 import symbiose.GestionTerrains.utils.MyConnection;
 

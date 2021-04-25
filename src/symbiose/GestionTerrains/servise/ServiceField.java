@@ -3,7 +3,7 @@ package symbiose.GestionTerrains.servise;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import symbiose.GestionTerrains.Iservice.IService;
-import symbiose.GestionTerrains.models.Field;
+import symbiose.GestionTerrains.entities.Field;
 import symbiose.GestionTerrains.utils.MyConnection;
 
 import java.sql.*;

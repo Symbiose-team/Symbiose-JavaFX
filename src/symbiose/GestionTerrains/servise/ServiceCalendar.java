@@ -2,7 +2,7 @@ package symbiose.GestionTerrains.servise;
 
 import javafx.collections.ObservableList;
 import symbiose.GestionTerrains.Iservice.IService;
-import symbiose.GestionTerrains.models.Calendar;
+import symbiose.GestionTerrains.entities.Calendar;
 import symbiose.GestionTerrains.utils.MyConnection;
 
 import java.sql.Connection;
