@@ -7,12 +7,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="library" name="mysql:mysql-connector-java:8.0.23" level="application" />
-    <orderEntry type="library" name="mysql:mysql-connector-java:8.0.22" level="application" />
-    <orderEntry type="library" name="com.calendarfx:view:11.8.3" level="application" />
-    <orderEntry type="library" name="org" level="application" />
-    <orderEntry type="library" name="javax.persistence:javax.persistence-api:2.2" level="application" />
-    <orderEntry type="library" name="Memo_Calendar_1.0_eng" level="application" />
+    <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" exported="" name="controlsfx-8.40.14" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.8.5" level="project" />
+    <orderEntry type="library" exported="" name="stripe-java-20.47.0" level="project" />
+    <orderEntry type="library" exported="" name="mysql-connector-java-8.0.23" level="project" />
+    <orderEntry type="library" exported="" name="javax.persistence" level="project" />
+    <orderEntry type="library" exported="" name="com.calendarfx:view:8.6.1" level="project" />
   </component>
 </module>
