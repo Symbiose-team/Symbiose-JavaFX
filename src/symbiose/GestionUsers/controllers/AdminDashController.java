@@ -219,8 +219,23 @@ public class AdminDashController implements Initializable {
     }
     @FXML
     private void Products(MouseEvent event) {
-
+        try {
+//                Node node = (Node) event.getSource();
+//                Stage stage = (Stage) node.getScene().getWindow();
+//                stage.close();
+//                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml")));
+//                stage.setScene(scene);
+//                stage.show();
+            contentPane.getChildren().clear();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionUsers/views/UsersAdmin.fxml"));
+            Parent root = (Parent) loader.load();
+            SigninController s = new SigninController();
+            contentPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(SigninController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
     @FXML
     private void settings(MouseEvent event) {
 
@@ -236,13 +251,68 @@ public class AdminDashController implements Initializable {
 
     }
     @FXML
-    private void events(ActionEvent event) {
+    private void events(ActionEvent event) throws IOException {
+        if (event.getSource() == Users) {
+//
+            try {
+//                Node node = (Node) event.getSource();
+//                Stage stage = (Stage) node.getScene().getWindow();
+//                stage.close();
+//                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml")));
+//                stage.setScene(scene);
+//                stage.show();
+                contentPane.getChildren().clear();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/EventsMain.fxml"));
+                Parent root = (Parent) loader.load();
+                SigninController s = new SigninController();
+                contentPane.getChildren().add(root);
+            } catch (IOException ex) {
+                Logger.getLogger(SigninController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    @FXML
+    private void eventsConfirm(MouseEvent event) throws IOException {
+        try {
+//                Node node = (Node) event.getSource();
+//                Stage stage = (Stage) node.getScene().getWindow();
+//                stage.close();
+//                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml")));
+//                stage.setScene(scene);
+//                stage.show();
+            contentPane.getChildren().clear();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/InvalidEvents.fxml"));
+            Parent root = (Parent) loader.load();
+            SigninController s = new SigninController();
+            contentPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(SigninController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     @FXML
     private void communications(ActionEvent event) {
     }
     @FXML
-    private void reservations(ActionEvent event) {
+    private void terrains(ActionEvent event) throws IOException {
+        try {
+//                Node node = (Node) event.getSource();
+//                Stage stage = (Stage) node.getScene().getWindow();
+//                stage.close();
+//                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/PI/GestionUsers/views/UsersAdmin.fxml")));
+//                stage.setScene(scene);
+//                stage.show();
+            contentPane.getChildren().clear();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/admin/Homee.fxml"));
+            Parent root = (Parent) loader.load();
+            SigninController s = new SigninController();
+            contentPane.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(SigninController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    @FXML
+    private void Product(MouseEvent event) {
+
     }
 
 

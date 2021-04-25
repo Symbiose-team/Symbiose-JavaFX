@@ -37,6 +37,7 @@ import java.util.logging.Logger;
 
 public class DashboardController implements Initializable {
 
+    public JFXButton invalidevents;
     @FXML
     private Circle ExitButton;
     @FXML
@@ -217,29 +218,68 @@ public class DashboardController implements Initializable {
     @FXML
     private void terrains(MouseEvent event) throws IOException {
 
+        SigninController s = new SigninController();
+        user_idd = s.user.getUserId();
+        this.username.setText("Hello ," + s.user.getUsername(user_idd));
+        this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
+        System.out.println(s.user.getRole(user_idd));
+
         contentPane.getChildren().clear();
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/admin/Homee.fxml"));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/fournisseur/home.fxml"));
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/client/menu.fxml"));
-        Parent root = (Parent) loader.load();
-        contentPane.getChildren().add(root);
+
+        if (s.user.getRole(user_idd) == "Fournisseur"){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/fournisseur/home.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+        }else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionTerrains/client/menu.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+        }
+
 
     }
+    @FXML
+    private void invalidevents(MouseEvent event) throws IOException {
 
-    @FXML
-    private void events(MouseEvent event) throws IOException {
         contentPane.getChildren().clear();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/EventsMain.fxml"));
-        Parent root = (Parent) loader.load();
-        contentPane.getChildren().add(root);
-    }
-    @FXML
-    private void eventsConfirm(MouseEvent event) throws IOException {
-        contentPane.getChildren().clear();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/InvalidEvents.fxml"));
         Parent root = (Parent) loader.load();
         contentPane.getChildren().add(root);
     }
+
+    @FXML
+    private void events(MouseEvent event) throws IOException {
+
+        SigninController s = new SigninController();
+        user_idd = s.user.getUserId();
+        this.username.setText("Hello ," + s.user.getUsername(user_idd));
+        this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
+        String role = s.user.getRole(user_idd);
+        System.out.println(role);
+
+        contentPane.getChildren().clear();
+
+        if (role == "Fournisseur"){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/FournisseurEvents.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+
+        }else if (role == "Admin"){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/EventsMain.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+
+        }
+        else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/ClientEvents.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+
+        }
+
+    }
+
     @FXML
     private void chat(MouseEvent event) throws IOException {
         contentPane.getChildren().clear();

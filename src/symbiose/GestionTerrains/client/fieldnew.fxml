@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.GestionTerrains.fournisseur.Fieldnew">
-   <ImageView fitHeight="430.0" fitWidth="602.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="430.0" fitWidth="602.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../image/terrain-arene-football-fond-stade-football-projecteurs-lumineux_212889-4388.jpg" />
       </image>
@@ -37,7 +37,7 @@
                 <Label prefHeight="28.0" prefWidth="57.0" text="Date Start " />
                 <Label prefHeight="35.0" prefWidth="49.0" text="Date Fin" />
         </VBox>
-        <VBox layoutX="123.0" layoutY="33.0" prefHeight="256.0" prefWidth="174.0" spacing="8.0" AnchorPane.topAnchor="60.0">
+        <VBox layoutX="127.0" layoutY="59.0" prefHeight="257.0" prefWidth="318.0" spacing="8.0" AnchorPane.topAnchor="59.0">
 
                 <TextField fx:id="sid" prefHeight="20.0" prefWidth="120.0" promptText="Serial_Number" />
                 <TextField fx:id="sname" promptText="Name" />

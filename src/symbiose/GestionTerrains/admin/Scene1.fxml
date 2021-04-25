@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.GestionTerrains.admin.Scene1">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1124.0" layoutX="-156.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="-156.0" AnchorPane.rightAnchor="-268.0" AnchorPane.topAnchor="15.0">
+      <ImageView fitHeight="700.0" fitWidth="1124.0" layoutX="-165.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="-165.0" AnchorPane.rightAnchor="-230.5" AnchorPane.topAnchor="5.0">
          <image>
             <Image url="@../image/terrain-arene-football-fond-stade-football-projecteurs-lumineux_212889-4388.jpg" />
          </image>
@@ -63,7 +63,14 @@
          </children>
       </VBox>
 
-      <Button fx:id="addt" layoutX="73.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="63.0" />
+      <Button fx:id="addt" layoutX="73.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="63.0">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/add_24px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Button fx:id="modif" layoutX="147.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="57.0">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -96,10 +103,5 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <ImageView fitHeight="30.0" fitWidth="43.0" layoutX="90.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/add_24px.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import symbiose.utils.SceneDialog;
 
 /**
  * FXML Controller class
@@ -95,5 +96,24 @@ public class firstdashboard implements Initializable {
     primaryStage.show();
 
     }
-    
+
+    public void chart(ActionEvent actionEvent) {
+
+        Stage primaryStage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/chartgraph.fxml"));
+            root = loader.load();
+            HomeChat controller = loader.getController();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(root, 1400, 600);
+        primaryStage.setResizable(false);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Chart");
+        primaryStage.show();
+    }
 }

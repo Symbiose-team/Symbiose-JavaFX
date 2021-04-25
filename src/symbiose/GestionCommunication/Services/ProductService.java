@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import symbiose.GestionCommunication.Entities.Reclamation;
 import symbiose.GestionCommunication.Entities.User;
+import symbiose.utils.MyConnection;
 import symbiose.utils.MyDbConnection;
 
 import java.sql.PreparedStatement;
@@ -28,7 +29,7 @@ import java.util.Vector;
  */
 public class ProductService {
 
-    private Connection con = MyDbConnection.getInstance().getConnexion();
+    private Connection con = MyConnection.getInstance().getConnection();
     private Statement ste;
 
     public ProductService() {
@@ -44,9 +45,14 @@ public int countp() throws SQLException {
          int nb = 0;
 
         String req1 = "SELECT count(*) FROM `product`";
+
+
         PreparedStatement preparedStatement = con.prepareStatement(req1);
 
         ResultSet result = preparedStatement.executeQuery();
+
+        System.out.println(result);
+
         if (result.first()) {
             nb = result.getInt(1);
         }

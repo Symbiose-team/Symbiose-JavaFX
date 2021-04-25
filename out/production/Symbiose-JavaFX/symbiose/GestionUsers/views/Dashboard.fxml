@@ -62,7 +62,7 @@
                   <Insets top="60.0" />
                </VBox.margin>
             </Label>
-            <JFXButton fx:id="Product" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Product" textFill="#5b5858">
+            <JFXButton fx:id="Product" onMouseClicked="#Product" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Product" textFill="#5b5858">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -96,7 +96,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="Invalidevents" onMouseClicked="#eventsConfirm" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Confirm Events" textFill="#5b5858">
+            <JFXButton fx:id="invalidevents" onMouseClicked="#invalidevents" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Confirm events" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
@@ -147,7 +147,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="leaderboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Leaderboard" textFill="#5b5858">
+            <JFXButton fx:id="leaderboard" onMouseClicked="#leaderboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Matches" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>
