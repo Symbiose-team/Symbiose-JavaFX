@@ -17,8 +17,9 @@ public class RoleUser {
         return this.roleId;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public int setRoleId(Integer roleId) {
+        return this.roleId = roleId;
+
     }
 
     public Integer getUserId() {

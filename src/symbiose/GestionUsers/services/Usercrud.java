@@ -2,6 +2,8 @@ package symbiose.GestionUsers.services;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import symbiose.models.Role;
+import symbiose.models.RoleUser;
 import symbiose.models.User;
 import symbiose.utils.BCrypt;
 import symbiose.utils.MyDbConnection;
@@ -26,7 +28,9 @@ public class Usercrud {
 
     }
 
+
     public void ajouterUser(User U) {
+        Role r = new Role();
         try {
             Statement st = Cn.createStatement(); //l'element qui va éxécuter la requete sql
 
@@ -40,6 +44,12 @@ public class Usercrud {
             ste.setString(6, U.getCin());
             ste.setString(7, U.getBirthday().toString());
             ste.setString(8, U.getRole());
+            if(U.getRole()=="Client"){
+                String req_role="INSERT INTO `role` (`title`) VALUES (?)";
+                PreparedStatement ster=Cn.prepareStatement(req_role);
+                ster.setString(1,r.setTitle("ROLE_CLIENT"));
+                ster.executeUpdate();
+            }
             ste.setString(9, U.getAdresse());
             ste.setInt(10, U.getPhone_number());
             ste.setString(11, U.getGenre());
@@ -131,6 +141,24 @@ public class Usercrud {
                 u.setHash(rs.getString(6));
             }
             return u;
+        } catch (SQLException ex) {
+            System.out.println("erreur" + ex.getMessage());
+            return null;
+        }
+
+    }
+    public Role VerifyRole(String role) {
+        Role r = new Role();
+
+        String query = "SELECT * FROM `role` where title = '"+role+"'";
+        try {
+            Statement st = Cn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            if (rs.next()) {
+                r.setId(rs.getInt(1));
+                r.setTitle(rs.getString(2));
+            }
+            return r;
         } catch (SQLException ex) {
             System.out.println("erreur" + ex.getMessage());
             return null;

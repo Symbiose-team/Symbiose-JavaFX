@@ -243,7 +243,7 @@ public class resetController implements Initializable {
 
                 String html = "Symbiose\n" + "Reset Password" + "\n<a href='#"+crud.findByEmail(email)+"'>Reset now</a>";
                 MimeBodyPart body = new MimeBodyPart(headers, html.getBytes("UTF-8"));
-                //messageBodyPart1.setHeader("Scrmify ", "Activate account !");
+                //messageBodyPart1.setHeader("Symbiose ", "Activate account !");
                 // messageBodyPart1.setText("Activate now");
                 //5) create Multipart object and add MimeBodyPart objects to this object      
                 Multipart multipart = new MimeMultipart();
