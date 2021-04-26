@@ -10,14 +10,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import symbiose.GestionTerrains.entities.Field;
 import symbiose.GestionTerrains.servise.ServiceField;
+import symbiose.utils.SceneDialog;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class home {
+    public AnchorPane anchorPane;
     @FXML
     private TableView<Field> tabb;
     @FXML
