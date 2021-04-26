@@ -331,8 +331,28 @@ public class DashboardController implements Initializable {
 
         }
     @FXML
-    private void Product(MouseEvent event) {
+    private void Product(MouseEvent event) throws IOException {
+        SigninController s = new SigninController();
+        user_idd = s.user.getUserId();
+        this.username.setText("Hello ," + s.user.getUsername(user_idd));
+        this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
+        String role = s.user.getRole(user_idd);
+        System.out.println(role);
 
+        contentPane.getChildren().clear();
+
+        if (role.equals("Admin")){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionProduits/sample.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+
+        }
+        else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionProduits/sample.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+
+        }
     }
 
     @FXML

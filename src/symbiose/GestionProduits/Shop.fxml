@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane prefHeight="659.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.GestionProduits.ShopController">
+   <tabs>
+      <Tab closable="false" text="Clothing">
+         <content>
+            <AnchorPane prefHeight="424.0" prefWidth="677.0">
+               <children>
+                  <ImageView fitHeight="629.0" fitWidth="982.0" layoutX="156.0" layoutY="-4.0" opacity="0.07" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@resources/51-N432CaQL._AC_SL1000_.jpg" />
+                  </ImageView>
+                  <VBox layoutX="113.0" layoutY="444.0" prefHeight="136.0" prefWidth="725.0">
+                     <children>
+                        <TextArea fx:id="taSummary" editable="false" prefHeight="177.0" prefWidth="568.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </VBox>
+                  <Label layoutX="301.0" layoutY="14.0" text="Order our Clothes">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="115.0" layoutY="586.0" mnemonicParsing="false" onAction="#changeScreenButton" text="&lt; Go Back">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnOrder" layoutX="711.0" layoutY="586.0" mnemonicParsing="false" onAction="#handleOrderButtonAction" text="Order">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnReset" layoutX="774.0" layoutY="586.0" mnemonicParsing="false" onAction="#handleResetButtonAction" prefHeight="30.0" prefWidth="64.0" text="Reset">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <HBox layoutX="80.0" layoutY="134.0" prefHeight="181.0" prefWidth="567.0" spacing="50.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <RadioButton fx:id="rbTShirt" mnemonicParsing="false" text="T-Shirt">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tgState" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <ImageView fx:id="imgTshirt" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/4ebe50e2495b17a79c31e48a0e54883f.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <RadioButton fx:id="rbSneakers" mnemonicParsing="false" text="Sneakers" toggleGroup="$tgState">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font></RadioButton>
+                              <ImageView fx:id="imgSneakers" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/footwear-keds-nike-run-shoe-shoes-sneaker-icon-sneaker-png-512_512.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <RadioButton fx:id="rbShorts" mnemonicParsing="false" text="Shorts" toggleGroup="$tgState">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font></RadioButton>
+                              <ImageView fx:id="imgShorts" fitHeight="124.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <RadioButton fx:id="rbSocks" mnemonicParsing="false" text="Socks" toggleGroup="$tgState">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font></RadioButton>
+                              <ImageView fx:id="imgSocks" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/black-sports-socks-with-contrast-logo-mens-pullbear-socks.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <RadioButton fx:id="rbCrampons" mnemonicParsing="false" text="Crampons" toggleGroup="$tgState">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font></RadioButton>
+                              <ImageView fx:id="imgCrampons" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lbType" layoutX="52.0" layoutY="74.0" text="Type :">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="240.0" layoutY="331.0" prefHeight="107.0" prefWidth="471.0" spacing="50.0">
+                     <children>
+                        <VBox prefHeight="96.0" prefWidth="140.0" spacing="10.0">
+                           <children>
+                              <Label fx:id="lbSize" text="Size">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="cbSize" prefHeight="29.0" prefWidth="190.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="101.0" prefWidth="125.0" spacing="10.0">
+                           <children>
+                              <Label fx:id="lbQuantity" text="Quantity">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tfQuantity">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="107.0" prefWidth="93.0" spacing="10.0">
+                           <children>
+                              <Label fx:id="lbCoupon" text="Coupon">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <CheckBox fx:id="chkOne" mnemonicParsing="false" text="\$1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </CheckBox>
+                              <CheckBox fx:id="chkTwo" mnemonicParsing="false" text="\$2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </CheckBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Equipment">
+         <content>
+            <AnchorPane prefHeight="424.0" prefWidth="677.0">
+               <children>
+                  <ImageView fitHeight="629.0" fitWidth="982.0" layoutX="134.0" layoutY="-4.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/38-380548_sports-in-india-sports-clip-art-png.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="299.0" layoutY="212.0" prefHeight="101.0" prefWidth="125.0" spacing="10.0">
+                     <children>
+                        <Label fx:id="lbEquipmentQuantity" text="Quantity">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfEquipmentQuantity">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="168.0" layoutY="332.0" prefHeight="136.0" prefWidth="568.0">
+                     <children>
+                        <TextArea fx:id="taSummaryEquipment" editable="false" prefHeight="177.0" prefWidth="568.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="199.0" layoutY="109.0" prefHeight="83.0" prefWidth="540.0" spacing="10.0">
+                     <children>
+                        <Label fx:id="lbTypeClothing" text="Type">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="26.0" prefWidth="531.0" spacing="20.0">
+                           <children>
+                              <RadioButton fx:id="rbFootball" mnemonicParsing="false" text="Football">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tgStateEquipment" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rbBasketball" mnemonicParsing="false" text="Basketball" toggleGroup="$tgStateEquipment">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rbRacket" mnemonicParsing="false" text="Racket" toggleGroup="$tgStateEquipment">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rbPaintball" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Paintball" toggleGroup="$tgStateEquipment">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rbTennisball" layoutX="77.0" layoutY="10.0" mnemonicParsing="false" text="Tennisball" toggleGroup="$tgStateEquipment">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="517.0" layoutY="221.0" prefHeight="83.0" prefWidth="66.0" spacing="5.0">
+                     <children>
+                        <Label fx:id="lbEquipmentCoupon" text="Coupon">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="chkOneEquipment" mnemonicParsing="false" text="\$1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="chkTwoEquipment" mnemonicParsing="false" text="\$2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <Label layoutX="306.0" layoutY="40.0" text="Order our Equipment">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="168.0" layoutY="476.0" mnemonicParsing="false" onAction="#changeScreenButton" text="&lt; Go Back">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnOrderEquipment" layoutX="609.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleOrderEquipmentButtonAction" text="Order">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnResetEquipment" layoutX="672.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleResetEquipmentButtonAction" prefHeight="30.0" prefWidth="64.0" text="Reset">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Cart">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="taTotalSummary" layoutX="717.0" layoutY="163.0" prefHeight="200.0" prefWidth="206.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextArea>
+                  <Button fx:id="btnCalculateSales" layoutX="765.0" layoutY="373.0" mnemonicParsing="false" onAction="#handleCalculateSalesButtonAction" text="Calculate Sales">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <TextArea fx:id="taSalesSummary" editable="false" layoutX="31.0" layoutY="148.0" prefHeight="255.0" prefWidth="658.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextArea>
+                  <Label layoutX="147.0" layoutY="51.0" text="Check Products total">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
