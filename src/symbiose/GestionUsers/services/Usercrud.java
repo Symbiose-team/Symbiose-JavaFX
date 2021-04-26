@@ -222,6 +222,7 @@ public class Usercrud {
 
         return c;
     }
+
     public User getUser(int id) {
         User u = new User();
 

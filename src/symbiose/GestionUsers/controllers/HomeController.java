@@ -5,6 +5,7 @@
  */
 package symbiose.GestionUsers.controllers;
 
+import symbiose.GestionUsers.services.UserSession;
 import symbiose.GestionUsers.services.Usercrud;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -99,7 +100,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private JFXTextField adresse;
-
+    public static UserSession User;
     @FXML
     private Button btnSignup;
     @FXML
@@ -195,7 +196,7 @@ public class HomeController implements Initializable {
             Stage stage = (Stage) node.getScene().getWindow();
             //stage.setMaximized(true);
             stage.close();
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/scrumifyd/PI.PI.GestionUsers.GestionUsers/views/signin.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("")));
             
             stage.setScene(scene);
             stage.show();
@@ -288,7 +289,7 @@ public class HomeController implements Initializable {
                     tray.setRectangleFill(Color.valueOf("#16cabd"));
                     tray.setTitle("Symbiose App");
                     tray.setMessage("You are  one step away  ! Check your email to activate your account .");
-//                    Image img = new Image(Main.class.getResourceAsStream("PI/GestionUsers/Images/scrumify.png"));
+//                    Image img = new Image(Main.class.getResourceAsStream("PI/GestionUsers/Images/.png"));
 //                    tray.setImage(img);
                     //tray.setNotificationType(NotificationType.SUCCESS);
                     tray.showAndDismiss(Duration.millis(3000));
@@ -418,12 +419,13 @@ public class HomeController implements Initializable {
                 BodyPart messageBodyPart1 = new MimeBodyPart();
                 InternetHeaders headers = new InternetHeaders();
                 headers.addHeader("Content-type", "text/html; charset=UTF-8");
-                int id = i.getId();
+
+                int id = us.VerifyUser(to).getId();
+                System.out.println(id);
                 String C = us.getConf(to);
-//                https://127.0.0.1:8000/account/330/lhtiYrQnXDQ71NdLIfvqMhK7csRPLGvLeLgy4n8MQY4
-                String html = "Test\n" + "Activate now" + "\n<a href='http://localhost/account/"+id+"/"+C+ "'>Activate now</a>";
+                String html = "Test\n" + "Activate now" + "\n<a href='http://127.0.0.1:8000/account/"+id+"/"+C+ "'>Activate now</a>";
                 MimeBodyPart body = new MimeBodyPart(headers, html.getBytes("UTF-8"));
-                //messageBodyPart1.setHeader("Scrmify ", "Activate account !");
+                //messageBodyPart1.setHeader("Symbiose ", "Activate account !");
                 // messageBodyPart1.setText("Activate now");
                 //5) create Multipart object and add MimeBodyPart objects to this object      
                 Multipart multipart = new MimeMultipart();
