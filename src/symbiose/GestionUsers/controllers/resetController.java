@@ -241,7 +241,7 @@ public class resetController implements Initializable {
                 InternetHeaders headers = new InternetHeaders();
                 headers.addHeader("Content-type", "text/html; charset=UTF-8");
 
-                String html = "Symbiose\n" + "Reset Password" + "\n<a href='#"+crud.findByEmail(email)+"'>Reset now</a>";
+                String html = "Symbiose\n" + "Reset Password" + "\n<a href='https://127.0.0.1:8000/reset-password'>Reset now</a>";
                 MimeBodyPart body = new MimeBodyPart(headers, html.getBytes("UTF-8"));
                 //messageBodyPart1.setHeader("Symbiose ", "Activate account !");
                 // messageBodyPart1.setText("Activate now");
