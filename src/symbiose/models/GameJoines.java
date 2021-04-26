@@ -13,6 +13,11 @@ public class GameJoines {
     @Column(name = "user_id")
     private Integer userId;
 
+    public GameJoines(Integer gameId, Integer userId) {
+        this.gameId = gameId;
+        this.userId = userId;
+    }
+
     public Integer getGameId() {
         return this.gameId;
     }

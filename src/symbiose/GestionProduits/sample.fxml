@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="symbiose.GestionProduits.Controller">
+   <tabs>
+      <Tab closable="false" text="Dashboard">
+         <content>
+            <AnchorPane prefHeight="406.0" prefWidth="1000.0">
+               <children>
+                  <VBox layoutX="60.0" layoutY="108.0" prefHeight="215.0" prefWidth="91.0" spacing="20.0">
+                     <children>
+                        <Label prefWidth="19.0" text="ID">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="10.0" text="Name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="27.0" text="Type">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="10.0" text="Price">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbQuantity" text="Quantity">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="153.0" layoutY="105.0" prefHeight="140.0" prefWidth="160.0" spacing="24.0">
+                     <children>
+                        <TextField fx:id="tfId" disable="true" />
+                        <TextField fx:id="tfName" layoutX="10.0" layoutY="10.0" />
+                        <TextField fx:id="tfType" layoutX="10.0" layoutY="10.0" />
+                        <TextField fx:id="tfPrice" layoutX="10.0" layoutY="10.0" />
+                        <TextField fx:id="tfQuantity" layoutX="10.0" layoutY="10.0" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="btnAdd" layoutX="60.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="73.0" text="Add">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnEdit" layoutX="151.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="73.0" text="Edit">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnDelete" layoutX="241.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="91.0" text="Delete">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="tvProduct" layoutX="434.0" layoutY="96.0" onMouseClicked="#handleMouseAction" prefHeight="330.0" prefWidth="478.0">
+                    <columns>
+                      <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="colName" prefWidth="103.0" text="Name" />
+                       <TableColumn fx:id="colType" prefWidth="64.0" text="Type" />
+                        <TableColumn fx:id="colPrice" prefWidth="76.0" text="Price" />
+                        <TableColumn fx:id="colQuantity" prefWidth="77.0" text="Quantity" />
+                        <TableColumn fx:id="colState" prefWidth="82.0" text="State" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="829.0" layoutY="25.0" mnemonicParsing="false" onAction="#changeScreenButton" text="Shop &gt;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="305.0" layoutY="-2.0" text="Create your Products">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="filterField" layoutX="526.0" layoutY="70.0" prefHeight="27.0" prefWidth="386.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="435.0" layoutY="70.0" prefHeight="27.0" prefWidth="95.0" text="Search Bar">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbState" layoutX="80.0" layoutY="347.0" text="State">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="153.0" layoutY="337.0" prefHeight="46.0" prefWidth="176.0" spacing="15.0">
+                     <children>
+                        <RadioButton fx:id="rbInStock" mnemonicParsing="false" text="In Stock">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tgState" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbSold" mnemonicParsing="false" text="Sold" toggleGroup="$tgState">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <ImageView fitHeight="156.0" fitWidth="198.0" layoutX="22.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Clothing Images">
+        <content>
+          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="243.0" layoutY="70.0" text="Change productJava images here">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="63.0" layoutY="195.0" prefHeight="211.0" prefWidth="873.0" spacing="50.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <Label text="T-Shirt">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ImageView fx:id="imgTshirt" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="btnTshirt" mnemonicParsing="false" onAction="#chooseTshirtImage" text="Select Image">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <Label text="Sneakers">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ImageView fx:id="imgSneakers" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="btnSneakers" mnemonicParsing="false" onAction="#chooseSneakersImage" text="Select Image">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <Label text="Shorts">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="35.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ImageView fx:id="imgShorts" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="btnShorts" mnemonicParsing="false" onAction="#chooseShortsImage" text="Select Image">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <Label text="Socks">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="35.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ImageView fx:id="imgSocks" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="btnSocks" mnemonicParsing="false" onAction="#chooseSocksImage" text="Select Image">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                           <children>
+                              <Label text="Crampons">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ImageView fx:id="imgCrampons" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="btnCrampons" mnemonicParsing="false" onAction="#chooseCramponsImage" text="Select Image">
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>

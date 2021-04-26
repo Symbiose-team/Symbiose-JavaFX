@@ -15,11 +15,12 @@
     <orderEntry type="library" name="AnimateFX-1.2.0" level="project" />
     <orderEntry type="library" name="TrayNotification" level="project" />
     <orderEntry type="library" name="TrayTester" level="project" />
-    <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
     <orderEntry type="library" name="javax.mail" level="project" />
     <orderEntry type="library" name="fontawesomefx-commons-8.15" level="project" />
-    <orderEntry type="library" name="stripe-java-20.47.0" level="project" />
     <orderEntry type="library" name="gson-2.8.5" level="project" />
-    <orderEntry type="library" name="com.stripe:stripe-java:2.6.0" level="project" />
+    <orderEntry type="library" name="stripe-java-20.47.0" level="project" />
+    <orderEntry type="library" name="jfoenix-8.0.10" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.22" level="project" />
+    <orderEntry type="library" name="fontawesomefx-commons-8.151" level="project" />
   </component>
 </module>

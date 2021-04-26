@@ -1,22 +1,64 @@
 package symbiose.models;
 
+import symbiose.models.User;
+
 import javax.persistence.*;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "game")
 public class Game {
+    private List<User> users;
+
+
+
+    public List<User> getUsers() {
+        return users;
+    }
+
     @Id
     @Column(name = "id")
     private Integer id;
 
     @Column(name = "user_id")
-    private Integer userId;
+    private Integer userid;
+
+    private String userId;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "time")
-    private java.sql.Timestamp time;
+    private Timestamp time;
+
+
+    public Game(Integer id, String name, Timestamp time) {
+        this.id = id;
+        this.name=name;
+        this.time=time;
+    }
+    public Game(Integer id, String name, Timestamp time, String owner) {
+        this.id = id;
+        this.name=name;
+        this.time=time;
+        this.userId=owner;
+    }
+
+    public Game(Integer id,Integer userid) {
+        this.id=id;
+        this.userid = userid;
+
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public Game(String name) {
+        this.name=name;
+    }
 
     public Integer getId() {
         return this.id;
@@ -26,11 +68,11 @@ public class Game {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return this.userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -42,11 +84,11 @@ public class Game {
         this.name = name;
     }
 
-    public java.sql.Timestamp getTime() {
+    public Timestamp getTime() {
         return this.time;
     }
 
-    public void setTime(java.sql.Timestamp time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 }
