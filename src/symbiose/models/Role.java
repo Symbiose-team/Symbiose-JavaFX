@@ -12,6 +12,7 @@ public class Role {
     @Column(name = "title")
     private String title;
 
+
     public Integer getId() {
         return this.id;
     }
@@ -24,7 +25,11 @@ public class Role {
         return this.title;
     }
 
-    public void setTitle(String title) {
+    public String setTitle(String title) {
         this.title = title;
+        return title;
     }
-}
+
+
+    }
+

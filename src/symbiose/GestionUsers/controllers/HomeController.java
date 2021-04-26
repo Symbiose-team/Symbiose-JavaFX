@@ -37,6 +37,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.commons.io.FileUtils;
+import symbiose.models.Role;
 import symbiose.utils.BCrypt;
 import symbiose.utils.MyDbConnection;
 import symbiose.models.User;
@@ -245,6 +246,8 @@ public class HomeController implements Initializable {
 
     private int SignUp() {
         int result = 0;
+        Role r = new Role();
+        User user_r = new User();
         String name = Name.getText();
         String lastname = Lastname.getText();
         String email = Email.getText();
@@ -275,10 +278,37 @@ public class HomeController implements Initializable {
 
             String sql = "INSERT INTO USER (first_name, last_name,email,hash,is_enabled,role,image,registration_token,genre,birthday,cin,phone_number,adresse) values ('" + name + "','" + lastname + "','" + email + "','" + pass + "',0,'"+ role+"','" + dest.getName() + "'  , '" + conf + "','"+genre+"','"+Birthday+"','"+Cin+"','"+Phone+"','"+Adresse+"')";
             try {
-
-                preparedStatement = con.prepareStatement(sql);
-                // preparedStatement.setAsciiStream(1, fin);
-                result = preparedStatement.executeUpdate();
+                if(role.equals("Client")){
+                    String req_role="INSERT INTO `role` (`title`) VALUES (?)";
+                    String req_user_role="INSERT INTO `role_user` (`user_id`,`role_id`) VALUES (?,?)";
+                    PreparedStatement ster=con.prepareStatement(req_role);
+                    PreparedStatement ster_user=con.prepareStatement(req_user_role);
+                    ster.setString(1,r.setTitle("ROLE_CLIENT"));
+                    ster.executeUpdate();
+                    preparedStatement = con.prepareStatement(sql);
+                    // preparedStatement.setAsciiStream(1, fin);
+                    result = preparedStatement.executeUpdate();
+                    ster_user.setInt(1,us.VerifyUser(Email.getText()).getId());
+                    ster_user.setInt(2,us.VerifyRole("ROLE_CLIENT").getId());
+                    ster_user.executeUpdate();
+                }
+                else if (role.equals("Fournisseur")){
+                    String req_role="INSERT INTO `role` (`title`) VALUES (?)";
+                    String req_user_role="INSERT INTO `role_user` (`user_id`,`role_id`) VALUES (?,?)";
+                    PreparedStatement ster=con.prepareStatement(req_role);
+                    PreparedStatement ster_user=con.prepareStatement(req_user_role);
+                    ster.setString(1,r.setTitle("ROLE_FOURNISSEUR"));
+                    ster.executeUpdate();
+                    preparedStatement = con.prepareStatement(sql);
+                    // preparedStatement.setAsciiStream(1, fin);
+                    result = preparedStatement.executeUpdate();
+                    ster_user.setInt(1,us.VerifyUser(Email.getText()).getId());
+                    ster_user.setInt(2,us.VerifyRole("ROLE_FOURNISSEUR").getId());
+                    ster_user.executeUpdate();
+                }
+//                preparedStatement = con.prepareStatement(sql);
+//                // preparedStatement.setAsciiStream(1, fin);
+//                result = preparedStatement.executeUpdate();
                 if (result > 0) {
                     setLblError(Color.GREEN, "Registration Successful..Redirecting..");
                     sendEmailSucc(email);
