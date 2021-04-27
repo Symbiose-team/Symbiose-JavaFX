@@ -11,7 +11,6 @@
     <orderEntry type="library" name="controlsfx-8.40.11" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:8.0.23" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6 (2)" level="project" />
-    <orderEntry type="library" name="commons-io-2" level="project" />
     <orderEntry type="library" name="TrayNotification" level="project" />
     <orderEntry type="library" name="TrayTester" level="project" />
     <orderEntry type="library" name="javax.mail" level="project" />
@@ -25,5 +24,6 @@
     <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:8.0.8" level="project" />
     <orderEntry type="library" name="commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="org.controlsfx:controlsfx:8.40.11" level="project" />
   </component>
 </module>

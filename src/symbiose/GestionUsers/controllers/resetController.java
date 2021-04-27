@@ -37,14 +37,18 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import symbiose.models.User;
 import symbiose.GestionUsers.services.Usercrud;
+import symbiose.utils.BCrypt;
 import symbiose.utils.MyDbConnection;
 
 import javax.mail.*;
 import javax.mail.internet.*;
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Properties;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -73,20 +77,39 @@ public class resetController implements Initializable {
     @FXML
     private JFXButton open_signin;
     @FXML
+    private JFXTextField OTP;
+    @FXML
+    private JFXTextField hide;
+    @FXML
     private Circle ExitButton;
     @FXML
     private Circle resizeButton;
     @FXML
     private Circle MinimizeButton;
+    @FXML
+    private JFXButton btnSubmit;
+    @FXML
+    private JFXButton reset1;
+
+    @FXML
+    private JFXTextField new2;
+
+    @FXML
+    private JFXTextField new1;
+
+    @FXML
+    private JFXTextField current;
+
+    public int user_id;
     private User u;
     private Usercrud crud;
     Connection con = MyDbConnection.getInstance().getConnexion();
     @FXML
     private Text lab;
     int etatrecaptcha = 0;
-    Stage window;
-    WebView webView2;
-    WebEngine webEngine;
+//    Stage window;
+//    WebView webView2;
+//    WebEngine webEngine;
     @FXML
     private ImageView recaptchaCheckMark;
 
@@ -106,10 +129,10 @@ public class resetController implements Initializable {
 
         crud = new Usercrud();
         u = new User();
-        window = new Stage();
-        webView2 = new WebView();
-        webEngine = webView2.getEngine();
-        window.setOnCloseRequest(e -> {
+//        window = new Stage();
+//        webView2 = new WebView();
+//        webEngine = webView2.getEngine();
+//        window.setOnCloseRequest(e -> {
 ////            System.out.println(webEngine.getTitle());
 ////            if (webEngine != null && webEngine.getTitle().contains("success")) {
 ////                etatrecaptcha = 1;
@@ -126,9 +149,9 @@ public class resetController implements Initializable {
             lab.setText("Check your email , a link has been sent .");
 
         }
-        });
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.setMinWidth(250);
+
+//        window.initModality(Modality.APPLICATION_MODAL);
+//        window.setMinWidth(250);
 
     }
 
@@ -194,14 +217,67 @@ public class resetController implements Initializable {
         Boolean test2 = crud.isExist(Email.getText());
 
         if (test1 && test2) {
+            Random();
             sendEmailReset(Email.getText());
             Email.setVisible(false);
             btnSignin.setVisible(false);
-            lab.setText("Check your email , a link has been sent .");
+            Errors.setTextFill(Color.GREEN);
+            Errors.setText("Check your Email ! an OTP has been sent");
+            OTP.setVisible(true);
+            btnSubmit.setVisible(true);
+        }
 
+    }
+    @FXML
+    private void submitReset(MouseEvent event)  {
+
+        if (hide.getText().equals(OTP.getText())) {
+            OTP.setVisible(false);
+            btnSubmit.setVisible(false);
+            current.setVisible(true);
+            new1.setVisible(true);
+            new2.setVisible(true);
+            reset1.setVisible(true);
+        }
+        else{
+            Errors.setTextFill(Color.TOMATO);
+            Errors.setText("Wrong OTP ! ");
+        }
+
+    }
+    @FXML
+    private void resetdone(ActionEvent event) throws SQLException {
+        if (event.getSource() == reset1) {
+            System.out.println(current.getText());
+            if (BCrypt.checkpw(current.getText(), crud.getP(crud.VerifyUser(Email.getText()).getId()))) {
+                System.out.println("done");
+                if (new1.getText().equals(new2.getText())) {
+                    System.out.println("conforme");
+                } else {
+                    System.out.println("non conforme");
+                }
+
+                if (crud.resetP(crud.VerifyUser(Email.getText()).getId(), new1.getText())) {
+                    System.out.println("succes");
+                    Errors.setTextFill(Color.GREEN);
+                    Errors.setText("Password changed ! ");
+                } else {
+                    System.out.println("error");
+                    Errors.setTextFill(Color.TOMATO);
+                    Errors.setText("Error ! ");
+                }
+            } else {
+                System.err.println("error bcrypt");
+                Errors.setTextFill(Color.TOMATO);
+                Errors.setText("Error ! ");
+            }
         }
     }
 
+    private void Random(){
+        Random rd = new Random();
+        hide.setText(""+rd.nextInt(10000+1));
+    }
     private void sendEmailReset(String email) {
 
         try {
@@ -235,13 +311,14 @@ public class resetController implements Initializable {
                 message.setFrom(new InternetAddress(user));
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
                 message.setSubject("Reset you Symbiose Account password");
+                message.setText("Your OTP is " + hide.getText());
 
                 //3) create MimeBodyPart object and set your message text     
                 BodyPart messageBodyPart1 = new MimeBodyPart();
                 InternetHeaders headers = new InternetHeaders();
                 headers.addHeader("Content-type", "text/html; charset=UTF-8");
 
-                String html = "Symbiose\n" + "Reset Password" + "\n<a href='https://127.0.0.1:8000/reset-password'>Reset now</a>";
+                String html = "Your OTP is " + hide.getText();
                 MimeBodyPart body = new MimeBodyPart(headers, html.getBytes("UTF-8"));
                 //messageBodyPart1.setHeader("Symbiose ", "Activate account !");
                 // messageBodyPart1.setText("Activate now");
@@ -286,28 +363,28 @@ public class resetController implements Initializable {
     
      @FXML
     private void recaptcha(MouseEvent event) {
-if(!Email.getText().isEmpty()){
-
-        webView2.setPrefSize(400, 500);
-        webEngine.setUserAgent("use required / intended UA string");
-        webEngine.load("#");
-
-        Button closeButton = new Button("Fermer");
-        closeButton.setOnAction(e -> window.close());
-
-        VBox layout = new VBox(5);
-        layout.getChildren().addAll(webView2);
-        layout.setAlignment(Pos.CENTER);
-
-        //Display window and wait for it to be closed before returning
-        Scene scene = new Scene(layout);
-        window.setScene(scene);
-        window.showAndWait();
-}
-else 
-{
-    Errors.setText("You need to enter your email");
-}
+//if(!Email.getText().isEmpty()){
+//
+//        webView2.setPrefSize(400, 500);
+//        webEngine.setUserAgent("use required / intended UA string");
+//        webEngine.load("#");
+//
+//        Button closeButton = new Button("Fermer");
+//        closeButton.setOnAction(e -> window.close());
+//
+//        VBox layout = new VBox(5);
+//        layout.getChildren().addAll(webView2);
+//        layout.setAlignment(Pos.CENTER);
+//
+//        //Display window and wait for it to be closed before returning
+//        Scene scene = new Scene(layout);
+//        window.setScene(scene);
+//        window.showAndWait();
+//}
+//else
+//{
+//    Errors.setText("You need to enter your email");
+//}
 
     }
 

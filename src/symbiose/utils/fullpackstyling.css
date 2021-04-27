@@ -24,7 +24,7 @@
 
 .button2
 {
--fx-background-color: linear-gradient(to top right , #22c1c3 , #626970 );
+-fx-background-color: linear-gradient(to top right , #4d22c3, #b0b1b3);
 
 }
 .button2:hover
@@ -55,7 +55,7 @@
 }
 .button3:pressed
 {
--fx-background-color: linear-gradient(to bottom left , #5d34f1 , #ffffff );
+-fx-background-color: linear-gradient(to bottom left , #16cabd , #ffffff );
     -fx-border-style: solid;
    
     -fx-border-insets: -5;
