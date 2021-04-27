@@ -5,6 +5,7 @@
  */
 package symbiose.GestionUsers.controllers;
 
+import javafx.scene.image.Image;
 import symbiose.GestionUsers.services.UserSession;
 import symbiose.GestionUsers.services.Usercrud;
 import com.jfoenix.controls.JFXButton;
@@ -37,11 +38,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.commons.io.FileUtils;
+import symbiose.Main;
 import symbiose.models.Role;
 import symbiose.utils.BCrypt;
 import symbiose.utils.MyDbConnection;
 import symbiose.models.User;
 import tray.animations.AnimationType;
+import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
 import javax.mail.*;
@@ -319,9 +322,9 @@ public class HomeController implements Initializable {
                     tray.setRectangleFill(Color.valueOf("#16cabd"));
                     tray.setTitle("Symbiose App");
                     tray.setMessage("You are  one step away  ! Check your email to activate your account .");
-//                    Image img = new Image(Main.class.getResourceAsStream("PI/GestionUsers/Images/.png"));
-//                    tray.setImage(img);
-                    //tray.setNotificationType(NotificationType.SUCCESS);
+                    javafx.scene.image.Image img = new Image(getClass().getResourceAsStream("/symbiose/Images/symbiose-logo.png"));
+                    tray.setImage(img);
+                    tray.setNotificationType(NotificationType.SUCCESS);
                     tray.showAndDismiss(Duration.millis(3000));
 
                 } else {

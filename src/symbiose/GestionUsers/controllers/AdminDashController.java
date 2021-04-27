@@ -1,5 +1,6 @@
 package symbiose.GestionUsers.controllers;
 
+import javafx.scene.control.*;
 import symbiose.GestionUsers.services.UserSession;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -10,7 +11,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -92,6 +92,8 @@ public class AdminDashController implements Initializable {
 
     @FXML
     private Text user_name;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

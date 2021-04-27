@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +26,7 @@ import symbiose.GestionUsers.services.Usercrud;
 import symbiose.utils.SceneDialog;
 import symbiose.utils.SceneSelector;
 import tray.animations.AnimationType;
+import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
 import java.io.IOException;
@@ -92,6 +94,8 @@ public class DashboardController implements Initializable {
         user_idd = s.user.getUserId();
         this.username.setText("Hello ," + s.user.getUsername(user_idd));
         this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
+        ava = s.user.getAvatar(user_idd);
+        this.avatar.setImage(new Image("/symbiose/GestionUsers/uploads/images/" + ava));
         String role = s.user.getRole(user_idd);
         if (role.equals("Fournisseur")){
             invalidevents.isDisabled();
@@ -197,9 +201,9 @@ public class DashboardController implements Initializable {
                 tray.setRectangleFill(Color.valueOf("#16cabd"));
                 tray.setTitle("Symniose App");
                 tray.setMessage("Logged out  !");
-//                Image img = new Image(Main.class.getResourceAsStream("/PI/Images/symbiose-logo.png"));
-//                tray.setImage(img);
-//                tray.setNotificationType(NotificationType.SUCCESS);
+                Image img = new Image(getClass().getResourceAsStream("/symbiose/Images/symbiose-logo.png"));
+                tray.setImage(img);
+                tray.setNotificationType(NotificationType.SUCCESS);
                 tray.showAndDismiss(Duration.millis(3000));
                 Node node = (Node) event.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();

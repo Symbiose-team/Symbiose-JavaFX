@@ -25,6 +25,22 @@
 -fx-background-color: linear-gradient(to top right , #5a22c3, #626970 );
 
 }
+.button2-reset
+{
+    -fx-background-color: linear-gradient(to top right , #ee3f72, #626970 );
+
+}
+.button2-reset:hover
+{
+    -fx-background-color: linear-gradient(to bottom left , #e58258, #cdcdd0);
+
+}
+.button2-reset:pressed
+{
+
+    -fx-background-color: linear-gradient(to bottom left , #c10303, #ffffff );
+
+}
 .button2:hover
 {
 -fx-background-color: linear-gradient(to bottom left , #22c1c3 , #626970  );
@@ -37,12 +53,20 @@
 
 }
 
+
 .button3
 {
 -fx-background-color: linear-gradient(to bottom left , #4d22c3, #ffffff );
 
     -fx-border-insets: -5;    
     
+}
+.button3-reset
+{
+    -fx-background-color: linear-gradient(to bottom left , #ee3f72, #ffffff );
+
+    -fx-border-insets: -5;
+
 }
 .button3:hover
 {
@@ -167,6 +191,12 @@
     -fx-background-color: linear-gradient(to bottom left , #e72a0a, #fcfcfc);
 
     
+}
+.linear-grad-reset
+{
+    -fx-background-color: linear-gradient(to bottom left , #e58258, #fcfcfc);
+
+
 }
 .head-background
 {

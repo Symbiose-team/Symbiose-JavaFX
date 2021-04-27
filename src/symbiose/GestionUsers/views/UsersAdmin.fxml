@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
@@ -11,7 +16,7 @@
    <children>
       <AnchorPane prefHeight="522.0" prefWidth="1000.0">
          <children>
-            <TableView fx:id="UserTable" layoutX="14.0" layoutY="52.0" prefHeight="362.0" prefWidth="906.0" stylesheets="@../../utils/fullpackstyling.css">
+            <TableView fx:id="UserTable" layoutX="235.0" layoutY="65.0" onMouseClicked="#handleMouseAction" prefHeight="396.0" prefWidth="751.0" stylesheets="@../../utils/fullpackstyling.css">
                 <columns>
                     <TableColumn fx:id="column_firstname" prefWidth="75.0" text="Firstname" />
                     <TableColumn fx:id="column_lastname" prefWidth="75.0" text="Lastname" />
@@ -22,15 +27,35 @@
                     <TableColumn fx:id="column_adresse" prefWidth="75.0" text="Adresse" />
                     <TableColumn fx:id="column_cin" prefWidth="75.0" text="Cin" />
                     <TableColumn fx:id="column_phone" prefWidth="75.0" text="Phone" />
-                    <TableColumn fx:id="column_action" prefWidth="180.0" text="STATUS + ACTION" />
+                    <TableColumn fx:id="column_action" prefWidth="75.0" text="STATUS + ACTION" />
                     <TableColumn fx:id="column_id" prefWidth="75.0" text="ID" visible="false" />
                 </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
             <Text fill="#16cabd" layoutX="491.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Users">
                <font>
                   <Font name="Calibri Light" size="24.0" />
                </font>
             </Text>
+            <TextField fx:id="search" layoutX="59.0" layoutY="26.0" promptText="Search" />
+            <TextField fx:id="txt_firstname" layoutX="34.0" layoutY="75.0" promptText="FirstName" />
+            <TextField fx:id="txt_lastname" layoutX="34.0" layoutY="108.0" promptText="Last Name" />
+            <TextField fx:id="txt_email" layoutX="34.0" layoutY="144.0" promptText="Email" />
+            <TextField fx:id="txt_pass1" layoutX="34.0" layoutY="182.0" prefHeight="25.0" prefWidth="71.0" promptText="password" />
+            <TextField fx:id="txt_pass2" layoutX="112.0" layoutY="182.0" prefHeight="25.0" prefWidth="71.0" promptText="conf password" />
+            <TextField fx:id="txt_adresse" layoutX="34.0" layoutY="220.0" promptText="Adresse" />
+            <TextField fx:id="txt_cin" layoutX="34.0" layoutY="251.0" promptText="Cin" />
+            <TextField fx:id="txt_phone" layoutX="34.0" layoutY="285.0" promptText="Phone" />
+            <ComboBox fx:id="txt_role" layoutX="33.0" layoutY="343.0" prefHeight="25.0" prefWidth="71.0" promptText="Role" />
+            <ComboBox fx:id="txt_genre" layoutX="112.0" layoutY="343.0" prefHeight="25.0" prefWidth="71.0" promptText="Genre" />
+            <DatePicker fx:id="txt_birthday" layoutX="34.0" layoutY="314.0" prefHeight="25.0" prefWidth="149.0" promptText="Birthday" />
+            <Button fx:id="btnSave" layoutX="33.0" layoutY="384.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" text="Save" />
+            <Button fx:id="btnDelete" layoutX="82.0" layoutY="384.0" mnemonicParsing="false" onAction="#ActionHandleEvents" prefHeight="24.0" prefWidth="54.0" text="Delete" />
+            <Button fx:id="btnUpdate" layoutX="148.0" layoutY="384.0" mnemonicParsing="false" onAction="#ActionHandleEvents" text="Update" />
+            <Label fx:id="lblStatus" layoutX="20.0" layoutY="491.0" prefHeight="17.0" prefWidth="215.0" />
+            <Button fx:id="btnLoad" layoutX="235.0" layoutY="475.0" mnemonicParsing="false" onAction="#ActionHandleEvents" text="Load" />
          </children>
       </AnchorPane>
    </children>

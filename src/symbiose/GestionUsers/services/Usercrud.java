@@ -44,12 +44,6 @@ public class Usercrud {
             ste.setString(6, U.getCin());
             ste.setString(7, U.getBirthday().toString());
             ste.setString(8, U.getRole());
-            if(U.getRole()=="Client"){
-                String req_role="INSERT INTO `role` (`title`) VALUES (?)";
-                PreparedStatement ster=Cn.prepareStatement(req_role);
-                ster.setString(1,r.setTitle("ROLE_CLIENT"));
-                ster.executeUpdate();
-            }
             ste.setString(9, U.getAdresse());
             ste.setInt(10, U.getPhone_number());
             ste.setString(11, U.getGenre());
