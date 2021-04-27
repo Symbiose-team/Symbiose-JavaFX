@@ -112,10 +112,7 @@
                   <Insets left="50.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="reservation" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" text="Book your match" textFill="#5b5858">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
+            <JFXButton fx:id="matchlog" onMouseClicked="#matchlog" alignment="BASELINE_LEFT" graphicTextGap="10.0" prefHeight="43.0" prefWidth="252.0" ripplerFill="#adf7f7" styleClass="column-header" stylesheets="@../util/fullpackstyling.css" text="Match log" textFill="#5b5858">
                <font>
                   <Font size="13.0" />
                </font>

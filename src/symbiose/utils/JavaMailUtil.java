@@ -17,8 +17,8 @@ public class JavaMailUtil {
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
 
-        String myAccountEmail = "oussema.mestiri@esprit.tn";
-        String password = "348Bowros7";
+        String myAccountEmail = "norgoddev@gmail.com";
+        String password = "norgoddev2021";
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -38,7 +38,7 @@ public class JavaMailUtil {
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("My First Email from Java App");
-            String htmlCode = "<h1> I WANT PIZZA </h1> <br/> <h2><b>Next Line </b></h2>";
+            String htmlCode = "<h1> Thanks for adding a product </h1> <br/> <h2><b>Next Line </b></h2>";
             message.setContent(htmlCode, "text/html");
             return message;
         } catch (Exception e) {

@@ -264,6 +264,15 @@ public class DashboardController implements Initializable {
         Parent root = (Parent) loader.load();
         contentPane.getChildren().add(root);
     }
+    @FXML
+    private void matchlog(MouseEvent event) throws IOException {
+
+        contentPane.getChildren().clear();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+        Parent root = (Parent) loader.load();
+        contentPane.getChildren().add(root);
+    }
 
     @FXML
     private void events(MouseEvent event) throws IOException {
