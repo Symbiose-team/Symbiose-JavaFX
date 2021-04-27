@@ -17,8 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import symbiose.models.*;
-import symbiose.utils.*;
 import symbiose.models.Game;
 import symbiose.models.GameJoines;
 import symbiose.utils.GameNotification;
@@ -87,6 +85,9 @@ public class ClientController implements Initializable  {
     private Button btnscene2;
 
     @FXML
+    private Button btnscene3;
+
+    @FXML
     private Button joingame;
 
     @FXML
@@ -99,6 +100,12 @@ public class ClientController implements Initializable  {
     public void handlescene2() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../gui/Admin.fxml"));
         Stage window = (Stage) btnscene2.getScene().getWindow();
+        window.setScene(new Scene(root, 1200,600));
+    }
+
+    public void handlescene3() throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/Notifications.fxml"));
+        Stage window = (Stage) btnscene3.getScene().getWindow();
         window.setScene(new Scene(root, 1200,600));
     }
 
@@ -298,7 +305,7 @@ public class ClientController implements Initializable  {
                 int gid = game.getId();
                 String query2 = "DELETE FROM game WHERE id =('"+gid+"') AND user_id =('"+uid+"')";
                 executeQuery(query2);
-                GameNotification.SuccessNotification("Deleted!", "");
+             //   GameNotification.SuccessNotification("Deleted!", "");
                 showgames();
 
             }
@@ -394,9 +401,10 @@ public class ClientController implements Initializable  {
                  //TOVERIFY
                  // String querty = "INSERT INTO game_joines (game_id, user_id) SELECT 1, 'S-BOX', projects.ID  FROM projects WHERE projects.PROJECT_NAME = 'BOX'";
                  executeQuery(query2);
+                 sendnotifications();
                  GameNotification.SuccessNotification("You have joined this match!", "");
                  //Remove this for mail
-                 GameMail.sendMail("norgoddev@gmail.com");
+                 //GameMail.sendMail("tpadbergv_m830v@bylup.com");
 
                  showgames();
 
@@ -406,6 +414,15 @@ public class ClientController implements Initializable  {
          }
      }
 
+    public void sendnotifications(){
+        Game game = tvgames.getSelectionModel().getSelectedItem();
+        int gid = game.getId();
+        Integer uid =9;
+       // String query="DELETE FROM game_joines WHERE game_id =('"+gid+"') AND user_id =('"+uid+"')";
+        String query = "INSERT INTO notification (user_id,game_id,joined_by_id,seen,discr) VALUES ('" + uid + "','" + gid + "','" + uid + "' , '0', 'joine')";
+        executeQuery(query);
+
+    }
 
 
 

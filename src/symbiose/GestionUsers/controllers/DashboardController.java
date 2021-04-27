@@ -267,15 +267,26 @@ public class DashboardController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/InvalidEvents.fxml"));
         Parent root = (Parent) loader.load();
         contentPane.getChildren().add(root);
+
     }
     @FXML
     private void matchlog(MouseEvent event) throws IOException {
+        SigninController s = new SigninController();
+        user_idd = s.user.getUserId();
+        this.username.setText("Hello ," + s.user.getUsername(user_idd));
+        this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
+        System.out.println(s.user.getRole(user_idd));
+        String role = s.user.getRole(user_idd);
+
 
         contentPane.getChildren().clear();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
-        Parent root = (Parent) loader.load();
-        contentPane.getChildren().add(root);
+        //if (role.equals("Admin")){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionMatches/gui/Notifications.fxml"));
+            Parent root = (Parent) loader.load();
+            contentPane.getChildren().add(root);
+
+        //}
     }
 
     @FXML

@@ -55,5 +55,7 @@
       <Button fx:id="joingame" layoutX="94.0" layoutY="359.0" mnemonicParsing="false" onAction="#joingame" text="Join" />
       <Button fx:id="unjoingame" layoutX="174.0" layoutY="359.0" mnemonicParsing="false" onAction="#unjoingame" text="UnJoin" />
       <TextField fx:id="nbplayers" layoutX="330.0" layoutY="485.0" promptText="Number of Players" />
+        <Button fx:id="btnscene3" layoutX="16.0" layoutY="476.0" mnemonicParsing="false" onAction="#handlescene3" prefHeight="31.0" prefWidth="150.0" text="Go to notifications" />
+
     </children>
 </AnchorPane>

@@ -24,6 +24,15 @@ public class Notification {
     @Column(name = "discr")
     private String discr;
 
+    public Notification(Integer id, Integer userId, Integer gameId, Integer joinedById, Byte seen, String discr) {
+        this.id = id;
+        this.userId = userId;
+        this.gameId = gameId;
+        this.joinedById = joinedById;
+        this.seen = seen;
+        this.discr = discr;
+    }
+
     public Integer getId() {
         return this.id;
     }
