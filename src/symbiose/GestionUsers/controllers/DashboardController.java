@@ -94,8 +94,8 @@ public class DashboardController implements Initializable {
         user_idd = s.user.getUserId();
         this.username.setText("Hello ," + s.user.getUsername(user_idd));
         this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
-        ava = s.user.getAvatar(user_idd);
-        this.avatar.setImage(new Image("/symbiose/GestionUsers/uploads/images/" + ava));
+        //ava = s.user.getAvatar(user_idd);
+        //this.avatar.setImage(new Image("/symbiose/GestionUsers/uploads/images/" + ava));
         String role = s.user.getRole(user_idd);
         if (role.equals("Fournisseur")){
             invalidevents.isDisabled();
