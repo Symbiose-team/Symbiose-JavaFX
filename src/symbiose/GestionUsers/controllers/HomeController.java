@@ -279,7 +279,7 @@ public class HomeController implements Initializable {
         } else {
             //query
 
-            String sql = "INSERT INTO USER (first_name, last_name,email,hash,is_enabled,role,image,registration_token,genre,birthday,cin,phone_number,adresse) values ('" + name + "','" + lastname + "','" + email + "','" + pass + "',0,'"+ role+"','" + dest.getName() + "'  , '" + conf + "','"+genre+"','"+Birthday+"','"+Cin+"','"+Phone+"','"+Adresse+"')";
+            String sql = "INSERT INTO USER (first_name, last_name,email,hash,is_enabled,role,picture,registration_token,genre,birthday,cin,phone_number,adresse) values ('" + name + "','" + lastname + "','" + email + "','" + pass + "',0,'"+ role+"','" + dest.getName() + "'  , '" + conf + "','"+genre+"','"+Birthday+"','"+Cin+"','"+Phone+"','"+Adresse+"')";
             try {
                 if(role.equals("Client")){
                     String req_role="INSERT INTO `role` (`title`) VALUES (?)";

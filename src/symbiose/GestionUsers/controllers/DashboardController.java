@@ -94,8 +94,8 @@ public class DashboardController implements Initializable {
         user_idd = s.user.getUserId();
         this.username.setText("Hello ," + s.user.getUsername(user_idd));
         this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
-        //ava = s.user.getAvatar(user_idd);
-        //this.avatar.setImage(new Image("/symbiose/GestionUsers/uploads/images/" + ava));
+//        ava = s.user.getAvatar(user_idd);
+//        this.avatar.setImage(new Image("/symbiose/GestionUsers/uploads/images/" + ava));
         String role = s.user.getRole(user_idd);
         if (role.equals("Fournisseur")){
             invalidevents.isDisabled();
@@ -267,26 +267,15 @@ public class DashboardController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionEvents/gui/InvalidEvents.fxml"));
         Parent root = (Parent) loader.load();
         contentPane.getChildren().add(root);
-
     }
     @FXML
     private void matchlog(MouseEvent event) throws IOException {
-        SigninController s = new SigninController();
-        user_idd = s.user.getUserId();
-        this.username.setText("Hello ," + s.user.getUsername(user_idd));
-        this.log_user.setText("Logged in as "+s.user.getRole(user_idd));
-        System.out.println(s.user.getRole(user_idd));
-        String role = s.user.getRole(user_idd);
-
 
         contentPane.getChildren().clear();
 
-        //if (role.equals("Admin")){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/symbiose/GestionMatches/gui/Notifications.fxml"));
-            Parent root = (Parent) loader.load();
-            contentPane.getChildren().add(root);
-
-        //}
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+        Parent root = (Parent) loader.load();
+        contentPane.getChildren().add(root);
     }
 
     @FXML

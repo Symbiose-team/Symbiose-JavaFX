@@ -34,7 +34,7 @@ public class Usercrud {
         try {
             Statement st = Cn.createStatement(); //l'element qui va éxécuter la requete sql
 
-            String req = "INSERT INTO `user` (`first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `genre` ,`is_enabled`,`registration_token` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO `user` (`first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `genre` ,`is_enabled`,`registration_token` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ste = Cn.prepareStatement(req);
             ste.setString(1, U.getFirst_name());
             ste.setString(2, U.getLast_name());
@@ -87,13 +87,13 @@ public class Usercrud {
         try {
             Statement st = Cn.createStatement();
 
-            String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `genre` ,`id` , `is_enabled`,`registration_token` FROM `user`";
+            String req = "SELECT `first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `genre` ,`id` , `is_enabled`,`registration_token` FROM `user`";
 
 
             ResultSet rs = st.executeQuery(req); //retourne un résulat
 
             while (rs.next()) {
-                User U = new User(rs.getString("first_name"),rs.getString("last_name"),rs.getString("email"),rs.getString("image"),rs.getString("hash"),rs.getString("cin"),rs.getDate("birthday"),rs.getString("role"),rs.getString("adresse"),rs.getInt("phone_number"),rs.getString("genre"),rs.getInt("id"),rs.getBoolean("is_enabled"),rs.getString("registration_token"));
+                User U = new User(rs.getString("first_name"),rs.getString("last_name"),rs.getString("email"),rs.getString("picture"),rs.getString("hash"),rs.getString("cin"),rs.getDate("birthday"),rs.getString("role"),rs.getString("adresse"),rs.getInt("phone_number"),rs.getString("genre"),rs.getInt("id"),rs.getBoolean("is_enabled"),rs.getString("registration_token"));
                 l.add(U);
             }
 
@@ -248,7 +248,7 @@ public class Usercrud {
     public User getUser(int id) {
         User u = new User();
 
-        String req = "SELECT first_name,last_name,email,image,genre,role,hash,birthday,adresse,cin,phone_number,id,is_enabled FROM `user` where id = ?";
+        String req = "SELECT first_name,last_name,email,picture,genre,role,hash,birthday,adresse,cin,phone_number,id,is_enabled FROM `user` where id = ?";
         PreparedStatement prpStm;
         try {
             prpStm = Cn.prepareStatement(req);
@@ -261,7 +261,7 @@ public class Usercrud {
                 u.setEmail(result.getString("email"));
                 u.setRole(result.getString("role"));
                 u.setGenre(result.getString("genre"));
-                u.setImage(result.getString("image"));
+                u.setImage(result.getString("picture"));
 
             }
         } catch (SQLException ex) {
@@ -345,7 +345,7 @@ public class Usercrud {
     }
     public Boolean updateAv(String img, int id) {
         try {
-            String update = "UPDATE user set image=?  WHERE ID='" + id + "'";
+            String update = "UPDATE user set picture=?  WHERE ID='" + id + "'";
             PreparedStatement stm = Cn.prepareStatement(update);
             stm.setString(1, img);
             int res = stm.executeUpdate();

@@ -7,7 +7,7 @@ public class User {
     private String last_name;
     private String email;
     private String picture;
-    private String image;
+//    private String image;
     private String hash;
     private String cin;
     private Date birthday;
@@ -23,12 +23,12 @@ public class User {
 
 
 
-    public User(String first_name, String last_name, String email, String image,String hash, String cin, Date birthday, String role, String adresse, int phone_number, String genre, int id,boolean is_enabled,String registration_token) {
+    public User(String first_name, String last_name, String email, String picture,String hash, String cin, Date birthday, String role, String adresse, int phone_number, String genre, int id,boolean is_enabled,String registration_token) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.hash = hash;
-        this.image=image;
+        this.picture=picture;
         this.cin = cin;
         this.birthday = birthday;
         this.role = role;
@@ -48,11 +48,11 @@ public class User {
     }
 
     public String getImage() {
-        return image;
+        return picture;
     }
 
     public void setImage(String image) {
-        this.image = image;
+        this.picture = picture;
     }
 
     public boolean getIs_enabled() {

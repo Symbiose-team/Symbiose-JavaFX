@@ -47,7 +47,7 @@ package symbiose.GestionUsers.services;
      public String getUsername(int userId) {
          try {
 
-             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             String req = "SELECT `first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
@@ -64,7 +64,7 @@ package symbiose.GestionUsers.services;
      public String getRole(int userId) {
          try {
 
-             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             String req = "SELECT `first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
@@ -81,7 +81,7 @@ package symbiose.GestionUsers.services;
      public String getAdresse(int userId) {
          try {
 
-             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             String req = "SELECT `first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
@@ -98,7 +98,7 @@ package symbiose.GestionUsers.services;
      public String getCin(int userId) {
          try {
 
-             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             String req = "SELECT `first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
@@ -115,7 +115,7 @@ package symbiose.GestionUsers.services;
      public String getGenre(int userId) {
          try {
 
-             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             String req = "SELECT `first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
@@ -132,7 +132,7 @@ package symbiose.GestionUsers.services;
      public String getBirthday(int userId) {
          try {
 
-             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             String req = "SELECT `first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
@@ -149,7 +149,7 @@ package symbiose.GestionUsers.services;
      public String getPhone(int userId) {
          try {
 
-             String req = "SELECT `first_name`, `last_name`, `email`,`image`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
+             String req = "SELECT `first_name`, `last_name`, `email`,`picture`,`hash`, `cin`, `birthday`, `role`, `adresse`, `phone_number`, `id`,`genre`FROM `user` WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
@@ -167,12 +167,12 @@ package symbiose.GestionUsers.services;
       public String getAvatar(int userId) {
          try {
 
-             String req = "SELECT image FROM USER WHERE ID=" + userId + " ";
+             String req = "SELECT picture FROM USER WHERE ID=" + userId + " ";
              Statement stm = connexion.createStatement();
              ResultSet result = stm.executeQuery(req);
 
              while (result.next()) {
-                 String avatar = result.getString("image");
+                 String avatar = result.getString("picture");
                   return avatar;
 
              }
