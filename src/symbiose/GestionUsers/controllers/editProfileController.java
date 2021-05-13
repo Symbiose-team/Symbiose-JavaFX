@@ -342,7 +342,8 @@ public class editProfileController implements Initializable {
                         user_id = s.user.getUserId();
                         String ava = s.user.getAvatar(user_id);
                         this.email.setText("" + s.user.getUsername(user_id));
-                        this.avatar.setImage(new Image("/symbiose/GestionUsers/uploads/images/" + ava));
+                        System.out.println(ava);
+                        this.avatar.setImage(new Image("symbiose/GestionUsers/uploads/images/" + ava));
 
 
                         contentPane.getChildren().add(root);
@@ -432,7 +433,7 @@ public class editProfileController implements Initializable {
            
                 System.out.println(file);
                 
-                dest = new File("C:\\xampp\\htdocs\\Java\\Symbiose-JavaFX\\src\\PI\\GestionUsers\\uploads\\images\\av" + i + ".png");
+                dest = new File("C:\\xampp\\htdocs\\Java\\Symbiose-JavaFX\\src\\symbiose\\GestionUsers\\uploads\\images\\av" + i + ".png");
                 try {
                     FileUtils.copyFile(file, dest);
                     FileUtils.copyFileToDirectory(dest, new File("C:\\Users\\msdal\\Desktop\\Avatars\\src\\images"));
