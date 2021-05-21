@@ -44,17 +44,12 @@
 
 The Symbiose content management system is a made by 6 people : 
 <br>
-*.Gestion Utilisateurs : Skander Thabet
-<br>
-*.Gestion Evenements : Mahdi Behi
-<br>
-*.Gestion Produits : Oussema Mestiri
-<br>
-*.Gestion Matches : Chedly Nacef
-<br>
-*.Gestion Communication : Chaima Ben Khedher
-<br>
-*.Gestion Reservation : Cheima Sassi
+* Gestion Utilisateurs : Skander Thabet
+* Gestion Evenements : Mahdi Behi
+* Gestion Produits : Oussema Mestiri
+* Gestion Matches : Chedly Nacef
+* Gestion Communication : Chaima Ben Khedher
+* Gestion Reservation : Cheima Sassi
 
 
 ## ✅&nbsp; Requirements
