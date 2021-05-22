@@ -11,9 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -21,21 +18,14 @@ import symbiose.models.Game;
 import symbiose.models.GameJoines;
 import symbiose.utils.GameNotification;
 
-//import symbiose.test.MyConnection;
-
 import javax.mail.MessagingException;
-import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Observable;
 import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+//import symbiose.test.MyConnection;
 
 public class ClientController implements Initializable  {
 
